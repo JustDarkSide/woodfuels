@@ -26,6 +26,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
+  height: 200vh;
 }
 
 .nav {
@@ -67,7 +68,6 @@ body {
   justify-content: center;
   padding: 1em;
   position: relative;
-  outline: none;
 }
 .nav__item a {
   width: 100%;
@@ -75,6 +75,11 @@ body {
   color: #264f0b;
   text-transform: uppercase;
   cursor: pointer;
+  outline: none;
+  transition: transform 0.3s;
+}
+.nav__item a:focus {
+  transform: scale(1.1);
 }
 .nav__item::after {
   content: "";
@@ -91,17 +96,21 @@ body {
 .nav__item:hover::after {
   transform: scaleX(0.7);
 }
-.nav__item:focus::after {
-  transform: scaleX(0.7);
-}
 .nav__item--logo {
   width: 33.3%;
   height: 100%;
   padding: 1em;
 }
+.nav__item--logo a {
+  outline: none;
+}
 .nav__item--logo img {
   -o-object-fit: cover;
      object-fit: cover;
+  transition: transform 0.3s;
+}
+.nav__item--logo a:focus img {
+  transform: scale(1.1);
 }
 
 @media (min-width: 1200px) {
