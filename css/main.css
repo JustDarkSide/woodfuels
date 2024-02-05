@@ -121,75 +121,11 @@ body {
   height: 100%;
   padding: 1em;
 }
-
-.header {
-  width: 100%;
-  height: calc(100vh - 120px);
-}
-.header__carousel {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.header__carousel-photo {
-  width: 100%;
-  height: 100%;
-  background-image: url("../img/carousel-item1.jpg");
-  background-size: cover;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-}
-.header__carousel-shadow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.header__carousel-text {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-}
-.header__carousel-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1em;
-}
-.header__carousel-text p {
-  font-size: 1.6rem;
-  padding: 1em;
+.nav__item--logo img {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.hide {
-  animation: hide 1s linear forwards;
-}
-
-.show {
-  animation: show 1s linear forwards;
-}
-
-@keyframes hide {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @media (min-width: 1200px) {
   .nav__mobile {
     display: none;
