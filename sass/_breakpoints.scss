@@ -1,0 +1,35 @@
+@use './colors' as colors;
+@mixin large {
+	@media (min-width: 1200px) {
+		.nav {
+			&__mobile {
+				display: none;
+			}
+			&__desktop {
+				display: flex;
+			}
+			&__items {
+				a {
+					font-size: 2.5rem;
+				}
+			}
+			&__burger-icon {
+				display: none;
+			}
+		}
+		.header {
+			&__carousel {
+				&-text {
+					color: colors.$primary-color;
+					h1 {
+						font-size: 5rem;
+						margin-bottom: 20px;
+					}
+					p{
+						font-size: 3rem;
+					}
+				}
+			}
+		}
+	}
+}
