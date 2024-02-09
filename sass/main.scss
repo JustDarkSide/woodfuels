@@ -21,6 +21,12 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	height: 200vh;
 }
+.hide {
+	animation: hide 1.2s linear forwards;
+}
+.show {
+	animation: show 1.2s linear forwards;
+}
 // --------------------------------NAV-----------------------------------
 .nav {
 	position: sticky;
@@ -123,7 +129,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1.jpg');
+			background-image: url('../img/carousel-item1-big.jpg');
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
@@ -163,6 +169,7 @@ body {
 		}
 	}
 }
+
 @include breakpoints.small;
 @include breakpoints.medium;
 @include breakpoints.large;

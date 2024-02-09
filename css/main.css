@@ -6,6 +6,22 @@
     opacity: 1;
   }
 }
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -27,6 +43,14 @@ body {
   font-size: 1.6rem;
   font-family: "Montserrat", sans-serif;
   height: 200vh;
+}
+
+.hide {
+  animation: hide 1.2s linear forwards;
+}
+
+.show {
+  animation: show 1.2s linear forwards;
 }
 
 .nav {
@@ -109,6 +133,58 @@ body {
 }
 .nav__item--logo a:focus img {
   transform: scale(1.1);
+}
+
+.header {
+  width: 100%;
+  height: calc(100vh - 120px);
+}
+.header__carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.header__carousel-photo {
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/carousel-item1-big.jpg");
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+.header__carousel-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+}
+.header__carousel-shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.header__carousel-text {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+.header__carousel-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+}
+.header__carousel-text p {
+  font-size: 1.6rem;
+  padding: 1em;
 }
 
 @media (max-width: 768px) {
