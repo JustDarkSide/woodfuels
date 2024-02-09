@@ -1,10 +1,8 @@
-const navbarMobileLogo = document.querySelector(
-	'.nav__mobile .nav__item--logo img'
-);
-document.body.addEventListener('click', () => {
-	if (window.innerWidth >= 768) {
-		navbarMobileLogo.setAttribute('src', '../img/logo.png');
-	} else {
-		navbarMobileLogo.setAttribute('src', '../img/logo-smaller.png');
-	}
-});
+const mbNav = document.querySelector(".mobile-nav");
+const bBtn = document.querySelector(".burger-btn");
+
+const handleNav = () => {
+	mbNav.classList.toggle("mobile-nav--active");
+};
+
+bBtn.addEventListener("click", handleNav);
