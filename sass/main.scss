@@ -80,7 +80,7 @@ body {
 			text-transform: uppercase;
 			cursor: pointer;
 			outline: none;
-			transition: transform 0.3s;
+			transition: transform 0.3s font-weight 0.3s;
 		}
 		a:focus {
 			transform: scale(1.1);
