@@ -113,6 +113,13 @@ body {
 }
 .header .mobile-nav .nav__items a:hover {
   color: #264f0b;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.3s font-weight 0.3s;
+}
+.nav__item a:focus {
+  transform: scale(1.1);
 }
 .header .pc-nav {
   height: 100%;
