@@ -1,6 +1,6 @@
-@use './colors' as colors;
-@use './breakpoints' as breakpoints;
-@use './animations' as animations;
+@use "./colors" as colors;
+@use "./breakpoints" as breakpoints;
+@use "./animations" as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -20,7 +20,7 @@ html {
 
 body {
 	background-color: colors.$light-white;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	min-height: 200vh;
 	font-size: 1.6rem;
 }
@@ -59,7 +59,7 @@ body {
 		position: absolute;
 		right: 0;
 		height: 5px;
-		content: '';
+		content: "";
 		background-color: colors.$main-color;
 		transition: width 0.5s;
 	}
@@ -91,6 +91,7 @@ body {
 	width: 100%;
 	padding: 0;
 	background-color: colors.$nav-white;
+	box-shadow: 0px 1px 30px colors.$black;
 	z-index: 1000;
 
 	.solo-logo-item-1 {
@@ -138,12 +139,17 @@ body {
 				text-transform: uppercase;
 				text-decoration: none;
 				color: colors.$pure-white;
+				outline: none;
 				// border: 1px solid $pure-white;
 				transition: color 0.5s;
 			}
 
 			a:hover {
 				color: colors.$pure-white;
+			}
+
+			a:focus {
+				transform: scale(1.1);
 			}
 		}
 	}
@@ -162,12 +168,67 @@ body {
 			height: 100%;
 			line-height: 120px;
 			text-align: center;
-			font-size: 1.8em;
+			font-size: 1.6em;
 			text-transform: uppercase;
 			text-decoration: none;
 			color: colors.$main-color;
 			font-weight: bold;
+			outline: none;
 			transition: scale 0.5s, color 0.5s;
+
+			&--animation::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				left: 0;
+				margin: 0 auto;
+				bottom: 30px;
+				height: 2px;
+				transform: scaleX(0);
+				transition: transform 0.3s;
+				background-color: colors.$secondary-color;
+			}
+			&--animation:hover::after {
+				transform: scaleX(0.5);
+			}
+
+			.dropdown-a {
+				.dropdown {
+					position: absolute;
+					width: 100%;
+					top: 120px;
+					display: none;
+					opacity: 0;
+					left: 0;
+
+					&__list {
+						display: flex;
+						flex-direction: column;
+						list-style-type: none;
+
+						&-item {
+							width: 100%;
+							height: 100px;
+							color: colors.$main-color;
+							line-height: 100px;
+							background-color: colors.$pure-white;
+							text-align: center;
+							font-size: 2.6rem;
+							border-bottom: 1px solid #000;
+							font-weight: bold;
+						}
+					}
+				}
+
+				&:hover .dropdown {
+					display: block;
+					animation: showItems 0.5s linear forwards;
+				}
+			}
+		}
+
+		&__item:focus {
+			scale: 1.1;
 		}
 
 		&__item:hover {
@@ -178,8 +239,17 @@ body {
 		&__logo-item {
 			display: flex;
 			flex-direction: column;
-			line-height: 30px;
 			padding-top: 10px;
+			line-height: 30px;
+
+			a {
+				outline: none;
+				transition: scale 0.5s;
+			}
+
+			a:focus {
+				scale: 1.1;
+			}
 		}
 	}
 }
@@ -194,7 +264,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1-big.jpg');
+			background-image: url("../img/carousel-item1-big.jpg");
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
