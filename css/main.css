@@ -99,7 +99,7 @@ body {
   z-index: 1000;
 }
 .nav .burger-btn {
-  position: fixed;
+  position: absolute;
   right: 15px;
   padding: 1em;
   background-color: transparent;
