@@ -1,5 +1,6 @@
-@import "./colors";
-
+@use './colors' as colors;
+@use './breakpoints' as breakpoints;
+@use './animations' as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -8,12 +9,20 @@
 
 html {
 	scroll-behavior: smooth;
+	font-size: 62.5%;
+}
+.hide {
+	animation: hide 1.4s linear forwards;
+}
+.show {
+	animation: show 1.4s linear forwards;
 }
 
 body {
-	background-color: $light-white;
-	font-family: "Open Sans", sans-serif;
+	background-color: colors.$light-white;
+	font-family: 'Open Sans', sans-serif;
 	min-height: 200vh;
+	font-size: 1.6rem;
 }
 
 .burger-btn {
@@ -50,8 +59,8 @@ body {
 		position: absolute;
 		right: 0;
 		height: 5px;
-		content: "";
-		background-color: $main-color;
+		content: '';
+		background-color: colors.$main-color;
 		transition: width 0.5s;
 	}
 
@@ -71,17 +80,17 @@ body {
 	}
 }
 
-.header {
-	position: fixed;
+.nav {
+	position: sticky;
 	top: 0;
 	left: 0;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 120px;
+	height: 90px;
 	width: 100%;
 	padding: 0;
-	background-color: $nav-white;
+	background-color: colors.$nav-white;
 	z-index: 1000;
 
 	.solo-logo-item-1 {
@@ -120,7 +129,7 @@ body {
 			flex-direction: column;
 			justify-content: space-evenly;
 			align-items: center;
-			
+
 			a {
 				margin: 10% 0;
 				padding: 30px;
@@ -128,13 +137,13 @@ body {
 				font-size: 2em;
 				text-transform: uppercase;
 				text-decoration: none;
-				color: $pure-white;
+				color: colors.$pure-white;
 				// border: 1px solid $pure-white;
 				transition: color 0.5s;
 			}
-			
+
 			a:hover {
-				color: $main-color;
+				color: colors.$pure-white;
 			}
 		}
 	}
@@ -156,14 +165,14 @@ body {
 			font-size: 1.8em;
 			text-transform: uppercase;
 			text-decoration: none;
-			color: $main-color;
+			color: colors.$main-color;
 			font-weight: bold;
 			transition: scale 0.5s, color 0.5s;
 		}
 
 		&__item:hover {
 			scale: 1.1;
-			color: $secondary-color;
+			color: colors.$secondary-color;
 		}
 
 		&__logo-item {
@@ -174,70 +183,60 @@ body {
 		}
 	}
 }
-
-.img-carousel-section {
-	position: relative;
-	padding: 2em;
-	margin-top: 50px;
-
-	.img-carousel {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%);
-		height: 100%;
+.header {
+	width: 100%;
+	height: calc(100vh - 100px);
+	&__carousel {
 		width: 100%;
-
-		.carousel-img {
-			margin-top: 20px;
-			padding: 2em 0;
-			img {
-				width: 100%;
-				height: 40vh;
-				object-fit: cover;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		&-photo {
+			width: 100%;
+			height: 100%;
+			background-image: url('../img/carousel-item1-big.jpg');
+			background-size: cover;
+			background-position: 0 0;
+			background-repeat: no-repeat;
+		}
+		&-box {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 100%;
+			height: 100%;
+		}
+		&-shadow {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+		}
+		&-text {
+			position: absolute;
+			width: 100%;
+			top: 50%;
+			left: 50%;
+			padding: 0 1.4rem;
+			transform: translate(-50%, -50%);
+			text-align: center;
+			color: colors.$pure-white;
+			h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1em;
+			}
+			p {
+				font-size: 1.8rem;
+				padding: 1em;
 			}
 		}
 	}
 }
 
-@media (max-width: 1200px) {
-
-	.header {
-		height: 150px;
-
-		.pc-nav {
-			display: none;
-		}
-	}
-}
-
-@media (min-width: 1200px) {
-	.header {
-		.solo-logo-item-1 {
-			display: none;
-		}
-	}
-
-	.burger-btn {
-		display: none;
-	}
-}
-
-
-
-@media (max-width: 568px) {
-	.header{
-		height: 100px;
-		.mobile-nav{
-			.nav__items{
-				a{
-					font-size: 1.5em;
-					margin: 2% 0;
-				}
-			}
-		 }
-	}
-	.img-carousel-section{
-		margin-top: 20px;
-	}
-}
+@include breakpoints.small;
+@include breakpoints.medium;
+@include breakpoints.large;
+@include breakpoints.xxl;

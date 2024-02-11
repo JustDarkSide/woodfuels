@@ -1,0 +1,75 @@
+@use './colors' as colors;
+@mixin small {
+	@media (max-width: 568px) {
+		.nav {
+			.mobile-nav {
+				.nav__items {
+					a {
+						font-size: 1.5em;
+						margin: 2% 0;
+					}
+				}
+			}
+		}
+		.img-carousel-section {
+			margin-top: 20px;
+		}
+	}
+}
+@mixin medium {
+	@media (min-width: 768px) {
+		.nav {
+			height: 120px;
+		}
+		.header {
+			&__carousel {
+				&-text {
+					color: colors.$pure-white;
+					h1 {
+						font-size: 4rem;
+						margin-bottom: 20px;
+					}
+					p {
+						font-size: 2.6rem;
+					}
+				}
+			}
+		}
+	}
+}
+@mixin large {
+	@media (max-width: 1200px) {
+		.nav {
+			.pc-nav {
+				display: none;
+			}
+		}
+	}
+}
+@mixin xxl {
+	@media (min-width: 1200px) {
+		.nav {
+			.solo-logo-item-1 {
+				display: none;
+			}
+			.burger-btn {
+				display: none;
+			}
+		}
+
+		.header {
+			&__carousel {
+				&-text {
+					color: colors.$pure-white;
+					h1 {
+						font-size: 5rem;
+						margin-bottom: 20px;
+					}
+					p {
+						font-size: 3rem;
+					}
+				}
+			}
+		}
+	}
+}
