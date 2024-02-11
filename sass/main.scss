@@ -1,6 +1,6 @@
-@use "./colors" as colors;
-@use "./breakpoints" as breakpoints;
-@use "./animations" as animations;
+@use './colors' as colors;
+@use './breakpoints' as breakpoints;
+@use './animations' as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -15,7 +15,7 @@ html {
 body {
 	position: relative;
 	background-color: colors.$light-white;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 1.6rem;
 	min-height: 200vh;
 }
@@ -28,9 +28,14 @@ body {
 	height: 100%;
 	width: 30vw;
 	z-index: 1001;
-	opacity: 1;
+	opacity: 0;
 }
-
+.hideShadow {
+	animation: hideShadow 0.5s linear forwards;
+}
+.showShadow {
+	animation: showShadow 0.5s linear forwards;
+}
 .hide {
 	animation: hide 1.4s linear forwards;
 }
@@ -72,7 +77,7 @@ body {
 		position: absolute;
 		right: 0;
 		height: 5px;
-		content: "";
+		content: '';
 		background-color: colors.$main-color;
 		transition: width 0.5s;
 	}
@@ -222,7 +227,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: "";
+				content: '';
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -284,7 +289,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url("../img/carousel-item1-big.jpg");
+			background-image: url('../img/carousel-item1-big.jpg');
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;

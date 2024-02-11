@@ -22,3 +22,19 @@
 		opacity: 1;
 	}
 }
+@keyframes showShadow {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes hideShadow {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

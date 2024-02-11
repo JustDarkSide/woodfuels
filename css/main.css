@@ -22,6 +22,22 @@
     opacity: 1;
   }
 }
+@keyframes showShadow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes hideShadow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -49,7 +65,15 @@ body {
   height: 100%;
   width: 30vw;
   z-index: 1001;
-  opacity: 1;
+  opacity: 0;
+}
+
+.hideShadow {
+  animation: hideShadow 0.5s linear forwards;
+}
+
+.showShadow {
+  animation: showShadow 0.5s linear forwards;
 }
 
 .hide {
