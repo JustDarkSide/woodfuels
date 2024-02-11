@@ -1,6 +1,6 @@
-@use './colors' as colors;
-@use './breakpoints' as breakpoints;
-@use './animations' as animations;
+@use "./colors" as colors;
+@use "./breakpoints" as breakpoints;
+@use "./animations" as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -15,7 +15,7 @@ html {
 body {
 	position: relative;
 	background-color: colors.$light-white;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.6rem;
 	min-height: 200vh;
 }
@@ -45,6 +45,19 @@ body {
 }
 
 .nav {
+	position: sticky;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 90px;
+	width: 100%;
+	padding: 0;
+	background-color: colors.$pure-white;
+	box-shadow: 0px 1px 30px colors.$black;
+	z-index: 1000;
+
 	.burger-btn {
 		position: absolute;
 		right: 15px;
@@ -79,7 +92,7 @@ body {
 			position: absolute;
 			right: 0;
 			height: 5px;
-			content: '';
+			content: "";
 			background-color: colors.$main-color;
 			transition: width 0.5s;
 		}
@@ -99,18 +112,6 @@ body {
 			}
 		}
 	}
-	position: sticky;
-	top: 0;
-	left: 0;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 90px;
-	width: 100%;
-	padding: 0;
-	background-color: colors.$pure-white;
-	box-shadow: 0px 1px 30px colors.$black;
-	z-index: 1000;
 
 	.solo-logo-item-1 {
 		position: absolute;
@@ -167,6 +168,7 @@ body {
 			}
 		}
 	}
+
 	.pc-nav {
 		height: 100%;
 		width: 100%;
@@ -182,38 +184,6 @@ body {
 		}
 
 		&__item {
-			.dropdown {
-				position: absolute;
-				width: 100%;
-				top: 115px;
-				opacity: 0;
-				display: none;
-				left: 0;
-
-				&__list {
-					display: flex;
-					flex-direction: column;
-					list-style-type: none;
-
-					&-item {
-						width: 100%;
-						height: 100px;
-						color: colors.$main-color;
-						line-height: 100px;
-						background-color: colors.$pure-white;
-						text-align: center;
-						font-size: 2.6rem;
-						border-bottom: 1px solid #000;
-						font-weight: bold;
-					}
-				}
-			}
-
-			&:hover .dropdown {
-				display: block;
-				animation: showItems 0.5s linear forwards;
-			}
-
 			width: 100%;
 			height: 100%;
 			line-height: 120px;
@@ -227,7 +197,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: '';
+				content: "";
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -245,6 +215,50 @@ body {
 			&--dropdown {
 				position: relative;
 				display: block;
+
+				a {
+					color: colors.$main-color;
+					line-height: 80px;
+					font-size: 2.6rem;
+					font-weight: bold;
+					text-transform: uppercase;
+					text-decoration: none;
+					transition: scale 0.5s, color 0.3s;
+				}
+
+				a:hover {
+					scale: 0.8;
+					color: colors.$secondary-color;
+				}
+
+				.dropdown {
+					position: absolute;
+					width: 100%;
+					top: 115px;
+					opacity: 0;
+					display: none;
+					left: 0;
+
+					a {
+						display: block;
+					}
+
+					&__list {
+						display: flex;
+						flex-direction: column;
+						list-style-type: none;
+
+						&-item {
+							width: 100%;
+							height: 80px;
+							line-height: 80px;
+							background-color: colors.$pure-white;
+							text-align: center;
+							border-bottom: 1px solid #000;
+						}
+					}
+				}
+
 				&:hover .dropdown {
 					display: block;
 					animation: showItems 0.5s linear forwards;
@@ -278,6 +292,7 @@ body {
 		}
 	}
 }
+
 .header {
 	width: 100%;
 	height: calc(100vh - 100px);
@@ -289,7 +304,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1-big.jpg');
+			background-image: url("../img/carousel-item1-big.jpg");
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
