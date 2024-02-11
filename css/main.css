@@ -25,17 +25,21 @@
 @keyframes showShadow {
   from {
     opacity: 0;
+    transform: translateX(-100%);
   }
   to {
     opacity: 1;
+    transform: translateX(0%);
   }
 }
 @keyframes hideShadow {
   from {
     opacity: 1;
+    transform: translateX(0%);
   }
   to {
     opacity: 0;
+    transform: translateX(-100%);
   }
 }
 * {
@@ -65,15 +69,16 @@ body {
   height: 100%;
   width: 30vw;
   z-index: 1001;
+  transform: translateX(-100%);
   opacity: 0;
 }
 
 .hideShadow {
-  animation: hideShadow 0.5s linear forwards;
+  animation: hideShadow 0.3s linear forwards;
 }
 
 .showShadow {
-  animation: showShadow 0.5s linear forwards;
+  animation: showShadow 0.3s linear forwards;
 }
 
 .hide {

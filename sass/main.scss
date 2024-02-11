@@ -28,13 +28,14 @@ body {
 	height: 100%;
 	width: 30vw;
 	z-index: 1001;
+	transform: translateX(-100%);
 	opacity: 0;
 }
 .hideShadow {
-	animation: hideShadow 0.5s linear forwards;
+	animation: hideShadow 0.3s linear forwards;
 }
 .showShadow {
-	animation: showShadow 0.5s linear forwards;
+	animation: showShadow 0.3s linear forwards;
 }
 .hide {
 	animation: hide 1.4s linear forwards;
