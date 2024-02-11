@@ -33,19 +33,31 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  position: relative;
+  background-color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  min-height: 200vh;
+}
+
+.offset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 30vw;
+  z-index: 1001;
+  opacity: 1;
+}
+
 .hide {
   animation: hide 1.4s linear forwards;
 }
 
 .show {
   animation: show 1.4s linear forwards;
-}
-
-body {
-  background-color: #eee;
-  font-family: "Montserrat", sans-serif;
-  min-height: 200vh;
-  font-size: 1.6rem;
 }
 
 .burger-btn {
@@ -102,53 +114,54 @@ body {
   height: 90px;
   width: 100%;
   padding: 0;
-  background-color: #eeecec;
+  background-color: #fff;
   box-shadow: 0px 1px 30px #000;
   z-index: 1000;
 }
 .nav .solo-logo-item-1 {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
+  left: 0%;
+  transform: translate(0%, -50%);
+  margin-top: 2px;
+  padding: 5px 15px;
 }
 .nav .mobile-nav {
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
   transform: translateX(100%);
   transition: 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   height: 100vh;
   width: 100%;
-  background: rgb(38, 79, 11);
-  background: linear-gradient(153deg, rgb(38, 79, 11) 0%, rgb(90, 121, 9) 35%, rgba(174, 207, 0, 0.4906337535) 100%);
+  background-color: #fff;
   z-index: 100;
 }
 .nav .mobile-nav--active {
-  transform: translateX(0);
+  transform: translateX(30%);
 }
 .nav .mobile-nav .nav__items {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 60vh;
 }
 .nav .mobile-nav .nav__items a {
-  margin: 10% 0;
   padding: 30px;
   font-weight: bold;
   font-size: 2em;
   text-transform: uppercase;
   text-decoration: none;
-  color: #fff;
+  color: #264f0b;
   outline: none;
   transition: color 0.5s;
 }
 .nav .mobile-nav .nav__items a:hover {
-  color: #fff;
+  scale: 1.1;
 }
 .nav .mobile-nav .nav__items a:focus {
   transform: scale(1.1);
@@ -159,7 +172,12 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin: auto;
+}
+.nav .pc-nav .wrapper {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 .nav .pc-nav__item {
   width: 100%;
@@ -177,9 +195,9 @@ body {
 .nav .pc-nav__item .dropdown {
   position: absolute;
   width: 100%;
-  top: 120px;
-  display: none;
+  top: 115px;
   opacity: 0;
+  display: none;
   left: 0;
 }
 .nav .pc-nav__item .dropdown__list {
@@ -216,6 +234,14 @@ body {
 }
 .nav .pc-nav__item--animation:hover::after {
   transform: scaleX(0.5);
+}
+.nav .pc-nav__item--dropdown {
+  position: relative;
+  display: block;
+}
+.nav .pc-nav__item--dropdown:hover .dropdown {
+  display: block;
+  animation: showItems 0.5s linear forwards;
 }
 .nav .pc-nav__item:focus {
   scale: 1.1;
