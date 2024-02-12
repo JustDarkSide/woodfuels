@@ -348,8 +348,8 @@ body {
   color: #fff;
 }
 .header__carousel-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1em;
+  font-size: 2.4rem;
+  margin-bottom: 0.5em;
 }
 .header__carousel-text p {
   font-size: 1.8rem;
@@ -374,7 +374,7 @@ body {
   }
   .header__carousel-text h1 {
     font-size: 4rem;
-    margin-bottom: 20px;
+    margin-bottom: 0.8em;
   }
   .header__carousel-text p {
     font-size: 2.6rem;
