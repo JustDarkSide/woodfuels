@@ -305,7 +305,7 @@ body {
 
 .header {
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(50vh - 100px);
 }
 .header__carousel {
   width: 100%;
