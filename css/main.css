@@ -356,6 +356,58 @@ body {
   padding: 1em;
 }
 
+.section {
+  margin-top: 5%;
+}
+
+.categories-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+  border: 1px solid black;
+}
+.categories-section .category-tab {
+  position: relative;
+  height: 22vh;
+  width: 30vw;
+  margin: 50px;
+  border: 5px solid #000;
+  border-radius: 20px;
+}
+.categories-section .category-tab__img-window {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url(../img/firewood-640.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.categories-section .category-tab__img-window--shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+.categories-section .category-tab__img-window--shadow p {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+  z-index: 6;
+}
+
 @media (max-width: 568px) {
   .nav .mobile-nav .nav__items a {
     font-size: 1.5em;
