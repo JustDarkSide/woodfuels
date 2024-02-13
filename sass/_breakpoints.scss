@@ -35,6 +35,16 @@
 				}
 			}
 		}
+		.section-title{
+			font-size: 4rem;
+		}
+		.cards {
+			&__item {
+				width: 50%;
+				height: 450px;
+
+			}
+		}
 	}
 }
 @mixin large {
@@ -68,6 +78,18 @@
 					p {
 						font-size: 3rem;
 					}
+				}
+			}
+		}
+		.cards {
+			&__box {
+				padding-top: 4em;
+			}
+			&__item {
+				width: 30%;
+				height: 550px;
+				&-title{
+					font-size: 3.5rem;
 				}
 			}
 		}

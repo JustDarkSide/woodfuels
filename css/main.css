@@ -53,24 +53,10 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  position: relative;
-  background-color: #eee;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.6rem;
-  min-height: 200vh;
-}
-
-.offset {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 100%;
-  width: 30vw;
-  z-index: 1001;
-  transform: translateX(-100%);
-  opacity: 0;
+.wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .hideShadow {
@@ -87,6 +73,37 @@ body {
 
 .show {
   animation: show 1.4s linear forwards;
+}
+
+.offset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 30vw;
+  z-index: 1001;
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.section {
+  padding: 2em;
+}
+
+.section-title {
+  font-size: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #264f0b;
+}
+
+body {
+  position: relative;
+  background-color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  min-height: 200vh;
 }
 
 .nav {
@@ -197,15 +214,9 @@ body {
 .nav .pc-nav {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
-.nav .pc-nav .wrapper {
+.nav .pc-nav-box {
   display: flex;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
 }
 .nav .pc-nav__item {
   width: 100%;
@@ -356,6 +367,71 @@ body {
   padding: 1em;
 }
 
+.cards {
+  width: 100%;
+}
+.cards__box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 2em;
+}
+.cards__item {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin-bottom: 2em;
+  border-radius: 10px;
+  border: 1px solid #000;
+  overflow: hidden;
+}
+.cards__item-photo {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.cards__item-photo--one {
+  background-image: url("../img/firewood-small.jpg");
+}
+.cards__item-photo--two {
+  background-image: url("../img/briquette-small.jpg");
+}
+.cards__item-text {
+  position: absolute;
+  top: 110%;
+  left: -100%;
+  transform: translate(50%, -50%);
+  width: 150%;
+  height: 100%;
+  background-color: #eee;
+  border-radius: 45%;
+  transition: top 1s;
+}
+.cards__item-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 2.2rem;
+  color: #264f0b;
+  text-align: center;
+}
+.cards__item-description {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%);
+  color: #264f0b;
+  font-size: 1.8rem;
+}
+.cards__item:hover .cards__item-text {
+  top: 150%;
+}
+
 @media (max-width: 568px) {
   .nav .mobile-nav .nav__items a {
     font-size: 1.5em;
@@ -379,6 +455,13 @@ body {
   .header__carousel-text p {
     font-size: 2.6rem;
   }
+  .section-title {
+    font-size: 4rem;
+  }
+  .cards__item {
+    width: 50%;
+    height: 450px;
+  }
 }
 @media (max-width: 1200px) {
   .nav .pc-nav {
@@ -401,5 +484,15 @@ body {
   }
   .header__carousel-text p {
     font-size: 3rem;
+  }
+  .cards__box {
+    padding-top: 4em;
+  }
+  .cards__item {
+    width: 30%;
+    height: 550px;
+  }
+  .cards__item-title {
+    font-size: 3.5rem;
   }
 }/*# sourceMappingURL=main.css.map */
