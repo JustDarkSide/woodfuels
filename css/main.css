@@ -84,7 +84,7 @@ html {
 }
 
 .showCardsText {
-  animation: showCardsText 0.8s 0.2s linear forwards;
+  animation: showCardsText 0.8s linear forwards;
 }
 
 .offset {
