@@ -42,6 +42,14 @@
     transform: translateX(-100%);
   }
 }
+@keyframes showCardsText {
+  from {
+    top: 150%;
+  }
+  to {
+    top: 110%;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -75,6 +83,10 @@ html {
   animation: show 1.4s linear forwards;
 }
 
+.showCardsText {
+  animation: showCardsText 1s 0.5s linear forwards;
+}
+
 .offset {
   position: absolute;
   top: 0;
@@ -88,7 +100,7 @@ html {
 }
 
 .section {
-  padding: 2em;
+  padding: 2em 0 30em 0;
 }
 
 .section-title {
@@ -316,7 +328,7 @@ body {
 
 .header {
   width: 100%;
-  height: calc(50vh - 100px);
+  height: calc(60vh - 100px);
 }
 .header__carousel {
   width: 100%;
@@ -376,14 +388,14 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding-top: 2em;
+  padding-top: 2.6em;
 }
 .cards__item {
-  width: 100%;
-  height: 400px;
+  width: 95%;
+  height: 450px;
   position: relative;
   margin-bottom: 2em;
-  border-radius: 10px;
+  border-radius: 15px;
   border: 1px solid #000;
   overflow: hidden;
 }
@@ -400,9 +412,15 @@ body {
 .cards__item-photo--two {
   background-image: url("../img/briquette-small.jpg");
 }
+.cards__item-photo--three {
+  background-image: url("../img/kindling-small.jpg");
+}
+.cards__item-photo--four {
+  background-image: url("../img/pellet-small.jpg");
+}
 .cards__item-text {
   position: absolute;
-  top: 110%;
+  top: 150%;
   left: -100%;
   transform: translate(50%, -50%);
   width: 150%;
@@ -413,20 +431,56 @@ body {
 }
 .cards__item-title {
   position: absolute;
-  top: 10%;
+  top: 7%;
   left: 50%;
   transform: translate(-50%);
-  font-size: 2.2rem;
+  font-size: 3rem;
   color: #264f0b;
   text-align: center;
 }
 .cards__item-description {
   position: absolute;
-  top: 23%;
+  top: 21%;
   left: 50%;
   transform: translate(-50%);
   color: #264f0b;
-  font-size: 1.8rem;
+}
+.cards__item-description--desktop {
+  display: none;
+}
+.cards__item-description--mobile {
+  position: relative;
+  width: 60%;
+  height: 60px;
+  padding: 1.5em 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border: 2px solid #264f0b;
+  text-align: left;
+}
+.cards__item-description--mobile p {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding-left: 2em;
+}
+.cards__item-description--mobile .read-more {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  top: 50%;
+  left: 75%;
+  transform: translate(0, -50%);
+  background-color: #264f0b;
+  border-radius: 50%;
+}
+.cards__item-description--mobile .read-more img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .cards__item:hover .cards__item-text {
   top: 150%;
@@ -459,13 +513,32 @@ body {
     font-size: 4rem;
   }
   .cards__item {
-    width: 50%;
-    height: 450px;
+    width: 45%;
+    height: 500px;
+  }
+  .cards__item-title {
+    font-size: 3.5rem;
+  }
+  .cards__item-description {
+    font-size: 1.7rem;
+  }
+  .cards__item-description--mobile {
+    top: 22%;
+    padding: 2em 0;
+  }
+  .cards__item-description--mobile .read-more {
+    width: 50px;
+    height: 50px;
   }
 }
 @media (max-width: 1200px) {
   .nav .pc-nav {
     display: none;
+  }
+}
+@media (min-width: 1000px) {
+  .cards__item {
+    height: 550px;
   }
 }
 @media (min-width: 1200px) {
@@ -491,8 +564,21 @@ body {
   .cards__item {
     width: 30%;
     height: 550px;
+    cursor: pointer;
+  }
+  .cards__item-text {
+    top: 110%;
   }
   .cards__item-title {
     font-size: 3.5rem;
+  }
+  .cards__item-description {
+    font-size: 1.8rem;
+  }
+  .cards__item-description--desktop {
+    display: block;
+  }
+  .cards__item-description--mobile {
+    display: none;
   }
 }/*# sourceMappingURL=main.css.map */

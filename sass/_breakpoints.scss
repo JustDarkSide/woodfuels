@@ -14,6 +14,8 @@
 		.img-carousel-section {
 			margin-top: 20px;
 		}
+		// .cards{
+		// }
 	}
 }
 @mixin medium {
@@ -35,14 +37,29 @@
 				}
 			}
 		}
-		.section-title{
+		.section-title {
 			font-size: 4rem;
 		}
 		.cards {
 			&__item {
-				width: 50%;
-				height: 450px;
+				width: 45%;
+				height: 500px;
 
+				&-title {
+					font-size: 3.5rem;
+				}
+
+				&-description {
+					font-size: 1.7rem;
+					&--mobile {
+						top: 22%;
+						padding: 2em 0;
+						.read-more {
+							width: 50px;
+							height: 50px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -52,6 +69,15 @@
 		.nav {
 			.pc-nav {
 				display: none;
+			}
+		}
+	}
+}
+@mixin unusual {
+	@media (min-width: 1000px) {
+		.cards {
+			&__item {
+				height: 550px;
 			}
 		}
 	}
@@ -88,8 +114,21 @@
 			&__item {
 				width: 30%;
 				height: 550px;
-				&-title{
+				cursor: pointer;
+				&-text{
+					top: 110%;
+				}
+				&-title {
 					font-size: 3.5rem;
+				}
+				&-description {
+					font-size: 1.8rem;
+					&--desktop {
+						display: block;
+					}
+					&--mobile {
+						display: none;
+					}
 				}
 			}
 		}
