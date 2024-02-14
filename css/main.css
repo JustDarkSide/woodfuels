@@ -84,7 +84,7 @@ html {
 }
 
 .showCardsText {
-  animation: showCardsText 1s 0.5s linear forwards;
+  animation: showCardsText 0.8s 0.5s linear forwards;
 }
 
 .offset {
@@ -391,7 +391,7 @@ body {
   padding-top: 2.6em;
 }
 .cards__item {
-  width: 95%;
+  width: 90%;
   height: 450px;
   position: relative;
   margin-bottom: 2em;

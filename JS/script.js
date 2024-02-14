@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', checkScreenWidth);
 window.addEventListener('resize', checkScreenWidth);
 bBtn.addEventListener('click', handleNav);
 document.addEventListener('scroll', showCardsDescription);
+document.addEventListener('DOMContentLoaded', showCardsDescription);
 navSpace.addEventListener('focusout', () => {
 	//Kacperek zabłysnął
 	mbNav.classList.remove('mobile-nav--active');
