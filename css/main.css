@@ -562,8 +562,7 @@ body {
     padding-top: 4em;
   }
   .cards__item {
-    width: 30%;
-    height: 550px;
+    height: 650px;
     cursor: pointer;
   }
   .cards__item-text {
@@ -573,7 +572,7 @@ body {
     font-size: 3.5rem;
   }
   .cards__item-description {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   .cards__item-description--desktop {
     display: block;

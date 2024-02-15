@@ -112,17 +112,17 @@
 				padding-top: 4em;
 			}
 			&__item {
-				width: 30%;
-				height: 550px;
+				// width: 30%;
+				height: 650px;
 				cursor: pointer;
-				&-text{
+				&-text {
 					top: 110%;
 				}
 				&-title {
 					font-size: 3.5rem;
 				}
 				&-description {
-					font-size: 1.8rem;
+					font-size: 2rem;
 					&--desktop {
 						display: block;
 					}
