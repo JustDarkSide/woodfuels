@@ -1,4 +1,4 @@
-@use './colors' as colors;
+@use "./colors" as colors;
 @mixin small {
 	@media (max-width: 568px) {
 		.nav {
@@ -14,8 +14,9 @@
 		.img-carousel-section {
 			margin-top: 20px;
 		}
-		// .cards{
-		// }
+		.cards {
+			margin-top: 1rem;
+		}
 	}
 }
 @mixin medium {
@@ -78,6 +79,13 @@
 		.cards {
 			&__item {
 				height: 550px;
+				&-description {
+					&--mobile {
+						.read-more {
+							left: 85%;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -129,6 +137,10 @@
 					&--mobile {
 						display: none;
 					}
+				}
+				&:hover .cards__item-text {
+					top: 50%;
+					border-radius: 0%;
 				}
 			}
 		}
