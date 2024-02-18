@@ -11,25 +11,10 @@ html {
 	scroll-behavior: smooth;
 	font-size: 62.5%;
 }
-
-body {
-	position: relative;
-	background-color: colors.$light-white;
-	font-family: "Montserrat", sans-serif;
-	font-size: 1.6rem;
-	min-height: 200vh;
-}
-
-.offset {
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.3);
-	height: 100%;
-	width: 30vw;
-	z-index: 1001;
-	transform: translateX(-100%);
-	opacity: 0;
+.wrapper {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
 }
 .hideShadow {
 	animation: hideShadow 0.3s linear forwards;
@@ -42,6 +27,36 @@ body {
 }
 .show {
 	animation: show 1.4s linear forwards;
+}
+.showCardsText {
+	animation: showCardsText 0.5s linear forwards;
+}
+.offset {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	height: 100%;
+	width: 30vw;
+	z-index: 1001;
+	transform: translateX(-100%);
+	opacity: 0;
+}
+.section {
+	padding: 2em 0 30em 0;
+}
+.section-title {
+	font-size: 3rem;
+	text-align: center;
+	text-transform: uppercase;
+	color: colors.$main-color;
+}
+body {
+	position: relative;
+	background-color: colors.$light-white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.6rem;
+	min-height: 200vh;
 }
 
 .nav {
@@ -172,15 +187,8 @@ body {
 	.pc-nav {
 		height: 100%;
 		width: 100%;
-		display: flex;
-		justify-content: space-evenly;
-		align-items: center;
-
-		.wrapper {
+		&-box {
 			display: flex;
-			max-width: 1200px;
-			width: 100%;
-			margin: 0 auto;
 		}
 
 		&__item {
@@ -295,7 +303,7 @@ body {
 
 .header {
 	width: 100%;
-	height: calc(50vh - 100px);
+	height: calc(60vh - 100px);
 	&__carousel {
 		width: 100%;
 		height: 100%;
@@ -345,61 +353,111 @@ body {
 		}
 	}
 }
-
-//---------------------- CATEGORIES SECTION---------------------
-
-.section {
-	margin-top: 5%;
-}
-
-.categories-section {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
+// ------cards----------
+.cards {
 	width: 100%;
-	height: 60vh;
-	border: 1px solid black;
-
-	.category-tab {
+	&__box {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		padding-top: 2.6em;
+	}
+	&__item {
+		width: 90%;
+		height: 450px;
 		position: relative;
-		height: 22vh;
-		width: 30vw;
-		margin: 50px;
-		border: 5px solid colors.$black;
-		border-radius: 20px;
-
-		&__img-window {
-			position: relative;
-			height: 100%;
+		margin-bottom: 2em;
+		border-radius: 15px;
+		border: 1px solid colors.$black;
+		overflow: hidden;
+		&-photo {
 			width: 100%;
-			background-image: url(../img/firewood-640.jpg);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-			border-radius: 15px;
+			height: 100%;
 			overflow: hidden;
-
-			&--shadow {
-				position: absolute;
-				top: 0;
-				left: 0;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100%;
-				width: 100%;
-				background-color: rgba(0, 0, 0, 0.5);
-				z-index: 5;
-
+			background-size: cover;
+			background-position: center;
+			&--one {
+				background-image: url('../img/firewood-small.jpg');
+			}
+			&--two {
+				background-image: url('../img/briquette-small.jpg');
+			}
+			&--three {
+				background-image: url('../img/kindling-small.jpg');
+			}
+			&--four {
+				background-image: url('../img/pellet-small.jpg');
+			}
+		}
+		&-text {
+			position: absolute;
+			top: 150%;
+			left: -100%;
+			transform: translate(50%, -50%);
+			width: 150%;
+			height: 100%;
+			background-color: colors.$light-white;
+			border-radius: 45%;
+			transition: top 1s;
+		}
+		&-title {
+			position: absolute;
+			top: 7%;
+			left: 50%;
+			transform: translate(-50%);
+			font-size: 3rem;
+			color: colors.$main-color;
+			text-align: center;
+		}
+		&-description {
+			position: absolute;
+			top: 21%;
+			left: 50%;
+			transform: translate(-50%);
+			color: colors.$main-color;
+			&--desktop {
+				display: none;
+			}
+			&--mobile {
+				position: relative;
+				width: 60%;
+				height: 60px;
+				padding: 1.5em 0;
+				border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				border: 2px solid colors.$main-color;
+				text-align: left;
 				p {
-					text-transform: uppercase;
-					font-size: 2em;
-					font-weight: bold;
-					color: colors.$pure-white;
-					z-index: 6;
+					position: absolute;
+					top: 50%;
+					transform: translate(0, -50%);
+					padding-left: 2em;
+				}
+				.read-more {
+					position: absolute;
+					width: 45px;
+					height: 45px;
+					top: 50%;
+					left: 75%;
+					transform: translate(0, -50%);
+					// border: 3px solid colors.$main-color;
+					background-color: colors.$main-color;
+					border-radius: 50%;
+					img {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
 				}
 			}
+		}
+		&:hover .cards__item-text {
+			top: 150%;
 		}
 	}
 }
@@ -407,4 +465,5 @@ body {
 @include breakpoints.small;
 @include breakpoints.medium;
 @include breakpoints.large;
+@include breakpoints.unusual;
 @include breakpoints.xxl;
