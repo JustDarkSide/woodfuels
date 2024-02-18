@@ -92,6 +92,9 @@ const checkScreenWidth = () => {
 };
 const showCardsDescription = () => {
 	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
+	if (y == 4) {
+		return;
+	}
 	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
