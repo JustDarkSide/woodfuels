@@ -7,9 +7,16 @@ const navSpace = document.querySelector('.nav');
 const offsetDiv = document.querySelector('.offset');
 const logoImg = document.querySelector('.solo-logo-item-img');
 const cardsTextSections = document.querySelectorAll('.cards__item-text');
-let offerSectionOffsetSmall = (window.innerHeight - 90) * 0.6 - 50;
-let offerSectionOffsetMedium = (window.innerHeight - 120) * 0.6 - 50;
-let offerSectionOffsetUnusual = (window.innerHeight - 120) * 0.6 - 50;
+const navHeightSmall = 90;
+const navHeightMediumAndUnusual = 120;
+const carouselSectionHeightSmall = (window.innerHeight - navHeightSmall) * 0.6;
+const carouselSectionHeightMediumAndUnusual =
+	(window.innerHeight - navHeightMediumAndUnusual) * 0.6;
+let offerSectionOffsetSmall = carouselSectionHeightSmall - 60;
+let offerSectionOffsetMediumAndUnusual =
+	carouselSectionHeightMediumAndUnusual - 180;
+// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
+
 let i = 1;
 let y = 0;
 //-------------NAV--------------
@@ -84,29 +91,30 @@ const checkScreenWidth = () => {
 	}
 };
 const showCardsDescription = () => {
+	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
 	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
 		offerSectionOffsetSmall += 450;
 	} else if (
-		window.scrollY >= offerSectionOffsetMedium &&
+		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
 		window.innerWidth >= 768 &&
 		window.innerWidth < 1200
 	) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
 		if (y == 2) {
-			offerSectionOffsetMedium += 500;
+			offerSectionOffsetMediumAndUnusual += 500;
 		}
 	} else if (
-		window.scrollY >= offerSectionOffsetMedium &&
+		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
 		window.innerWidth >= 1000 &&
 		window.innerWidth < 1200
 	) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
 		if (y == 2) {
-			offerSectionOffsetMedium += 550;
+			offerSectionOffsetMediumAndUnusual += 550;
 		}
 	}
 
