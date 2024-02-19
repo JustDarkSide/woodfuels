@@ -88,7 +88,7 @@ html {
 }
 
 .showCardsText {
-  animation: showCardsText 0.3s linear forwards;
+  animation: showCardsText 0.4s linear forwards;
 }
 
 .offset {
@@ -104,7 +104,7 @@ html {
 }
 
 .section {
-  padding: 3rem 0 30em 0;
+  padding: 5rem 0 30em 0;
 }
 
 .section-title {
@@ -567,7 +567,7 @@ body {
     padding-top: 4em;
   }
   .cards__item {
-    height: 650px;
+    height: 600px;
     cursor: pointer;
   }
   .cards__item-text {
