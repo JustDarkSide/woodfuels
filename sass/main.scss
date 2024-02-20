@@ -355,6 +355,7 @@ body {
 }
 
 main {
+	overflow: hidden;
 	position: relative;
 	.mapleleaf-png {
 		position: absolute;

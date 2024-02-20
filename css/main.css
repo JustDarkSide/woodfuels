@@ -377,6 +377,7 @@ body {
 }
 
 main {
+  overflow: hidden;
   position: relative;
 }
 main .mapleleaf-png {
