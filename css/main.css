@@ -61,6 +61,10 @@ html {
   font-size: 62.5%;
 }
 
+.mobileMenuLock {
+  overflow: hidden;
+}
+
 .wrapper {
   max-width: 1200px;
   width: 100%;
@@ -84,7 +88,7 @@ html {
 }
 
 .showCardsText {
-  animation: showCardsText 0.3s linear forwards;
+  animation: showCardsText 0.4s linear forwards;
 }
 
 .offset {
@@ -100,7 +104,7 @@ html {
 }
 
 .section {
-  padding: 2em 0 30em 0;
+  padding: 5rem 0 30em 0;
 }
 
 .section-title {
@@ -112,7 +116,7 @@ html {
 
 body {
   position: relative;
-  background-color: #eee;
+  background-color: #F5F5F5;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   min-height: 200vh;
@@ -143,12 +147,8 @@ body {
 }
 .nav .burger-btn:focus {
   outline: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid #264f0b;
   border-radius: 10px;
-}
-.nav .burger-btn:hover .burger-btn__bars::after,
-.nav .burger-btn:hover .burger-btn__bars::before {
-  width: 100%;
 }
 .nav .burger-btn__box {
   position: relative;
@@ -158,22 +158,20 @@ body {
 .nav .burger-btn__bars, .nav .burger-btn__bars::after, .nav .burger-btn__bars::before {
   position: absolute;
   right: 0;
-  height: 5px;
+  height: 4px;
   content: "";
   background-color: #264f0b;
-  transition: width 0.5s;
 }
 .nav .burger-btn__bars {
   width: 100%;
 }
 .nav .burger-btn__bars::after {
   top: 13px;
-  width: 60%;
+  width: 100%;
 }
 .nav .burger-btn__bars::before {
   top: 27px;
-  width: 30%;
-  transition-delay: 0.1s;
+  width: 100%;
 }
 .nav .solo-logo-item-1 {
   position: absolute;
@@ -392,7 +390,7 @@ body {
 }
 .cards__item {
   width: 90%;
-  height: 450px;
+  height: 400px;
   position: relative;
   margin-bottom: 2em;
   border-radius: 15px;
@@ -425,9 +423,9 @@ body {
   transform: translate(50%, -50%);
   width: 150%;
   height: 100%;
-  background-color: #eee;
+  background-color: #fff;
   border-radius: 45%;
-  transition: top 1s;
+  transition: top 1s, border-radius 1s 0.5s;
 }
 .cards__item-title {
   position: absolute;
@@ -447,6 +445,10 @@ body {
 }
 .cards__item-description--desktop {
   display: none;
+}
+.cards__item-description--desktop---element {
+  padding-left: 1em;
+  margin-top: 8rem;
 }
 .cards__item-description--mobile {
   position: relative;
@@ -482,9 +484,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.cards__item:hover .cards__item-text {
-  top: 150%;
-}
 
 @media (max-width: 568px) {
   .nav .mobile-nav .nav__items a {
@@ -493,6 +492,9 @@ body {
   }
   .img-carousel-section {
     margin-top: 20px;
+  }
+  .cards {
+    margin-top: 1rem;
   }
 }
 @media (min-width: 768px) {
@@ -540,6 +542,9 @@ body {
   .cards__item {
     height: 550px;
   }
+  .cards__item-description--mobile .read-more {
+    left: 85%;
+  }
 }
 @media (min-width: 1200px) {
   .nav .solo-logo-item-1 {
@@ -562,7 +567,7 @@ body {
     padding-top: 4em;
   }
   .cards__item {
-    height: 650px;
+    height: 600px;
     cursor: pointer;
   }
   .cards__item-text {
@@ -579,5 +584,9 @@ body {
   }
   .cards__item-description--mobile {
     display: none;
+  }
+  .cards__item:hover .cards__item-text {
+    top: 50%;
+    border-radius: 0%;
   }
 }/*# sourceMappingURL=main.css.map */

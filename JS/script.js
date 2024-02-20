@@ -33,11 +33,13 @@ const offsetTimeout = () => {
 };
 
 const handleNav = () => {
+	document.body.classList.toggle('mobileMenuLock');
 	mbNav.classList.toggle('mobile-nav--active');
 	offsetTimeout();
 
 	allNavItems.forEach((item) => {
 		item.addEventListener('click', () => {
+			document.body.classList.toggle('mobileMenuLock');
 			mbNav.classList.remove('mobile-nav--active');
 			offsetTimeout();
 		});
@@ -90,6 +92,7 @@ const checkScreenWidth = () => {
 		logoImg.setAttribute('src', '../img/logo-circle-pc-apr.png');
 	}
 };
+
 const showCardsDescription = () => {
 	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
 	if (y == 4) {
@@ -98,7 +101,7 @@ const showCardsDescription = () => {
 	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
-		offerSectionOffsetSmall += 450;
+		offerSectionOffsetSmall += 400;
 	} else if (
 		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
 		window.innerWidth >= 768 &&
@@ -121,7 +124,7 @@ const showCardsDescription = () => {
 		}
 	}
 
-	console.log(window.scrollY);
+	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
 };
 
 setTimeout(showAndHidePhotos, 5000);
@@ -132,8 +135,10 @@ window.addEventListener('resize', checkScreenWidth);
 bBtn.addEventListener('click', handleNav);
 document.addEventListener('scroll', showCardsDescription);
 document.addEventListener('DOMContentLoaded', showCardsDescription);
+
 navSpace.addEventListener('focusout', () => {
 	//Kacperek zabłysnął
+	document.body.classList.toggle('mobileMenuLock');
 	mbNav.classList.remove('mobile-nav--active');
 	offsetTimeout();
 	//to zrobił dominik elegancko nie

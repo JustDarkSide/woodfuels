@@ -11,26 +11,40 @@ html {
 	scroll-behavior: smooth;
 	font-size: 62.5%;
 }
+
+.mobileMenuLock {
+	overflow: hidden;
+	// position: fixed;
+	// width: 100%;
+	// height: 100%;
+}
+
 .wrapper {
 	max-width: 1200px;
 	width: 100%;
 	margin: 0 auto;
 }
+
 .hideShadow {
 	animation: hideShadow 0.3s linear forwards;
 }
+
 .showShadow {
 	animation: showShadow 0.3s linear forwards;
 }
+
 .hide {
 	animation: hide 1.4s linear forwards;
 }
+
 .show {
 	animation: show 1.4s linear forwards;
 }
+
 .showCardsText {
-	animation: showCardsText 0.3s linear forwards;
+	animation: showCardsText 0.4s linear forwards;
 }
+
 .offset {
 	position: absolute;
 	top: 0;
@@ -43,7 +57,7 @@ html {
 	opacity: 0;
 }
 .section {
-	padding: 2em 0 30em 0;
+	padding: 5rem 0 30em 0;
 }
 .section-title {
 	font-size: 3rem;
@@ -51,9 +65,10 @@ html {
 	text-transform: uppercase;
 	color: colors.$main-color;
 }
+
 body {
 	position: relative;
-	background-color: colors.$light-white;
+	background-color: colors.$body-color;
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.6rem;
 	min-height: 200vh;
@@ -84,15 +99,8 @@ body {
 
 		&:focus {
 			outline: none;
-			border: 1px solid rgba(255, 255, 255, 0.5);
+			border: 1px solid colors.$main-color;
 			border-radius: 10px;
-		}
-
-		&:hover {
-			.burger-btn__bars::after,
-			.burger-btn__bars::before {
-				width: 100%;
-			}
 		}
 
 		&__box {
@@ -106,24 +114,20 @@ body {
 		&__bars::before {
 			position: absolute;
 			right: 0;
-			height: 5px;
+			height: 4px;
 			content: '';
 			background-color: colors.$main-color;
-			transition: width 0.5s;
 		}
 
 		&__bars {
 			width: 100%;
-
 			&::after {
 				top: 13px;
-				width: 60%;
+				width: 100%;
 			}
-
 			&::before {
 				top: 27px;
-				width: 30%;
-				transition-delay: 0.1s;
+				width: 100%;
 			}
 		}
 	}
@@ -366,7 +370,7 @@ body {
 	}
 	&__item {
 		width: 90%;
-		height: 450px;
+		height: 400px;
 		position: relative;
 		margin-bottom: 2em;
 		border-radius: 15px;
@@ -398,9 +402,9 @@ body {
 			transform: translate(50%, -50%);
 			width: 150%;
 			height: 100%;
-			background-color: colors.$light-white;
+			background-color: colors.$pure-white;
 			border-radius: 45%;
-			transition: top 1s;
+			transition: top 1s, border-radius 1s 0.5s;
 		}
 		&-title {
 			position: absolute;
@@ -419,6 +423,11 @@ body {
 			color: colors.$main-color;
 			&--desktop {
 				display: none;
+
+				&---element {
+					padding-left: 1em;
+					margin-top: 8rem;
+				}
 			}
 			&--mobile {
 				position: relative;
@@ -455,9 +464,6 @@ body {
 					}
 				}
 			}
-		}
-		&:hover .cards__item-text {
-			top: 150%;
 		}
 	}
 }
