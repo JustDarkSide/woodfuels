@@ -104,7 +104,7 @@ html {
 }
 
 .section {
-  padding: 5rem 0 30em 0;
+  padding: 5rem 0 7em 0;
 }
 
 .section-title {
@@ -119,7 +119,6 @@ body {
   background-color: #F5F5F5;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
-  min-height: 200vh;
 }
 
 .nav {
@@ -446,45 +445,128 @@ body {
 .cards__item-description--desktop {
   display: none;
 }
+.cards__item-description--desktop a {
+  font-family: "Montserrat", sans-serif;
+}
+.cards__item-description--desktop .card_info {
+  display: block;
+}
 .cards__item-description--desktop---element {
   padding-left: 1em;
-  margin-top: 8rem;
+  margin-top: 5rem;
+}
+.cards__item-description--desktop---element-second {
+  text-decoration: none;
+  color: #264f0b;
+}
+.cards__item-description--desktop---element-second .content {
+  position: absolute;
+  top: 130%;
+  height: 80px;
+  width: 100%;
+  padding: 1em 0;
+}
+.cards__item-description--desktop---element-second .content .icon_holder {
+  width: 60px;
+  height: 60px;
+}
+.cards__item-description--desktop .product_description {
+  opacity: 0;
+  transition: opacity 0s;
 }
 .cards__item-description--mobile {
   position: relative;
   width: 60%;
   height: 60px;
   padding: 1.5em 0;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+}
+.cards__item-description--mobile .read-more {
+  width: 45px;
+  height: 45px;
+}
+.cards__item-description-btn .btn-main {
+  border-radius: 20px;
   border: 2px solid #264f0b;
   text-align: left;
 }
-.cards__item-description--mobile p {
+.cards__item-description-btn .btn-main p {
   position: absolute;
   top: 50%;
   transform: translate(0, -50%);
   padding-left: 2em;
 }
-.cards__item-description--mobile .read-more {
+.cards__item-description-btn .btn-main .icon_holder {
   position: absolute;
-  width: 45px;
-  height: 45px;
   top: 50%;
   left: 75%;
   transform: translate(0, -50%);
   background-color: #264f0b;
   border-radius: 50%;
 }
-.cards__item-description--mobile .read-more img {
+.cards__item-description-btnImg {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+footer {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  box-shadow: 0px 1px 5px #000;
+}
+footer .footer__left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  color: #264f0b;
+}
+footer .footer__left-logobox img {
+  scale: 0.7;
+}
+footer .footer__left-textbox {
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: none;
+}
+footer .footer__right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #fff;
+  font-size: 1.3rem;
+  background-color: #264f0b;
+}
+footer .footer__right span {
+  display: none;
+}
+footer .footer__right a {
+  text-decoration: underline;
+  color: #fff;
+}
+
+@media (min-width: 390px) and (max-width: 600px) {
+  footer .footer__left-logobox img {
+    scale: 0.9;
+  }
+  footer .footer__right {
+    font-size: 1.5rem;
+  }
+}
 @media (max-width: 568px) {
   .nav .mobile-nav .nav__items a {
     font-size: 1.5em;
@@ -532,6 +614,12 @@ body {
     width: 50px;
     height: 50px;
   }
+  footer .footer__left-logobox img {
+    scale: 1;
+  }
+  footer .footer__right {
+    font-size: 2rem;
+  }
 }
 @media (max-width: 1200px) {
   .nav .pc-nav {
@@ -568,7 +656,6 @@ body {
   }
   .cards__item {
     height: 600px;
-    cursor: pointer;
   }
   .cards__item-text {
     top: 110%;
@@ -585,8 +672,30 @@ body {
   .cards__item-description--mobile {
     display: none;
   }
+  .cards__item:hover .card_info {
+    height: 0;
+    color: #fff;
+  }
+  .cards__item:hover .product_description {
+    opacity: 1;
+  }
   .cards__item:hover .cards__item-text {
     top: 50%;
     border-radius: 0%;
+  }
+  footer .footer__left {
+    justify-content: space-evenly;
+    flex-direction: row;
+  }
+  footer .footer__left-textbox {
+    display: inline;
+    font-size: 14px;
+  }
+  footer .footer__right {
+    font-size: 1.8rem;
+  }
+  footer .footer__right span {
+    font-weight: bold;
+    display: inline;
   }
 }/*# sourceMappingURL=main.css.map */

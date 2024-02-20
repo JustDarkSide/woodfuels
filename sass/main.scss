@@ -1,6 +1,6 @@
-@use './colors' as colors;
-@use './breakpoints' as breakpoints;
-@use './animations' as animations;
+@use "./colors" as colors;
+@use "./breakpoints" as breakpoints;
+@use "./animations" as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -14,9 +14,6 @@ html {
 
 .mobileMenuLock {
 	overflow: hidden;
-	// position: fixed;
-	// width: 100%;
-	// height: 100%;
 }
 
 .wrapper {
@@ -57,7 +54,7 @@ html {
 	opacity: 0;
 }
 .section {
-	padding: 5rem 0 30em 0;
+	padding: 5rem 0 7em 0;
 }
 .section-title {
 	font-size: 3rem;
@@ -69,9 +66,8 @@ html {
 body {
 	position: relative;
 	background-color: colors.$body-color;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.6rem;
-	min-height: 200vh;
 }
 
 .nav {
@@ -115,7 +111,7 @@ body {
 			position: absolute;
 			right: 0;
 			height: 4px;
-			content: '';
+			content: "";
 			background-color: colors.$main-color;
 		}
 
@@ -209,7 +205,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: '';
+				content: "";
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -316,7 +312,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1-big.jpg');
+			background-image: url("../img/carousel-item1-big.jpg");
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
@@ -359,6 +355,7 @@ body {
 }
 // ------cards----------
 .cards {
+	// padding-bottom: 0;
 	width: 100%;
 	&__box {
 		width: 100%;
@@ -376,6 +373,7 @@ body {
 		border-radius: 15px;
 		border: 1px solid colors.$black;
 		overflow: hidden;
+
 		&-photo {
 			width: 100%;
 			height: 100%;
@@ -383,16 +381,16 @@ body {
 			background-size: cover;
 			background-position: center;
 			&--one {
-				background-image: url('../img/firewood-small.jpg');
+				background-image: url("../img/firewood-small.jpg");
 			}
 			&--two {
-				background-image: url('../img/briquette-small.jpg');
+				background-image: url("../img/briquette-small.jpg");
 			}
 			&--three {
-				background-image: url('../img/kindling-small.jpg');
+				background-image: url("../img/kindling-small.jpg");
 			}
 			&--four {
-				background-image: url('../img/pellet-small.jpg');
+				background-image: url("../img/pellet-small.jpg");
 			}
 		}
 		&-text {
@@ -415,59 +413,155 @@ body {
 			color: colors.$main-color;
 			text-align: center;
 		}
+
 		&-description {
 			position: absolute;
 			top: 21%;
 			left: 50%;
 			transform: translate(-50%);
 			color: colors.$main-color;
+
 			&--desktop {
 				display: none;
+				a {
+					font-family: "Montserrat", sans-serif;
+				}
+
+				.card_info {
+					display: block;
+				}
 
 				&---element {
 					padding-left: 1em;
-					margin-top: 8rem;
+					margin-top: 5rem;
+
+					&-second {
+						text-decoration: none;
+						color: colors.$main-color;
+
+						.content {
+							position: absolute;
+							top: 130%;
+							height: 80px;
+							width: 100%;
+							padding: 1em 0;
+
+							.icon_holder {
+								width: 60px;
+								height: 60px;
+							}
+						}
+					}
+				}
+
+				.product_description {
+					opacity: 0;
+					transition: opacity 0s;
 				}
 			}
+
 			&--mobile {
 				position: relative;
 				width: 60%;
 				height: 60px;
 				padding: 1.5em 0;
-				border-top-left-radius: 20px;
-				border-top-right-radius: 20px;
-				border-bottom-left-radius: 20px;
-				border-bottom-right-radius: 20px;
-				border: 2px solid colors.$main-color;
-				text-align: left;
-				p {
-					position: absolute;
-					top: 50%;
-					transform: translate(0, -50%);
-					padding-left: 2em;
-				}
 				.read-more {
-					position: absolute;
 					width: 45px;
 					height: 45px;
-					top: 50%;
-					left: 75%;
-					transform: translate(0, -50%);
-					// border: 3px solid colors.$main-color;
-					background-color: colors.$main-color;
-					border-radius: 50%;
-					img {
+				}
+			}
+
+			&-btn {
+				.btn-main {
+					border-radius: 20px;
+					border: 2px solid colors.$main-color;
+					text-align: left;
+
+					p {
 						position: absolute;
 						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
+						transform: translate(0, -50%);
+						padding-left: 2em;
+					}
+
+					.icon_holder {
+						position: absolute;
+						top: 50%;
+						left: 75%;
+						transform: translate(0, -50%);
+						background-color: colors.$main-color;
+						border-radius: 50%;
 					}
 				}
+			}
+
+			&-btnImg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
 			}
 		}
 	}
 }
 
+footer {
+	position: relative;
+	height: 80px;
+	width: 100%;
+	box-shadow: 0px 1px 5px colors.$black;
+
+	.footer__left {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 50%;
+		height: 100%;
+		background-color: colors.$pure-white;
+		color: colors.$main-color;
+
+		&-logobox {
+			img {
+				scale: 0.7;
+			}
+		}
+		&-textbox {
+			font-size: 0.8rem;
+			font-weight: bold;
+			display: none;
+		}
+	}
+
+	.footer__right {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		color: colors.$pure-white;
+		font-size: 1.3rem;
+		background-color: colors.$main-color;
+
+		span {
+			display: none;
+		}
+
+		a {
+			text-decoration: underline;
+			color: colors.$pure-white;
+		}
+	}
+}
+
+@include breakpoints.xs;
 @include breakpoints.small;
 @include breakpoints.medium;
 @include breakpoints.large;

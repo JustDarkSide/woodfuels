@@ -1,4 +1,22 @@
 @use "./colors" as colors;
+@use "./animations";
+
+@mixin xs {
+	@media (min-width: 390px) and (max-width: 600px) {
+		footer {
+			.footer__left {
+				&-logobox {
+					img {
+						scale: 0.9;
+					}
+				}
+			}
+			.footer__right {
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
 @mixin small {
 	@media (max-width: 568px) {
 		.nav {
@@ -63,6 +81,19 @@
 				}
 			}
 		}
+		footer {
+			.footer__left {
+				&-logobox {
+					img {
+						scale: 1;
+					}
+				}
+			}
+
+			.footer__right {
+				font-size: 2rem;
+			}
+		}
 	}
 }
 @mixin large {
@@ -122,7 +153,6 @@
 			&__item {
 				// width: 30%;
 				height: 600px;
-				cursor: pointer;
 				&-text {
 					top: 110%;
 				}
@@ -138,9 +168,37 @@
 						display: none;
 					}
 				}
+
+				&:hover .card_info {
+					height: 0;
+					color: colors.$pure-white;
+				}
+
+				&:hover .product_description {
+					opacity: 1;
+				}
+
 				&:hover .cards__item-text {
 					top: 50%;
 					border-radius: 0%;
+				}
+			}
+		}
+
+		footer {
+			.footer__left {
+				justify-content: space-evenly;
+				flex-direction: row;
+				&-textbox {
+					display: inline;
+					font-size: 14px;
+				}
+			}
+			.footer__right {
+				font-size: 1.8rem;
+				span {
+					font-weight: bold;
+					display: inline;
 				}
 			}
 		}
