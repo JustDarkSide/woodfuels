@@ -16,7 +16,14 @@ let offerSectionOffsetSmall = carouselSectionHeightSmall - 60;
 let offerSectionOffsetMediumAndUnusual =
 	carouselSectionHeightMediumAndUnusual - 180;
 // JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
-
+const mobileOfferItem = document.querySelector(
+	'.mb-nav__item--mainDropdownItem'
+);
+const plusIcon = document.querySelector('.mb-nav__item-icon');
+const dropdownSectionMobile = document.querySelector('.dropdown__mobile');
+const dropdownListMobile = document.querySelector(
+	'.mb-nav__item .dropdown__mobile-list'
+);
 let i = 1;
 let y = 0;
 //-------------NAV--------------
@@ -39,9 +46,11 @@ const handleNav = () => {
 
 	allNavItems.forEach((item) => {
 		item.addEventListener('click', () => {
-			document.body.classList.toggle('mobileMenuLock');
-			mbNav.classList.remove('mobile-nav--active');
-			offsetTimeout();
+			if (!item.classList.contains('dropdown__mobile')) {
+				document.body.classList.toggle('mobileMenuLock');
+				mbNav.classList.remove('mobile-nav--active');
+				offsetTimeout();
+			}
 		});
 	});
 };
@@ -127,6 +136,19 @@ const showCardsDescription = () => {
 	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
 };
 
+const showDropdownElementsMobile = () => {
+	dropdownListMobile.classList.toggle('dropdown__mobile-list--active');
+	plusIcon.classList.toggle('showOfferElements');
+	dropdownSectionMobile.classList.toggle('dropdown__mobile--active');
+	// if (plusIcon.classList.contains('showOfferElements')) {
+	// 	plusIcon.classList.remove('showOfferElements');
+	// 	plusIcon.classList.add('hideOfferElements');
+	// } else {
+	// 	plusIcon.classList.add('showOfferElements');
+	// 	plusIcon.classList.remove('hideOfferElements');
+	// }
+};
+
 setTimeout(showAndHidePhotos, 5000);
 
 //--------------EVENTS----------------
@@ -135,11 +157,12 @@ window.addEventListener('resize', checkScreenWidth);
 bBtn.addEventListener('click', handleNav);
 document.addEventListener('scroll', showCardsDescription);
 document.addEventListener('DOMContentLoaded', showCardsDescription);
-
+plusIcon.addEventListener('click', showDropdownElementsMobile);
+mobileOfferItem.addEventListener('click', showDropdownElementsMobile);
 navSpace.addEventListener('focusout', () => {
 	//Kacperek zabłysnął
 	document.body.classList.toggle('mobileMenuLock');
-	mbNav.classList.remove('mobile-nav--active');
+	// mbNav.classList.remove('mobile-nav--active');
 	offsetTimeout();
 	//to zrobił dominik elegancko nie
 });
