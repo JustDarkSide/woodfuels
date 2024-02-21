@@ -467,6 +467,7 @@ main .mapleleaf-png--first {
 main .mapleleaf-png--second {
   top: 40%;
   left: 75%;
+  transform: rotateY(180deg);
 }
 main .mapleleaf-png--third {
   top: 90%;
@@ -572,12 +573,24 @@ main .mapleleaf-png--third {
   transition: opacity 0s;
 }
 .cards__item-description--mobile {
-  position: relative;
   width: 60%;
   height: 60px;
-  padding: 1.5em 0;
 }
-.cards__item-description--mobile .read-more {
+.cards__item-description-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #264f0b;
+  border: 2px solid #264f0b;
+  border-radius: 20px;
+}
+.cards__item-description-btn p {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  padding-left: 2em;
+}
+.cards__item-description-btn .read-more {
   width: 45px;
   height: 45px;
   position: absolute;
@@ -585,25 +598,14 @@ main .mapleleaf-png--third {
   left: 80%;
   transform: translate(0, -50%);
 }
-.cards__item-description-btn .btn-main {
-  border-radius: 20px;
-  border: 2px solid #264f0b;
-  text-align: left;
-}
-.cards__item-description-btn .btn-main p {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  padding-left: 2em;
-}
-.cards__item-description-btn .btn-main .icon_holder {
+.cards__item-description-btn .icon_holder {
   position: absolute;
   background-color: #264f0b;
   border-radius: 50%;
 }
-.cards__item-description-btn .btn-main .icon_holder-desktop {
+.cards__item-description-btn .icon_holder-desktop {
   top: 50%;
-  left: 75%;
+  left: 80%;
   transform: translate(0, -50%);
 }
 .cards__item-description-btnImg {

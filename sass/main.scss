@@ -445,6 +445,7 @@ main {
 		&--second {
 			top: 40%;
 			left: 75%;
+			transform: rotateY(180deg);
 		}
 		&--third {
 			top: 90%;
@@ -521,6 +522,7 @@ main {
 
 			&--desktop {
 				display: none;
+
 				a {
 					font-family: "Montserrat", sans-serif;
 				}
@@ -559,46 +561,44 @@ main {
 			}
 
 			&--mobile {
-				position: relative;
 				width: 60%;
 				height: 60px;
-				padding: 1.5em 0;
+			}
 
+			&-btn {
+				display: block;
+				width: 100%;
+				height: 100%;
+				color: colors.$main-color;
+				border: 2px solid colors.$main-color;
+				border-radius: 20px;
+
+				p {
+					position: absolute;
+					top: 50%;
+					transform: translate(0, -50%);
+					padding-left: 2em;
+				}
+				
 				.read-more {
 					width: 45px;
 					height: 45px;
 					position: absolute;
 					top: 50%;
-					left:80%;
+					left: 80%;
 					transform: translate(0, -50%);
 				}
-			}
-
-			&-btn {
-				.btn-main {
-					border-radius: 20px;
-					border: 2px solid colors.$main-color;
-					text-align: left;
-
-					p {
-						position: absolute;
-						top: 50%;
-						transform: translate(0, -50%);
-						padding-left: 2em;
-					}
 
 				.icon_holder {
-						position: absolute;
-						background-color: colors.$main-color;
-						border-radius: 50%;
-					&-desktop{
+					position: absolute;
+					background-color: colors.$main-color;
+					border-radius: 50%;
+
+					&-desktop {
 						top: 50%;
-						left: 75%;
+						left: 80%;
 						transform: translate(0, -50%);
 					}
-					}
-
-
 				}
 			}
 
@@ -606,12 +606,11 @@ main {
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%,-50%);
 			}
 		}
 	}
 }
-
 footer {
 	position: relative;
 	height: 80px;
