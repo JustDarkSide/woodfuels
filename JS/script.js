@@ -143,7 +143,6 @@ const showCardsDescription = () => {
 
 const showDropdownElementsMobile = () => {
 	dropdownListMobile.classList.toggle('dropdown__mobile-list--active');
-	dropdownMobileIcon.classList.toggle('showOfferElements');
 	dropdownMobilePlusIcon.classList.toggle('showProperMobileDropdownIcon');
 	dropdownMobileMinusIcon.classList.toggle('showProperMobileDropdownIcon');
 	dropdownSectionMobile.classList.toggle('dropdown__mobile--active');

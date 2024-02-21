@@ -41,9 +41,6 @@ html {
 .showCardsText {
 	animation: showCardsText 0.4s linear forwards;
 }
-.showOfferElements {
-	transform: translateY(calc(32vh));
-}
 
 .offset {
 	position: absolute;
@@ -182,7 +179,7 @@ body {
 				}
 				.dropdown__mobile {
 					position: relative;
-					transition: margin-bottom 0.5s;
+					transition: margin-bottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 					&--active {
 						margin-bottom: 30vh;
 					}
@@ -194,7 +191,6 @@ body {
 					}
 					&-icon {
 						position: relative;
-						transition: transform 0.5s;
 						margin-left: 1.9em;
 						a {
 							display: block;
@@ -243,7 +239,7 @@ body {
 						transform: scaleY(0);
 						transform-origin: top;
 						list-style-type: none;
-						transition: transform 0.5s;
+						transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 						&-item {
 							a {
 								font-size: 1.8rem;

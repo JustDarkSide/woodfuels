@@ -91,10 +91,6 @@ html {
   animation: showCardsText 0.4s linear forwards;
 }
 
-.showOfferElements {
-  transform: translateY(32vh);
-}
-
 .offset {
   position: absolute;
   top: 0;
@@ -226,7 +222,7 @@ body {
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile {
   position: relative;
-  transition: margin-bottom 0.5s;
+  transition: margin-bottom 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile--active {
   margin-bottom: 30vh;
@@ -239,7 +235,6 @@ body {
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon {
   position: relative;
-  transition: transform 0.5s;
   margin-left: 1.9em;
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon a {
@@ -285,7 +280,7 @@ body {
   transform: scaleY(0);
   transform-origin: top;
   list-style-type: none;
-  transition: transform 0.5s;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-list--active {
   transform: scaleY(1);
