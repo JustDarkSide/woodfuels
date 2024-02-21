@@ -40,23 +40,38 @@
 
 			<div class="mobile-nav">
 				<div class="nav__items">
-					<div class="mb-nav__item dropdown__mobile">
-						<div class="mb-nav__item-box">
-							<a href="#offer" class="mb-nav__item--mainDropdownItem">Offer </a>
-							<div class="mb-nav__item-icon">
-								<a href="#">
-									<div class="show-more-icon">
-										<img src="../img/plus.svg" alt="" />
-									</div>
+					<div class="mb-nav__item">
+						<div class="dropdown__mobile">
+							<div class="dropdown__mobile-LinkAndIconBox">
+								<a href="#offer" class="dropdown__mobile--mainDropdownItem"
+									>Offer
 								</a>
+								<div class="dropdown__mobile-icon">
+									<a href="#offer">
+										<div class="show-more-icon">
+											<img
+												src="../img/plus-small.svg"
+												class="plus showProperMobileDropdownIcon"
+												alt="" />
+											<img src="../img/minus-small.svg" class="minus" alt="" />
+										</div>
+									</a>
+								</div>
 							</div>
-						</div>
-
-						<div class="dropdown__mobile-list">
-							<li class="dropdown__mobile-list-item"><a href="">-pellet</a></li>
-							<li class="dropdown__mobile-list-item"><a href="">-pellet</a></li>
-							<li class="dropdown__mobile-list-item"><a href="">-pellet</a></li>
-							<li class="dropdown__mobile-list-item"><a href="">-pellet</a></li>
+							<div class="dropdown__mobile-list">
+								<div class="dropdown__mobile-list-item">
+									<a href="#firewood">-Firewood</a>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="#kindling">-Kindling</a>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="#briquette">-Briquette</a>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="#pellet">-Pellet</a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="mb-nav__item">
@@ -80,10 +95,18 @@
 						<a href="#offer">Offer</a>
 						<div class="dropdown">
 							<ul class="dropdown__list">
-								<li class="dropdown__list-item"><a href="">firewood</a></li>
-								<li class="dropdown__list-item"><a href="">Kindling</a></li>
-								<li class="dropdown__list-item"><a href="">briquette</a></li>
-								<li class="dropdown__list-item"><a href="">Pellet</a></li>
+								<li class="dropdown__list-item">
+									<a href="#firewood">firewood</a>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="#kindling">Kindling</a>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="#briquette">briquette</a>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="#pellet">Pellet</a>
+								</li>
 							</ul>
 						</div>
 					</div>
@@ -128,7 +151,7 @@
 			<div class="cards section" id="offer">
 				<h2 class="section-title">Oferta</h2>
 				<div class="cards__box wrapper">
-					<div class="cards__item">
+					<div class="cards__item" id="firewood">
 						<div class="cards__item-photo cards__item-photo--one"></div>
 						<div class="cards__item-text">
 							<h3 class="cards__item-title">Firewood</h3>
@@ -153,7 +176,7 @@
 						</div>
 					</div>
 
-					<div class="cards__item">
+					<div class="cards__item" id="briquette">
 						<div class="cards__item-photo cards__item-photo--two"></div>
 						<div class="cards__item-text">
 							<h3 class="cards__item-title">Briquette</h3>
@@ -178,7 +201,7 @@
 						</div>
 					</div>
 
-					<div class="cards__item">
+					<div class="cards__item" id="kindling">
 						<div class="cards__item-photo cards__item-photo--three"></div>
 						<div class="cards__item-text">
 							<h3 class="cards__item-title">Kindling</h3>
@@ -202,7 +225,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="cards__item">
+					<div class="cards__item" id="pellet">
 						<div class="cards__item-photo cards__item-photo--four"></div>
 						<div class="cards__item-text">
 							<h3 class="cards__item-title">Pellet</h3>

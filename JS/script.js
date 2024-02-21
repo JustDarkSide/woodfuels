@@ -16,13 +16,18 @@ let offerSectionOffsetSmall = carouselSectionHeightSmall - 60;
 let offerSectionOffsetMediumAndUnusual =
 	carouselSectionHeightMediumAndUnusual - 180;
 // JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
-const mobileOfferItem = document.querySelector(
-	'.mb-nav__item--mainDropdownItem'
+const mobileOfferMainItem = document.querySelector(
+	'.dropdown__mobile--mainDropdownItem'
 );
-const plusIcon = document.querySelector('.mb-nav__item-icon');
+const dropdownMobileIcon = document.querySelector('.dropdown__mobile-icon');
 const dropdownSectionMobile = document.querySelector('.dropdown__mobile');
 const dropdownListMobile = document.querySelector(
-	'.mb-nav__item .dropdown__mobile-list'
+	'.dropdown__mobile .dropdown__mobile-list'
+);
+const dropdownMobilePlusIcon = document.querySelector('.plus');
+const dropdownMobileMinusIcon = document.querySelector('.minus');
+const dropdownMobileItems = document.querySelectorAll(
+	'.dropdown__mobile-list-item'
 );
 let i = 1;
 let y = 0;
@@ -46,11 +51,18 @@ const handleNav = () => {
 
 	allNavItems.forEach((item) => {
 		item.addEventListener('click', () => {
-			if (!item.classList.contains('dropdown__mobile')) {
-				document.body.classList.toggle('mobileMenuLock');
+			if (!item.firstElementChild.classList.contains('dropdown__mobile')) {
 				mbNav.classList.remove('mobile-nav--active');
+				document.body.classList.remove('mobileMenuLock');
 				offsetTimeout();
 			}
+		});
+	});
+	dropdownMobileItems.forEach((item) => {
+		item.addEventListener('click', () => {
+			mbNav.classList.remove('mobile-nav--active');
+			document.body.classList.remove('mobileMenuLock');
+			offsetTimeout();
 		});
 	});
 };
@@ -71,17 +83,6 @@ const showAndHidePhotos = () => {
 			headerImage.style.backgroundImage =
 				"url('" + `../img/carousel-item${i}-small.jpg')`;
 		}
-		// if (window.innerWidth <= 768 && i == 2) {
-		// 	headerImage.style.backgroundPosition = '0 0';
-		// } else if (window.innerWidth >= 1200 && i == 2) {
-		// 	headerImage.style.backgroundPosition = '0 -110px';
-		// } else if (window.innerWidth >= 1200 && i == 4) {
-		// 	headerImage.style.backgroundPosition = '0 -300px';
-		// } else if (window.innerWidth >= 1200 && i == 5) {
-		// 	headerImage.style.backgroundPosition = '0 -200px';
-		// } else {
-		// 	headerImage.style.backgroundPosition = '0 0';
-		// }
 	}, 1300);
 	setTimeout(() => {
 		headerImage.classList.toggle('show');
@@ -93,8 +94,12 @@ const showAndHidePhotos = () => {
 const checkScreenWidth = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = 'calc(60vh - 120px)';
+		dropdownMobilePlusIcon.setAttribute('src', '../img/plus-medium.svg');
+		dropdownMobileMinusIcon.setAttribute('src', '../img/minus-medium.svg');
 	} else {
 		header.style.height = 'calc(60vh - 90px)';
+		dropdownMobilePlusIcon.setAttribute('src', '../img/plus-small.svg');
+		dropdownMobileMinusIcon.setAttribute('src', '../img/minus-small.svg');
 	}
 
 	if (window.innerWidth <= 400) {
@@ -138,15 +143,10 @@ const showCardsDescription = () => {
 
 const showDropdownElementsMobile = () => {
 	dropdownListMobile.classList.toggle('dropdown__mobile-list--active');
-	plusIcon.classList.toggle('showOfferElements');
+	dropdownMobileIcon.classList.toggle('showOfferElements');
+	dropdownMobilePlusIcon.classList.toggle('showProperMobileDropdownIcon');
+	dropdownMobileMinusIcon.classList.toggle('showProperMobileDropdownIcon');
 	dropdownSectionMobile.classList.toggle('dropdown__mobile--active');
-	// if (plusIcon.classList.contains('showOfferElements')) {
-	// 	plusIcon.classList.remove('showOfferElements');
-	// 	plusIcon.classList.add('hideOfferElements');
-	// } else {
-	// 	plusIcon.classList.add('showOfferElements');
-	// 	plusIcon.classList.remove('hideOfferElements');
-	// }
 };
 
 setTimeout(showAndHidePhotos, 5000);
@@ -157,11 +157,11 @@ window.addEventListener('resize', checkScreenWidth);
 bBtn.addEventListener('click', handleNav);
 document.addEventListener('scroll', showCardsDescription);
 document.addEventListener('DOMContentLoaded', showCardsDescription);
-plusIcon.addEventListener('click', showDropdownElementsMobile);
-mobileOfferItem.addEventListener('click', showDropdownElementsMobile);
+dropdownMobileIcon.addEventListener('click', showDropdownElementsMobile);
+mobileOfferMainItem.addEventListener('click', showDropdownElementsMobile);
 navSpace.addEventListener('focusout', () => {
 	//Kacperek zabłysnął
-	document.body.classList.toggle('mobileMenuLock');
+	// document.body.classList.remove('mobileMenuLock');
 	// mbNav.classList.remove('mobile-nav--active');
 	offsetTimeout();
 	//to zrobił dominik elegancko nie

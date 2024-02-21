@@ -7,6 +7,20 @@
 					.mb-nav__item {
 						margin-top: 2%;
 						margin-bottom: 2%;
+						a {
+							padding: 15px 15px 15px 0;
+							font-size: 2rem;
+						}
+						.dropdown__mobile {
+							&--mainDropdownItem {
+								padding: 15px 45px 15px 0;
+							}
+							&-icon {
+								a {
+									padding: 10px 20px;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -23,6 +37,32 @@
 	@media (min-width: 768px) {
 		.nav {
 			height: 120px;
+			.mobile-nav {
+				.nav__items {
+					.mb-nav__item {
+						a {
+							font-size: 3.2rem;
+						}
+						.dropdown__mobile {
+							&-icon {
+								margin-left: 4em;
+								.show-more-icon {
+									width: 30px;
+									height: 30px;
+								}
+							}
+							&-list {
+								&-item {
+									a {
+										padding: 1em 2em 1em 0;
+										font-size: 2.5rem;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 		.header {
 			&__carousel {
