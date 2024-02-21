@@ -759,7 +759,15 @@ footer .footer__right a {
   .cards__item {
     height: 550px;
   }
-  .cards__item-description--mobile .read-more {
+  .cards__item-description-btn {
+    top: 15%;
+    position: absolute;
+    height: 70px;
+  }
+  .cards__item-description-btn p {
+    font-size: 18px;
+  }
+  .cards__item-description-btn .read-more {
     left: 85%;
   }
 }

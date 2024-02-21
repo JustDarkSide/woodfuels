@@ -151,7 +151,13 @@
 			&__item {
 				height: 550px;
 				&-description {
-					&--mobile {
+					&-btn {
+						p {
+							font-size: 18px;
+						}
+						top: 15%;
+						position: absolute;
+						height: 70px;
 						.read-more {
 							left: 85%;
 						}
