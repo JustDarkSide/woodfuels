@@ -455,6 +455,7 @@ main {
   position: relative;
 }
 main .mapleleaf-png {
+  display: none;
   position: absolute;
   height: 300px;
   opacity: 0.2;
@@ -579,6 +580,10 @@ main .mapleleaf-png--third {
 .cards__item-description--mobile .read-more {
   width: 45px;
   height: 45px;
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(0, -50%);
 }
 .cards__item-description-btn .btn-main {
   border-radius: 20px;
@@ -593,11 +598,13 @@ main .mapleleaf-png--third {
 }
 .cards__item-description-btn .btn-main .icon_holder {
   position: absolute;
+  background-color: #264f0b;
+  border-radius: 50%;
+}
+.cards__item-description-btn .btn-main .icon_holder-desktop {
   top: 50%;
   left: 75%;
   transform: translate(0, -50%);
-  background-color: #264f0b;
-  border-radius: 50%;
 }
 .cards__item-description-btnImg {
   position: absolute;
@@ -817,5 +824,8 @@ footer .footer__right a {
   footer .footer__right span {
     font-weight: bold;
     display: inline;
+  }
+  main .mapleleaf-png {
+    display: block;
   }
 }/*# sourceMappingURL=main.css.map */
