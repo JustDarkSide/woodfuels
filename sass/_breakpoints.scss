@@ -1,5 +1,5 @@
-@use './colors' as colors;
-@use './animations';
+@use "./colors" as colors;
+@use "./animations";
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
@@ -112,6 +112,8 @@
 					&--mobile {
 						top: 22%;
 						padding: 2em 0;
+					}
+					&-btn {
 						.read-more {
 							width: 50px;
 							height: 50px;
@@ -135,15 +137,6 @@
 		}
 	}
 }
-@mixin large {
-	@media (max-width: 1200px) {
-		.nav {
-			.pc-nav {
-				display: none;
-			}
-		}
-	}
-}
 @mixin unusual {
 	@media (min-width: 1000px) {
 		.cards {
@@ -154,14 +147,21 @@
 						p {
 							font-size: 18px;
 						}
-						top: 15%;
-						position: absolute;
 						height: 70px;
 						.read-more {
 							left: 85%;
 						}
 					}
 				}
+			}
+		}
+	}
+}
+@mixin large {
+	@media (max-width: 1200px) {
+		.nav {
+			.pc-nav {
+				display: none;
 			}
 		}
 	}
