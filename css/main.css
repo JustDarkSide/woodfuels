@@ -456,7 +456,7 @@ body {
 }
 
 main {
-  min-height: 90vh;
+  min-height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -532,10 +532,10 @@ main .mapleleaf-png--third {
 }
 .cards__item-title {
   position: absolute;
-  top: 7%;
+  top: 6%;
   left: 50%;
   transform: translate(-50%);
-  font-size: 3rem;
+  font-size: 2.7rem;
   color: #264f0b;
   text-align: center;
 }
@@ -735,7 +735,7 @@ footer .footer__right a {
     height: 500px;
   }
   .cards__item-title {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   .cards__item-description {
     font-size: 1.7rem;
@@ -764,6 +764,9 @@ footer .footer__right a {
   .cards__item {
     height: 550px;
   }
+  .cards__item-title {
+    font-size: 3.2rem;
+  }
   .cards__item-description-btn {
     height: 70px;
   }
@@ -790,6 +793,12 @@ footer .footer__right a {
   }
   .header__carousel-text p {
     font-size: 3rem;
+  }
+  main {
+    min-height: 100vh;
+  }
+  main .mapleleaf-png {
+    display: block;
   }
   .cards__box {
     padding-top: 4em;
@@ -837,11 +846,5 @@ footer .footer__right a {
   footer .footer__right span {
     font-weight: bold;
     display: inline;
-  }
-  main {
-    min-height: 10vh;
-  }
-  main .mapleleaf-png {
-    display: block;
   }
 }/*# sourceMappingURL=main.css.map */

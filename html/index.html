@@ -1,332 +1,413 @@
 <!DOCTYPE html>
 <html lang="pl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Every kind off a firewood you need" />
+		<meta
+			name="keywords"
+			content="Nordwit Nordwit Lech Kowalewski Paliwa Drzewne, Drewno, Drewno kominkowe, Piece, Piec, Koza, Brykiet, Pelet, Skrzynie drewna, woodfuels, briquettes, firewood" />
+		<meta name="author" content="Mijalski Dominik, Zając Kacper" />
 
-	<meta name="description" content="Every kind off a firewood you need" />
-	<meta name="keywords"
-		content="Nordwit Nordwit Lech Kowalewski Paliwa Drzewne, Drewno, Drewno kominkowe, Piece, Piec, Koza, Brykiet, Pelet, Skrzynie drewna, woodfuels, briquettes, firewood" />
-	<meta name="author" content="Mijalski Dominik, Zając Kacper" />
+		<title>Paliwa Drzewne</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+			rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css" />
+	</head>
 
-	<title>Paliwa Drzewne</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-	<link rel="stylesheet" href="../css/main.css" />
-</head>
+	<body id="top">
+		<div class="offset"></div>
 
-<body id="top">
-	<div class="offset"></div>
+		<nav class="nav">
+			<button class="burger-btn">
+				<div class="burger-btn__box">
+					<div class="burger-btn__bars"></div>
+				</div>
+			</button>
 
-	<nav class="nav">
-		<button class="burger-btn">
-			<div class="burger-btn__box">
-				<div class="burger-btn__bars"></div>
+			<div class="solo-logo-item-1">
+				<a href="#top"
+					><img
+						class="solo-logo-item-img"
+						src="../img/logo-width.png"
+						alt="logo"
+				/></a>
 			</div>
-		</button>
 
-		<div class="solo-logo-item-1">
-			<a href="#top"><img class="solo-logo-item-img" src="../img/logo-width.png" alt="logo" /></a>
-		</div>
+			<div class="mobile-nav">
+				<div class="nav__items">
+					<div class="mb-nav__item mb-nav__item-first">
+						<div class="dropdown__mobile">
+							<div class="dropdown__mobile-LinkAndIconBox">
+								<a href="#" class="dropdown__mobile--mainDropdownItem"
+									>Offer
+								</a>
+								<div class="dropdown__mobile-icon">
+									<a href="#">
+										<div class="show-more-icon">
+											<img
+												src="../img/plus-small.svg"
+												class="plus showProperMobileDropdownIcon"
+												alt="" />
+											<img src="../img/minus-small.svg" class="minus" alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="dropdown__mobile-list">
+								<div class="dropdown__mobile-list-item">
+									<a href="../html/firewood/firewood_class.html">-Firewood ➤</a>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="../html/kindling/kindling_class.html">-Kindling ➤</a>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="../html/briquettes/briquettes_class.html"
+										>-Briquette ➤</a
+									>
+								</div>
+								<div class="dropdown__mobile-list-item">
+									<a href="../html/pellets/pellets_class.html">-Pellet ➤</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="mb-nav__item">
+						<a href="#top" class="">HOME</a>
+					</div>
+					<div class="mb-nav__item">
+						<a href="#about" class="">About</a>
+					</div>
+					<div class="mb-nav__item">
+						<a href="#contact" class="">Contact</a>
+					</div>
+				</div>
+			</div>
 
-		<div class="mobile-nav">
-			<div class="nav__items">
-				<div class="mb-nav__item mb-nav__item-first">
-					<div class="dropdown__mobile">
-						<div class="dropdown__mobile-LinkAndIconBox">
-							<a href="#" class="dropdown__mobile--mainDropdownItem">Offer
-							</a>
-							<div class="dropdown__mobile-icon">
-								<a href="#">
-									<div class="show-more-icon">
-										<img src="../img/plus-small.svg" class="plus showProperMobileDropdownIcon"
+			<div class="pc-nav nav">
+				<div class="pc-nav-box wrapper">
+					<a class="pc-nav__item pc-nav__item--animation" href="#top">Home</a>
+					<div
+						class="pc-nav__item pc-nav__item--animation pc-nav__item--dropdown"
+						href="#offer">
+						<a href="#offer">Offer</a>
+						<div class="dropdown">
+							<ul class="dropdown__list">
+								<li class="dropdown__list-item">
+									<a href="../html/firewood/firewood_class.html">firewood</a>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="../html/kindling/kindling_class.html">Kindling</a>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="../html/briquettes/briquettes_class.html"
+										>briquette</a
+									>
+								</li>
+								<li class="dropdown__list-item">
+									<a href="../html/pellets/pellets_class.html">Pellet</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- pc-nav__item--dropdown -->
+					<div class="pc-nav__item pc-nav__logo-item">
+						<a href="#top">
+							<div class="logo-item-1">
+								<img src="../img/logo-circle-pc-apr.png" alt="logo" />
+							</div>
+							<div class="logo-item-2">
+								<img src="../img/logo-nordwit-sign.png" alt="logo" />
+							</div>
+						</a>
+					</div>
+
+					<a class="pc-nav__item pc-nav__item--animation" href="#contact"
+						>Contact</a
+					>
+					<a class="pc-nav__item pc-nav__item--animation" href="#about"
+						>ABOUT</a
+					>
+				</div>
+			</div>
+		</nav>
+
+		<header class="header">
+			<div class="header__carousel">
+				<div
+					class="header__carousel-photo header__carousel-photo--photo1 show"></div>
+
+				<div class="header__carousel-shadow"></div>
+				<div class="header__carousel-box wrapper">
+					<div class="header__carousel-text">
+						<h1>Lorem ipsum dolor sit amet consectetur.</h1>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<img
+				class="mapleleaf-png mapleleaf-png--first"
+				src="../img/maple_leaf.png"
+				alt="" />
+			<img
+				class="mapleleaf-png mapleleaf-png--second"
+				src="../img/maple_leaf.png"
+				alt="" />
+			<img
+				class="mapleleaf-png mapleleaf-png--third"
+				src="../img/maple_leaf.png"
+				alt="" />
+
+			<div class="cards section" id="offer">
+				<h2 class="section-title">Oferta</h2>
+				<div class="cards__box wrapper">
+					<div class="cards__item" id="firewood">
+						<div class="cards__item-photo cards__item-photo--one"></div>
+						<div class="cards__item-text">
+							<h3 class="cards__item-title">Firewood</h3>
+							<div
+								class="cards__item-description cards__item-description--desktop">
+								<p class="card_info">
+									Najedź na kartę aby zobaczyć więcej informacji
+								</p>
+								<p class="product_description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+									sapiente velit doloribus. Facilis cupiditate nulla vero modi
+									veniam, veritatis accusamus!
+								</p>
+								<ul class="cards__item-description--desktop---element">
+									<li>Cecha nr 1</li>
+									<li>Cecha nr 2</li>
+									<li>Cecha nr 3</li>
+									<li>Cecha nr 4</li>
+									<li>Cecha nr 5</li>
+								</ul>
+								<div class="cards__item-description--desktop---element-second">
+									<a
+										href="../html/firewood/firewood_class.html"
+										class="content cards__item-description-btn">
+										<p>Przejdź dalej</p>
+										<div class="icon_holder icon_holder-desktop">
+											<img
+												class="cards__item-description-btnImg"
+												src="../img/arrow-right.svg"
+												alt="" />
+										</div>
+									</a>
+								</div>
+							</div>
+							<div
+								class="cards__item-description cards__item-description--mobile">
+								<a
+									href="../html/firewood/firewood_class.html"
+									class="cards__item-description-btn">
+									<p>Zobacz więcej</p>
+									<div class="icon_holder read-more">
+										<img
+											class="cards__item-description-btnImg"
+											src="../img/arrow-right.svg"
 											alt="" />
-										<img src="../img/minus-small.svg" class="minus" alt="" />
 									</div>
 								</a>
 							</div>
 						</div>
-						<div class="dropdown__mobile-list">
-							<div class="dropdown__mobile-list-item">
-								<a href="../html/firewood/firewood_class.html">-Firewood ➤</a>
-							</div>
-							<div class="dropdown__mobile-list-item">
-								<a href="../html/kindling/kindling_class.html">-Kindling ➤</a>
-							</div>
-							<div class="dropdown__mobile-list-item">
-								<a href="../html/briquettes/briquettes_class.html">-Briquette ➤</a>
-							</div>
-							<div class="dropdown__mobile-list-item"><a href="../html/pellets/pellets_class.html">-Pellet
-									➤</a>
-							</div>
-						</div>
 					</div>
-				</div>
-				<div class="mb-nav__item">
-					<a href="#top" class="">HOME</a>
-				</div>
-				<div class="mb-nav__item">
-					<a href="#about" class="">About</a>
-				</div>
-				<div class="mb-nav__item">
-					<a href="#contact" class="">Contact</a>
-				</div>
-			</div>
-		</div>
 
-		<div class="pc-nav nav">
-			<div class="pc-nav-box wrapper">
-				<a class="pc-nav__item pc-nav__item--animation" href="#top">Home</a>
-				<div class="pc-nav__item pc-nav__item--animation pc-nav__item--dropdown" href="#offer">
-					<a href="#offer">Offer</a>
-					<div class="dropdown">
-						<ul class="dropdown__list">
-							<li class="dropdown__list-item">
-								<a href="../html/firewood/firewood_class.html">firewood</a>
-							</li>
-							<li class="dropdown__list-item">
-								<a href="../html/kindling/kindling_class.html">Kindling</a>
-							</li>
-							<li class="dropdown__list-item">
-								<a href="../html/briquettes/briquettes_class.html">briquette</a>
-							</li>
-							<li class="dropdown__list-item">
-								<a href="../html/pellets/pellets_class.html">Pellet</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<!-- pc-nav__item--dropdown -->
-				<div class="pc-nav__item pc-nav__logo-item">
-					<a href="#top">
-						<div class="logo-item-1">
-							<img src="../img/logo-circle-pc-apr.png" alt="logo" />
-						</div>
-						<div class="logo-item-2">
-							<img src="../img/logo-nordwit-sign.png" alt="logo" />
-						</div>
-					</a>
-				</div>
-
-				<a class="pc-nav__item pc-nav__item--animation" href="#contact">Contact</a>
-				<a class="pc-nav__item pc-nav__item--animation" href="#about">ABOUT</a>
-			</div>
-		</div>
-	</nav>
-
-	<header class="header">
-		<div class="header__carousel">
-			<div class="header__carousel-photo header__carousel-photo--photo1 show"></div>
-
-			<div class="header__carousel-shadow"></div>
-			<div class="header__carousel-box wrapper">
-				<div class="header__carousel-text">
-					<h1>Lorem ipsum dolor sit amet consectetur.</h1>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<main>
-		<img class="mapleleaf-png mapleleaf-png--first" src="../img/maple_leaf.png" alt="">
-		<img class="mapleleaf-png mapleleaf-png--second" src="../img/maple_leaf.png" alt="">
-		<img class="mapleleaf-png mapleleaf-png--third" src="../img/maple_leaf.png" alt="">
-
-
-		<div class="cards section" id="offer">
-			<h2 class="section-title">Oferta</h2>
-			<div class="cards__box wrapper">
-
-				<div class="cards__item" id="firewood">
-					<div class="cards__item-photo cards__item-photo--one"></div>
-					<div class="cards__item-text">
-						<h3 class="cards__item-title">Firewood</h3>
-						<div class="cards__item-description 
-						cards__item-description--desktop">
-							<p class="card_info">Najedź na kartę aby zobaczyć więcej informacji</p>
-							<p class="product_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Autem sapiente velit doloribus. Facilis cupiditate nulla vero modi veniam, veritatis
-								accusamus!</p>
-							<ul class="cards__item-description--desktop---element">
-								<li>Cecha nr 1</li>
-								<li>Cecha nr 2</li>
-								<li>Cecha nr 3</li>
-								<li>Cecha nr 4</li>
-								<li>Cecha nr 5</li>
-							</ul>
-							<div class="cards__item-description--desktop---element-second">
-								<a href="../html/firewood/firewood_class.html"
-									class="content cards__item-description-btn">
-									<p>Przejdź dalej</p>
-									<div class="icon_holder icon_holder-desktop">
-										<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="">
-									</div>
-								</a>
-							</div>
-						</div>
-						<div class="cards__item-description cards__item-description--mobile">
-							<a href="" class="cards__item-description-btn">
-								<p>Zobacz więcej</p>
-								<div class="icon_holder read-more">
-									<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="" />
+					<div class="cards__item" id="briquette">
+						<div class="cards__item-photo cards__item-photo--two"></div>
+						<div class="cards__item-text">
+							<h3 class="cards__item-title">Briquette</h3>
+							<div
+								class="cards__item-description cards__item-description--desktop">
+								<p class="card_info">
+									Najedź na kartę aby zobaczyć więcej informacji
+								</p>
+								<p class="product_description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+									sapiente velit doloribus. Facilis cupiditate nulla vero modi
+									veniam, veritatis accusamus!
+								</p>
+								<ul class="cards__item-description--desktop---element">
+									<li>Cecha nr 1</li>
+									<li>Cecha nr 2</li>
+									<li>Cecha nr 3</li>
+									<li>Cecha nr 4</li>
+									<li>Cecha nr 5</li>
+								</ul>
+								<div class="cards__item-description--desktop---element-second">
+									<a
+										href="../html/briquettes/briquettes_class.html"
+										class="content cards__item-description-btn">
+										<p>Przejdź dalej</p>
+										<div class="icon_holder icon_holder-desktop">
+											<img
+												class="cards__item-description-btnImg"
+												src="../img/arrow-right.svg"
+												alt="" />
+										</div>
+									</a>
 								</div>
-							</a>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="cards__item" id="briquette">
-					<div class="cards__item-photo cards__item-photo--two"></div>
-					<div class="cards__item-text">
-						<h3 class="cards__item-title">Briquette</h3>
-						<div class="cards__item-description cards__item-description--desktop">
-							<p class="card_info">Najedź na kartę aby zobaczyć więcej informacji</p>
-							<p class="product_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Autem sapiente velit doloribus. Facilis cupiditate nulla vero modi veniam, veritatis
-								accusamus!</p>
-							<ul class="cards__item-description--desktop---element">
-								<li>Cecha nr 1</li>
-								<li>Cecha nr 2</li>
-								<li>Cecha nr 3</li>
-								<li>Cecha nr 4</li>
-								<li>Cecha nr 5</li>
-							</ul>
-							<div class="cards__item-description--desktop---element-second">
-								<a href="../html/briquettes/briquettes_class.html"
-									class="content cards__item-description-btn">
-									<p>Przejdź dalej</p>
-									<div class="icon_holder icon_holder-desktop">
-										<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="">
+							</div>
+							<div
+								class="cards__item-description cards__item-description--mobile">
+								<a
+									href="../html/briquettes/briquettes_class.html"
+									class="cards__item-description-btn">
+									<p>Zobacz więcej</p>
+									<div class="icon_holder read-more">
+										<img
+											class="cards__item-description-btnImg"
+											src="../img/arrow-right.svg"
+											alt="" />
 									</div>
 								</a>
 							</div>
 						</div>
-						<div class="cards__item-description cards__item-description--mobile">
-							<a href="" class="cards__item-description-btn">
-								<p>Zobacz więcej</p>
-								<div class="icon_holder read-more">
-									<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="" />
-								</div>
-							</a>
-						</div>
 					</div>
-				</div>
 
-				<div class="cards__item" id="kindling">
-					<div class="cards__item-photo cards__item-photo--three"></div>
-					<div class="cards__item-text">
-						<h3 class="cards__item-title">Kindling</h3>
-						<div class="cards__item-description cards__item-description--desktop">
-							<p class="card_info">Najedź na kartę aby zobaczyć więcej informacji</p>
-							<p class="product_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Autem sapiente velit doloribus. Facilis cupiditate nulla vero modi veniam, veritatis
-								accusamus!</p>
-							<ul class="cards__item-description--desktop---element">
-								<li>Cecha nr 1</li>
-								<li>Cecha nr 2</li>
-								<li>Cecha nr 3</li>
-								<li>Cecha nr 4</li>
-								<li>Cecha nr 5</li>
-							</ul>
+					<div class="cards__item" id="kindling">
+						<div class="cards__item-photo cards__item-photo--three"></div>
+						<div class="cards__item-text">
+							<h3 class="cards__item-title">Kindling</h3>
+							<div
+								class="cards__item-description cards__item-description--desktop">
+								<p class="card_info">
+									Najedź na kartę aby zobaczyć więcej informacji
+								</p>
+								<p class="product_description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+									sapiente velit doloribus. Facilis cupiditate nulla vero modi
+									veniam, veritatis accusamus!
+								</p>
+								<ul class="cards__item-description--desktop---element">
+									<li>Cecha nr 1</li>
+									<li>Cecha nr 2</li>
+									<li>Cecha nr 3</li>
+									<li>Cecha nr 4</li>
+									<li>Cecha nr 5</li>
+								</ul>
 
-							<div class="cards__item-description--desktop---element-second">
-								<a href="../html/kindling/kindling_class.html"
-									class="content cards__item-description-btn">
-									<p>Przejdź dalej</p>
-									<div class="icon_holder icon_holder-desktop">
-										<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="">
-									</div>
-								</a>
+								<div class="cards__item-description--desktop---element-second">
+									<a
+										href="../html/kindling/kindling_class.html"
+										class="content cards__item-description-btn">
+										<p>Przejdź dalej</p>
+										<div class="icon_holder icon_holder-desktop">
+											<img
+												class="cards__item-description-btnImg"
+												src="../img/arrow-right.svg"
+												alt="" />
+										</div>
+									</a>
+								</div>
 							</div>
-
-						</div>
-						<div class="cards__item-description cards__item-description--mobile">
-							<a href="" class="cards__item-description-btn">
-								<p>Zobacz więcej</p>
-								<div class="icon_holder read-more">
-									<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="" />
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="cards__item" id="pellet">
-					<div class="cards__item-photo cards__item-photo--four"></div>
-					<div class="cards__item-text">
-						<h3 class="cards__item-title">Pellet</h3>
-
-						<div class="cards__item-description cards__item-description--desktop">
-							<p class="card_info">Najedź na kartę aby zobaczyć więcej informacji</p>
-							<p class="product_description">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Autem sapiente velit doloribus. Facilis cupiditate nulla vero modi veniam, veritatis
-								accusamus!</p>
-							<ul class="cards__item-description--desktop---element">
-								<li>Cecha nr 1</li>
-								<li>Cecha nr 2</li>
-								<li>Cecha nr 3</li>
-								<li>Cecha nr 4</li>
-								<li>Cecha nr 5</li>
-							</ul>
-							<div class="cards__item-description--desktop---element-second">
-								<a href="../html/pellets/pellets_class.html"
-									class="content cards__item-description-btn">
-									<p>Przejdź dalej</p>
-									<div class="icon_holder icon_holder-desktop">
-										<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="">
+							<div
+								class="cards__item-description cards__item-description--mobile">
+								<a
+									href="../html/kindling/kindling_class.html"
+									class="cards__item-description-btn">
+									<p>Zobacz więcej</p>
+									<div class="icon_holder read-more">
+										<img
+											class="cards__item-description-btnImg"
+											src="../img/arrow-right.svg"
+											alt="" />
 									</div>
 								</a>
 							</div>
 						</div>
+					</div>
 
-						<div class="cards__item-description cards__item-description--mobile">
-							<a href="" class="cards__item-description-btn">
-								<p>Zobacz więcej</p>
-								<div class="icon_holder read-more">
-									<img class="cards__item-description-btnImg" src="../img/arrow-right.svg" alt="" />
+					<div class="cards__item" id="pellet">
+						<div class="cards__item-photo cards__item-photo--four"></div>
+						<div class="cards__item-text">
+							<h3 class="cards__item-title">Pellet</h3>
+
+							<div
+								class="cards__item-description cards__item-description--desktop">
+								<p class="card_info">
+									Najedź na kartę aby zobaczyć więcej informacji
+								</p>
+								<p class="product_description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+									sapiente velit doloribus. Facilis cupiditate nulla vero modi
+									veniam, veritatis accusamus!
+								</p>
+								<ul class="cards__item-description--desktop---element">
+									<li>Cecha nr 1</li>
+									<li>Cecha nr 2</li>
+									<li>Cecha nr 3</li>
+									<li>Cecha nr 4</li>
+									<li>Cecha nr 5</li>
+								</ul>
+								<div class="cards__item-description--desktop---element-second">
+									<a
+										href="../html/pellets/pellets_class.html"
+										class="content cards__item-description-btn">
+										<p>Przejdź dalej</p>
+										<div class="icon_holder icon_holder-desktop">
+											<img
+												class="cards__item-description-btnImg"
+												src="../img/arrow-right.svg"
+												alt="" />
+										</div>
+									</a>
 								</div>
-							</a>
+							</div>
+
+							<div
+								class="cards__item-description cards__item-description--mobile">
+								<a
+									href="../html/pellets/pellets_class.html"
+									class="cards__item-description-btn">
+									<p>Zobacz więcej</p>
+									<div class="icon_holder read-more">
+										<img
+											class="cards__item-description-btnImg"
+											src="../img/arrow-right.svg"
+											alt="" />
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
-		</div>
-	</main>
+		</main>
 
-	<footer>
-		<div class="wrapper">
-			<div class="footer__left">
-				<div class="footer__left-logobox">
-					<img src="../img/logo-width.png" alt="Logo">
+		<footer>
+			<div class="wrapper">
+				<div class="footer__left">
+					<div class="footer__left-logobox">
+						<img src="../img/logo-width.png" alt="Logo" />
+					</div>
+					<div class="footer__left-textbox">
+						<p>
+							&copy;<span class="footer__date"></span> NORDWIT Lech Kowalewski
+						</p>
+					</div>
 				</div>
-				<div class="footer__left-textbox">
-					<p>&copy;<span class="footer__date"></span> NORDWIT Lech Kowalewski</p>
+
+				<div class="footer__right">
+					<p>
+						<span> Nr tel.: </span>
+						<a href="tel: 0048506523538"> +48 506 523 538 </a>
+					</p>
+					<p>
+						<span> E-mail: </span>
+						<a href="mailto: nordwit@gmail.com">nordwit@gmail.com</a>
+					</p>
 				</div>
 			</div>
+		</footer>
 
-			<div class="footer__right">
-				<p><span>
-						Nr tel.:
-					</span>
-					<a href="tel: 0048506523538">
-						+48 506 523 538
-					</a>
-				</p>
-				<p><span>
-						E-mail:
-					</span>
-					<a href="mailto: nordwit@gmail.com">nordwit@gmail.com</a>
-				</p>
-			</div>
-		</div>
-	</footer>
-
-	<script src="../JS/script.js"></script>
-</body>
-
+		<script src="../JS/script.js"></script>
+	</body>
 </html>

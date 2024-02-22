@@ -7,15 +7,7 @@ const navSpace = document.querySelector('.nav');
 const offsetDiv = document.querySelector('.offset');
 const logoImg = document.querySelector('.solo-logo-item-img');
 const cardsTextSections = document.querySelectorAll('.cards__item-text');
-const navHeightSmall = 90;
-const navHeightMediumAndUnusual = 120;
-const carouselSectionHeightSmall = (window.innerHeight - navHeightSmall) * 0.6;
-const carouselSectionHeightMediumAndUnusual =
-	(window.innerHeight - navHeightMediumAndUnusual) * 0.6;
-let offerSectionOffsetSmall = carouselSectionHeightSmall - 120;
-let offerSectionOffsetMediumAndUnusual =
-	carouselSectionHeightMediumAndUnusual - 520;
-// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
+
 const mobileOfferMainItem = document.querySelector(
 	'.dropdown__mobile--mainDropdownItem'
 );
@@ -110,37 +102,7 @@ const checkScreenWidth = () => {
 };
 
 const showCardsDescription = () => {
-	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
-	if (y == 4) {
-		return;
-	}
-	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-		offerSectionOffsetSmall += 400;
-	} else if (
-		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
-		window.innerWidth >= 768 &&
-		window.innerWidth < 1200
-	) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-		if (y == 2) {
-			offerSectionOffsetMediumAndUnusual += 500;
-		}
-	} else if (
-		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
-		window.innerWidth >= 1000 &&
-		window.innerWidth < 1200
-	) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-		// if (y == 2) {
-		// 	offerSectionOffsetMediumAndUnusual += 550;
-		// }
-	}
-
-	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
+	cardsTextSections[y].classList.add('showCardsText');
 };
 
 const showDropdownElementsMobile = () => {

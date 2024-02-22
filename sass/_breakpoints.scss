@@ -1,5 +1,5 @@
-@use "./colors" as colors;
-@use "./animations";
+@use './colors' as colors;
+@use './animations';
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
@@ -104,7 +104,7 @@
 				height: 500px;
 
 				&-title {
-					font-size: 3.5rem;
+					font-size: 3rem;
 				}
 
 				&-description {
@@ -141,6 +141,9 @@
 	@media (min-width: 1000px) {
 		.cards {
 			&__item {
+				&-title {
+					font-size: 3.2rem;
+				}
 				height: 550px;
 				&-description {
 					&-btn {
@@ -189,6 +192,12 @@
 						font-size: 3rem;
 					}
 				}
+			}
+		}
+		main {
+			min-height: 100vh;
+			.mapleleaf-png {
+				display: block;
 			}
 		}
 		.cards {
@@ -245,13 +254,6 @@
 					font-weight: bold;
 					display: inline;
 				}
-			}
-		}
-
-		main {
-			min-height: 10vh;
-			.mapleleaf-png {
-				display: block;
 			}
 		}
 	}
