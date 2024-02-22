@@ -838,6 +838,9 @@ footer .footer__right a {
     font-weight: bold;
     display: inline;
   }
+  main {
+    min-height: 10vh;
+  }
   main .mapleleaf-png {
     display: block;
   }
