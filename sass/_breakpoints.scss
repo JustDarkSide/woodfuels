@@ -1,5 +1,5 @@
-@use "./colors" as colors;
-@use "./animations";
+@use './colors' as colors;
+@use './animations';
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
@@ -63,7 +63,6 @@
 						}
 						.dropdown__mobile {
 							&-icon {
-								margin-left: 4em;
 								.show-more-icon {
 									width: 30px;
 									height: 30px;

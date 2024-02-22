@@ -1,6 +1,6 @@
-@use "./colors" as colors;
-@use "./breakpoints" as breakpoints;
-@use "./animations" as animations;
+@use './colors' as colors;
+@use './breakpoints' as breakpoints;
+@use './animations' as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -66,7 +66,7 @@ html {
 body {
 	position: relative;
 	background-color: colors.$body-color;
-	font-family: "Montserrat", sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 1.6rem;
 }
 
@@ -111,7 +111,7 @@ body {
 			position: absolute;
 			right: 0;
 			height: 4px;
-			content: "";
+			content: '';
 			background-color: colors.$main-color;
 		}
 
@@ -187,10 +187,10 @@ body {
 					}
 					&-LinkAndIconBox {
 						display: flex;
+						margin-top: 2.5em;
 					}
 					&-icon {
 						position: relative;
-						margin-left: 1.9em;
 						a {
 							display: block;
 							padding: 30px 45px;
@@ -201,7 +201,7 @@ body {
 						.show-more-icon {
 							position: absolute;
 							display: flex;
-							justify-content: flex-end;
+							justify-content: center;
 							align-items: center;
 							top: 50%;
 							left: 50%;
@@ -279,7 +279,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: "";
+				content: '';
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -386,7 +386,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url("../img/carousel-item1-big.jpg");
+			background-image: url('../img/carousel-item1-big.jpg');
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
@@ -480,16 +480,16 @@ main {
 			background-size: cover;
 			background-position: center;
 			&--one {
-				background-image: url("../img/firewood-small.jpg");
+				background-image: url('../img/firewood-small.jpg');
 			}
 			&--two {
-				background-image: url("../img/briquette-small.jpg");
+				background-image: url('../img/briquette-small.jpg');
 			}
 			&--three {
-				background-image: url("../img/kindling-small.jpg");
+				background-image: url('../img/kindling-small.jpg');
 			}
 			&--four {
-				background-image: url("../img/pellet-small.jpg");
+				background-image: url('../img/pellet-small.jpg');
 			}
 		}
 		&-text {
@@ -524,7 +524,7 @@ main {
 				display: none;
 
 				a {
-					font-family: "Montserrat", sans-serif;
+					font-family: 'Montserrat', sans-serif;
 				}
 
 				.card_info {
@@ -579,7 +579,7 @@ main {
 					transform: translate(0, -50%);
 					padding-left: 2em;
 				}
-				
+
 				.read-more {
 					width: 45px;
 					height: 45px;
@@ -606,7 +606,7 @@ main {
 				position: absolute;
 				top: 50%;
 				left: 50%;
-				transform: translate(-50%,-50%);
+				transform: translate(-50%, -50%);
 			}
 		}
 	}

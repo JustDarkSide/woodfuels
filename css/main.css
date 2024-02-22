@@ -231,10 +231,10 @@ body {
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-LinkAndIconBox {
   display: flex;
+  margin-top: 2.5em;
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon {
   position: relative;
-  margin-left: 1.9em;
 }
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon a {
   display: block;
@@ -246,7 +246,7 @@ body {
 .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon .show-more-icon {
   position: absolute;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   top: 50%;
   left: 50%;
@@ -700,9 +700,6 @@ footer .footer__right a {
   }
   .nav .mobile-nav .nav__items .mb-nav__item a {
     font-size: 3.2rem;
-  }
-  .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon {
-    margin-left: 4em;
   }
   .nav .mobile-nav .nav__items .mb-nav__item .dropdown__mobile-icon .show-more-icon {
     width: 30px;
