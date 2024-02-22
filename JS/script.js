@@ -158,10 +158,8 @@ document.addEventListener('scroll', showCardsDescription);
 document.addEventListener('DOMContentLoaded', showCardsDescription);
 dropdownMobileIcon.addEventListener('click', showDropdownElementsMobile);
 mobileOfferMainItem.addEventListener('click', showDropdownElementsMobile);
-navSpace.addEventListener('focusout', () => {
-	//Kacperek zabłysnął
-	// document.body.classList.remove('mobileMenuLock');
-	// mbNav.classList.remove('mobile-nav--active');
+offsetDiv.addEventListener('click', () => {
+	mbNav.classList.remove('mobile-nav--active');
+	document.body.classList.remove('mobileMenuLock');
 	offsetTimeout();
-	//to zrobił dominik elegancko nie
 });
