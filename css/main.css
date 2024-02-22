@@ -456,6 +456,7 @@ body {
 }
 
 main {
+  min-height: 90vh;
   overflow: hidden;
   position: relative;
 }
@@ -621,8 +622,8 @@ main .mapleleaf-png--third {
 }
 
 footer {
-  position: sticky;
-  top: 0;
+  position: absolute;
+  bottom: 0;
   margin-top: auto;
   height: 80px;
   width: 100%;
