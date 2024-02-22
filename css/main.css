@@ -72,11 +72,11 @@ html {
 }
 
 .hideShadow {
-  animation: hideShadow 0.3s linear forwards;
+  animation: hideShadow 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
 }
 
 .showShadow {
-  animation: showShadow 0.3s linear forwards;
+  animation: showShadow 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
 }
 
 .hide {
