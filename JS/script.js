@@ -111,13 +111,10 @@ const checkScreenWidth = () => {
 
 const showCardsDescription = () => {
 	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
-	if (y == 4) {
-		return;
-	}
 	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
-		offerSectionOffsetSmall += 400;
+		offerSectionOffsetSmall += 450;
 	} else if (
 		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
 		window.innerWidth >= 768 &&
@@ -126,7 +123,7 @@ const showCardsDescription = () => {
 		cardsTextSections[y].classList.add('showCardsText');
 		y++;
 		if (y == 2) {
-			offerSectionOffsetMediumAndUnusual += 500;
+			offerSectionOffsetMediumAndUnusual += 550;
 		}
 	} else if (
 		window.scrollY >= offerSectionOffsetMediumAndUnusual &&

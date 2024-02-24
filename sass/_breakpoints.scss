@@ -171,6 +171,9 @@
 }
 @mixin xxl {
 	@media (min-width: 1200px) {
+		// .section {
+		// 	padding: 4rem 0 8rem 0;
+		// }
 		.nav {
 			.solo-logo-item-1 {
 				display: none;
@@ -237,6 +240,11 @@
 					border-radius: 0%;
 				}
 			}
+		}
+		.firewood.section,
+		.kindling.section,
+		.briquette.section {
+			padding: 4rem 0 3rem 0;
 		}
 
 		footer {

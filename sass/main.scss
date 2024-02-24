@@ -54,7 +54,7 @@ html {
 	opacity: 0;
 }
 .section {
-	padding: 5rem 0 7em 0;
+	padding: 5rem 0 10rem 0;
 }
 .section-title {
 	font-size: 3rem;
@@ -620,6 +620,10 @@ main {
 			}
 		}
 	}
+}
+.firewood.section,
+.kindling.section, .briquette.section {
+	padding: 4rem 0 1rem 0;
 }
 footer {
 	position: absolute;
