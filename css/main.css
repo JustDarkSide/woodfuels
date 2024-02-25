@@ -506,6 +506,7 @@ main .mapleleaf-png--third {
   overflow: hidden;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 .cards__item-photo--one {
   background-image: url("../img/firewood-small.jpg");
@@ -621,8 +622,28 @@ main .mapleleaf-png--third {
   transform: translate(-50%, -50%);
 }
 
+.kindling .cards__item-photo--one {
+  background-image: url("../img/kindling-small.jpg");
+}
+.kindling .cards__item-photo--two {
+  background-image: url("../img/kindling2.jpg");
+}
+.kindling .cards__item-photo--three {
+  background-image: url("../img/kindling3.webp");
+}
+
+.briquette .cards__item-photo--one {
+  background-image: url("../img/ruf.jpg");
+}
+.briquette .cards__item-photo--two {
+  background-image: url("../img/pinikay.jpg");
+  background-position-y: -100px;
+  background-position-x: -100px;
+}
+
 .firewood.section,
-.kindling.section, .briquette.section {
+.kindling.section,
+.briquette.section {
   padding: 4rem 0 1rem 0;
 }
 
@@ -836,6 +857,10 @@ footer .footer__right a {
   .cards__item:hover .cards__item-text {
     top: 50%;
     border-radius: 0%;
+  }
+  .briquette .cards__item-photo--two {
+    background-position-x: -150px;
+    background-position-y: -150px;
   }
   .firewood.section,
   .kindling.section,

@@ -486,6 +486,7 @@ main {
 			overflow: hidden;
 			background-size: cover;
 			background-position: center;
+			background-repeat: no-repeat;
 			&--one {
 				background-image: url('../img/firewood-small.jpg');
 			}
@@ -621,8 +622,32 @@ main {
 		}
 	}
 }
+//OGROMNE PROBLEMY I NIEWYGODA Z POZYCJONOWANIEM ZDJĘĆ POPRZEZ POTRZEBĘ PRZESUWANIA O PX. PRZESUWANIE O PROCENTY JEST JEDYNIE EFEKTYWNE I MOŻLIWE (CHYBA) GDY WYSOKOŚĆ/SZEROKOŚĆ
+// ULEGNIE ZMNIEJSZENIU, CO Z KOLEI POWODUJE INNE PROBLEMY. KOMBINOWAŁEM RÓWNIEŻ Z BACKGROUND-SIZE.
+.kindling {
+	.cards__item-photo--one {
+		background-image: url('../img/kindling-small.jpg');
+	}
+	.cards__item-photo--two {
+		background-image: url('../img/kindling2.jpg');
+	}
+	.cards__item-photo--three {
+		background-image: url('../img/kindling3.webp');
+	}
+}
+.briquette {
+	.cards__item-photo--one {
+		background-image: url('../img/ruf.jpg');
+	}
+	.cards__item-photo--two {
+		background-image: url('../img/pinikay.jpg');
+		background-position-y: -100px;
+		background-position-x: -100px;
+	}
+}
 .firewood.section,
-.kindling.section, .briquette.section {
+.kindling.section,
+.briquette.section {
 	padding: 4rem 0 1rem 0;
 }
 footer {

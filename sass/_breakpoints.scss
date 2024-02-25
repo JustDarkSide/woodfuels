@@ -241,6 +241,13 @@
 				}
 			}
 		}
+
+		.briquette {
+			.cards__item-photo--two {
+				background-position-x: -150px;
+				background-position-y: -150px;
+			}
+		}
 		.firewood.section,
 		.kindling.section,
 		.briquette.section {
