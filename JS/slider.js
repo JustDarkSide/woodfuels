@@ -1,7 +1,6 @@
-const mainPhoto = document.querySelector('.photo img');
+const mainPhoto = document.querySelector('.photo');
 const otherPhotosBox = document.querySelector('.thumbnails-box');
 const otherPhotos = document.querySelectorAll('.thumbnails-box img');
-const mainPhotoPath = mainPhoto.getAttribute('src');
 const bigLeftArrow = document.querySelector('.arrow-left');
 const bigRightArrow = document.querySelector('.arrow-right');
 const smallLeftArrow = document.querySelector('.small-arrow-left');
@@ -9,6 +8,8 @@ const smallRightArrow = document.querySelector('.small-arrow-right');
 let photoIndex = 0;
 let thumbnailIndex = 0;
 let pathCollection = [];
+let touchstart = 0;
+let touchend = 0;
 const collectAllPathsInfo = () => {
 	otherPhotos.forEach((photo) => {
 		let photoPath = photo.getAttribute('src');
@@ -34,7 +35,8 @@ const changeMainPhoto = () => {
 			let previousPhotoIndex = photoIndex;
 			photoIndex = pathCollection.indexOf(thumbnailPath);
 			console.log(photoIndex);
-			mainPhoto.setAttribute('src', thumbnailPath);
+			mainPhoto.style.backgroundImage =
+				"url('" + `${pathCollection[photoIndex]}')`;
 			thumbnailIndex = photoIndex;
 			for (let z = 0; z < otherPhotos.length; z++) {
 				if (otherPhotos[z].classList.contains('active')) {
@@ -66,11 +68,19 @@ const changeMainPhoto = () => {
 				bigRightArrow.style.pointerEvents = 'auto';
 			}
 			if (previousPhotoIndex > photoIndex) {
-				otherPhotosBox.scrollLeft -= 128;
+				if (window.innerWidth < 1200) {
+					otherPhotosBox.scrollLeft -= (previousPhotoIndex - photoIndex) * 100;
+				} else {
+					otherPhotosBox.scrollLeft -= (previousPhotoIndex - photoIndex) * 128;
+				}
 			} else if (previousPhotoIndex == photoIndex) {
 				console.log('');
 			} else {
-				otherPhotosBox.scrollLeft += 128;
+				if (window.innerWidth < 1200) {
+					otherPhotosBox.scrollLeft += (photoIndex - previousPhotoIndex) * 100;
+				} else {
+					otherPhotosBox.scrollLeft += (photoIndex - previousPhotoIndex) * 128;
+				}
 			}
 			otherPhotos[photoIndex].classList.add('active');
 		});
@@ -88,7 +98,7 @@ const showNextPhoto = () => {
 		thumbnailIndex = photoIndex;
 	}
 	otherPhotos[photoIndex].classList.add('active');
-	mainPhoto.setAttribute('src', pathCollection[photoIndex]);
+	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
 	if (window.innerWidth < 768) {
 		if (photoIndex == pathCollection.length - 1) {
 			smallRightArrow.style.opacity = 0.4;
@@ -132,7 +142,7 @@ const showPreviousPhoto = () => {
 	}
 	thumbnailIndex = photoIndex;
 	otherPhotos[photoIndex].classList.add('active');
-	mainPhoto.setAttribute('src', pathCollection[photoIndex]);
+	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
 	if (window.innerWidth < 768) {
 		if (photoIndex == 0) {
 			smallLeftArrow.style.opacity = 0.4;
@@ -180,6 +190,7 @@ const showNextThumbnail = () => {
 	if (thumbnailIndex == pathCollection.length - 1) {
 		smallRightArrow.style.opacity = 0.4;
 		smallRightArrow.style.pointerEvents = 'none';
+		otherPhotosBox.scrollLeft += 100;
 	} else if (window.innerWidth < 768) {
 		otherPhotosBox.scrollLeft += 100;
 		smallRightArrow.style.opacity = 1;
@@ -229,10 +240,58 @@ const showPreviousThumbnail = () => {
 		}
 	}
 };
-
+const checkSwipeDirection = () => {
+	if (
+		touchstart > touchend &&
+		Math.abs(touchstart - touchend) > 100 &&
+		window.innerWidth < 1200
+	) {
+		showNextPhoto();
+	} else if (
+		touchstart < touchend &&
+		Math.abs(touchend - touchstart) > 100 &&
+		window.innerWidth < 1200
+	) {
+		showPreviousPhoto();
+	}
+};
+const checkSwipeDirectionThumbnails = () => {
+	if (
+		touchstart > touchend &&
+		Math.abs(touchstart - touchend) > 100 &&
+		window.innerWidth < 1200
+	) {
+		showNextThumbnail();
+	} else if (
+		touchstart < touchend &&
+		Math.abs(touchend - touchstart) > 100 &&
+		window.innerWidth < 1200
+	) {
+		showPreviousThumbnail();
+	}
+};
 changeMainPhoto();
 document.addEventListener('DOMContentLoaded', collectAllPathsInfo);
 bigRightArrow.addEventListener('click', showNextPhoto);
+mainPhoto.addEventListener('swipe', showNextPhoto);
 bigLeftArrow.addEventListener('click', showPreviousPhoto);
 smallLeftArrow.addEventListener('click', showPreviousThumbnail);
 smallRightArrow.addEventListener('click', showNextThumbnail);
+mainPhoto.addEventListener('touchstart', (e) => {
+	touchstart = e.changedTouches[0].screenX;
+	console.log(touchstart);
+});
+mainPhoto.addEventListener('touchend', (e) => {
+	touchend = e.changedTouches[0].screenX;
+	console.log(touchend);
+	checkSwipeDirection();
+});
+otherPhotosBox.addEventListener('touchstart', (e) => {
+	touchstart = e.changedTouches[0].screenX;
+	console.log(touchstart);
+});
+otherPhotosBox.addEventListener('touchend', (e) => {
+	touchend = e.changedTouches[0].screenX;
+	console.log(touchend);
+	checkSwipeDirectionThumbnails();
+});
