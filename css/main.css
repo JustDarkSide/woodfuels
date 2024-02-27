@@ -70,6 +70,9 @@ html {
   width: 100%;
   margin: 0 auto;
 }
+.wrapper__offer {
+  max-width: 1920px;
+}
 
 .hideShadow {
   animation: hideShadow 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
@@ -116,7 +119,7 @@ html {
 
 body {
   position: relative;
-  background-color: #F5F5F5;
+  background-color: #f2f2f2;
   font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
 }
@@ -460,25 +463,6 @@ main {
   overflow: hidden;
   position: relative;
 }
-main .mapleleaf-png {
-  display: none;
-  position: absolute;
-  height: 300px;
-  opacity: 0.2;
-}
-main .mapleleaf-png--first {
-  top: 5%;
-  left: 8%;
-}
-main .mapleleaf-png--second {
-  top: 40%;
-  left: 75%;
-  transform: rotateY(180deg);
-}
-main .mapleleaf-png--third {
-  top: 90%;
-  left: 10%;
-}
 
 .cards {
   width: 100%;
@@ -488,17 +472,45 @@ main .mapleleaf-png--third {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding-top: 2.6em;
 }
 .cards__item {
-  width: 90%;
+  width: 80%;
   height: 400px;
   position: relative;
-  margin-bottom: 2em;
-  border-radius: 15px;
+  margin-bottom: 4em;
   border: 1px solid #000;
   overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  cursor: pointer;
+}
+.cards__item-shadow {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  transition: top 0.7s;
+}
+.cards__item-shadow--btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
+  border: 5px solid #264f0b;
+  border-radius: 50%;
+}
+.cards__item-shadow--btn img {
+  scale: 0.05;
+  color: white;
 }
 .cards__item-photo {
   width: 100%;
@@ -528,8 +540,7 @@ main .mapleleaf-png--third {
   width: 150%;
   height: 100%;
   background-color: #fff;
-  border-radius: 45%;
-  transition: top 1s, border-radius 1s 0.5s;
+  transition: top 0.7s;
 }
 .cards__item-title {
   position: absolute;
@@ -550,34 +561,8 @@ main .mapleleaf-png--third {
 .cards__item-description--desktop {
   display: none;
 }
-.cards__item-description--desktop a {
-  font-family: "Montserrat", sans-serif;
-}
 .cards__item-description--desktop .card_info {
   display: block;
-}
-.cards__item-description--desktop---element {
-  padding-left: 1em;
-  margin-top: 5rem;
-}
-.cards__item-description--desktop---element-second {
-  text-decoration: none;
-  color: #264f0b;
-  border: 2px solid #264f0b;
-  border-radius: 20px;
-  position: absolute;
-  top: 130%;
-  height: 80px;
-  width: 100%;
-  padding: 1em 0;
-}
-.cards__item-description--desktop---element-second .content .icon_holder {
-  width: 60px;
-  height: 60px;
-}
-.cards__item-description--desktop .product_description {
-  opacity: 0;
-  transition: opacity 0s;
 }
 .cards__item-description--mobile {
   width: 60%;
@@ -620,6 +605,102 @@ main .mapleleaf-png--third {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.products {
+  border: 1px solid black;
+  width: 100%;
+}
+.products-title {
+  margin-left: 15%;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.products-title p {
+  color: #264f0b;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+.products__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 350px;
+  margin: 2rem auto;
+  border: 3px solid #264f0b;
+  border-radius: 20px;
+}
+.products__item-img {
+  position: relative;
+  margin-left: 3%;
+  height: 90%;
+  width: 250px;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid gray;
+}
+.products__item-img--one {
+  background-image: url(../img/crate_1.png);
+}
+.products__item-img::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -23%;
+  transform: translateY(-50%);
+  height: 90%;
+  width: 1px;
+  background-color: gray;
+}
+.products__item-content {
+  position: relative;
+  height: 90%;
+  width: 800px;
+}
+.products__item-content--element {
+  color: #264f0b;
+}
+.products__item-content--title p {
+  text-align: left;
+  font-size: 2em;
+  font-weight: bold;
+}
+.products__item-content--description {
+  margin-top: 1rem;
+  width: 90%;
+  height: auto;
+}
+.products__item-content--description p {
+  font-size: 1.8rem;
+}
+.products__item-content--list {
+  width: 20%;
+  margin-top: 1rem;
+  list-style-position: inside;
+}
+.products__item-content--additional {
+  position: absolute;
+  right: 15%;
+  height: 20%;
+  width: 40%;
+  background-color: none;
+  border: 4px solid #264f0b;
+  border-radius: 12px;
+  box-shadow: 2px 2px 2px 2px #264f0b;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+.products__item-content--additional p {
+  font-size: 20px;
+  line-height: 60px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  color: #264f0b;
+}
+.products__item-content--additional:hover {
+  box-shadow: none;
 }
 
 .kindling .cards__item-photo--one {
@@ -757,7 +838,7 @@ footer .footer__right a {
     font-size: 4rem;
   }
   .cards__item {
-    width: 45%;
+    width: 35%;
     height: 500px;
   }
   .cards__item-title {
@@ -823,16 +904,16 @@ footer .footer__right a {
   main {
     min-height: 100vh;
   }
-  main .mapleleaf-png {
-    display: block;
-  }
   .cards__box {
-    padding-top: 4em;
+    padding-top: 3em;
   }
   .cards__item {
-    height: 600px;
+    width: 24%;
+    height: 540px;
+    margin-bottom: 2em;
   }
   .cards__item-text {
+    border-top: 1px solid black;
     top: 110%;
   }
   .cards__item-title {
@@ -847,16 +928,11 @@ footer .footer__right a {
   .cards__item-description--mobile {
     display: none;
   }
-  .cards__item:hover .card_info {
-    height: 0;
-    color: #fff;
-  }
-  .cards__item:hover .product_description {
-    opacity: 1;
-  }
   .cards__item:hover .cards__item-text {
-    top: 50%;
-    border-radius: 0%;
+    top: 160%;
+  }
+  .cards__item:hover .cards__item-shadow {
+    top: 0%;
   }
   .briquette .cards__item-photo--two {
     background-position-x: -150px;
@@ -865,7 +941,7 @@ footer .footer__right a {
   .firewood.section,
   .kindling.section,
   .briquette.section {
-    padding: 4rem 0 3rem 0;
+    padding: rem 0 3rem 0;
   }
   footer .footer__left {
     justify-content: space-evenly;

@@ -100,7 +100,7 @@
 		}
 		.cards {
 			&__item {
-				width: 45%;
+				width: 35%;
 				height: 500px;
 
 				&-title {
@@ -199,18 +199,17 @@
 		}
 		main {
 			min-height: 100vh;
-			.mapleleaf-png {
-				display: block;
-			}
 		}
 		.cards {
 			&__box {
-				padding-top: 4em;
+				padding-top: 3em;
 			}
 			&__item {
-				// width: 30%;
-				height: 600px;
+				width: 24%;
+				height: 540px;
+				margin-bottom: 2em;
 				&-text {
+					border-top: 1px solid black;
 					top: 110%;
 				}
 				&-title {
@@ -226,18 +225,11 @@
 					}
 				}
 
-				&:hover .card_info {
-					height: 0;
-					color: colors.$pure-white;
-				}
-
-				&:hover .product_description {
-					opacity: 1;
-				}
-
 				&:hover .cards__item-text {
-					top: 50%;
-					border-radius: 0%;
+					top: 160%;
+				}
+				&:hover .cards__item-shadow{
+					top: 0%;
 				}
 			}
 		}
@@ -251,7 +243,7 @@
 		.firewood.section,
 		.kindling.section,
 		.briquette.section {
-			padding: 4rem 0 3rem 0;
+			padding: rem 0 3rem 0;
 		}
 
 		footer {
