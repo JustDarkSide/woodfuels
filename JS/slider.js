@@ -130,6 +130,8 @@ const showNextPhoto = () => {
 			smallRightArrow.style.pointerEvents = 'none';
 			bigRightArrow.style.opacity = 0.4;
 			bigRightArrow.style.pointerEvents = 'none';
+			smallLeftArrow.style.opacity = 1;
+			smallLeftArrow.style.pointerEvents = 'auto';
 			increasingIndex = 100;
 			if (
 				previousThumbnailIndex < photoIndex &&
@@ -137,9 +139,23 @@ const showNextPhoto = () => {
 			) {
 				scrollValue += (photoIndex - previousThumbnailIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
+			} else if (
+				previousThumbnailIndex < photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth &&
+				photoIndex == 0
+			) {
+				scrollValue += (photoIndex - (previousThumbnailIndex + 1)) * 100;
+				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
 		} else {
 			if (
+				previousThumbnailIndex < photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth &&
+				photoIndex == 0
+			) {
+				scrollValue += (photoIndex - (previousThumbnailIndex + 1)) * 100;
+				otherPhotosBox.scrollTo(scrollValue, 0);
+			} else if (
 				thumbnailIndex == photoIndex &&
 				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
 			) {
@@ -157,6 +173,8 @@ const showNextPhoto = () => {
 			smallRightArrow.style.pointerEvents = 'none';
 			bigRightArrow.style.opacity = 0.4;
 			bigRightArrow.style.pointerEvents = 'none';
+			smallLeftArrow.style.opacity = 1;
+			smallLeftArrow.style.pointerEvents = 'auto';
 			increasingIndex = 128;
 			if (
 				previousThumbnailIndex < photoIndex &&
@@ -197,6 +215,8 @@ const showPreviousPhoto = () => {
 			smallLeftArrow.style.pointerEvents = 'none';
 			bigLeftArrow.style.opacity = 0.4;
 			bigLeftArrow.style.pointerEvents = 'none';
+			smallRightArrow.style.opacity = 1;
+			smallRightArrow.style.pointerEvents = 'auto';
 			decreasingIndex = (previousThumbnailIndex - photoIndex) * 100;
 			if (
 				previousThumbnailIndex > photoIndex &&
@@ -206,6 +226,7 @@ const showPreviousPhoto = () => {
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
 		} else {
+			decreasingIndex = (previousThumbnailIndex - photoIndex) * 100;
 			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
@@ -221,6 +242,8 @@ const showPreviousPhoto = () => {
 			smallLeftArrow.style.pointerEvents = 'none';
 			bigLeftArrow.style.opacity = 0.4;
 			bigLeftArrow.style.pointerEvents = 'none';
+			smallRightArrow.style.opacity = 1;
+			smallRightArrow.style.pointerEvents = 'auto';
 			decreasingIndex = (previousThumbnailIndex - photoIndex) * 128;
 			if (
 				previousThumbnailIndex > photoIndex &&
@@ -231,6 +254,7 @@ const showPreviousPhoto = () => {
 			}
 			otherPhotosBox.scrollTo(scrollValue, 0);
 		} else {
+			decreasingIndex = (previousThumbnailIndex - photoIndex) * 128;
 			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 128;
 				otherPhotosBox.scrollTo(scrollValue, 0);
