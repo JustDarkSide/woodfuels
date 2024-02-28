@@ -1,5 +1,7 @@
 .slider {
 	width: 100%;
+	touch-action: manipulation;
+	margin-top: 50px;
 	&__mainPhoto-box {
 		position: relative;
 		width: 100%;
@@ -28,6 +30,7 @@
 	}
 	.arrow {
 		display: flex;
+		touch-action: manipulation;
 		position: absolute;
 		justify-content: center;
 		align-items: center;
@@ -67,6 +70,7 @@
 			border-radius: 50%;
 			transition: opacity 0.5s;
 			cursor: pointer;
+			touch-action: manipulation;
 		}
 		.small-arrow-left {
 			top: 50%;

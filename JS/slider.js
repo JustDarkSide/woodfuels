@@ -13,6 +13,8 @@ let pathCollection = [];
 let touchstart = 0;
 let touchend = 0;
 let scrollValue = 0;
+let decreasingIndex = 0;
+let increasingIndex = 0;
 const collectAllPathsInfo = () => {
 	otherPhotos.forEach((photo) => {
 		let photoPath = photo.getAttribute('src');
@@ -29,6 +31,13 @@ const collectAllPathsInfo = () => {
 		}
 	});
 };
+const clearAllActiveThumbnails = () => {
+	for (let z = 0; z < otherPhotos.length; z++) {
+		if (otherPhotos[z].classList.contains('active')) {
+			otherPhotos[z].classList.remove('active');
+		}
+	}
+};
 const changeMainPhoto = () => {
 	otherPhotos.forEach((photo) => {
 		photo.addEventListener('click', function () {
@@ -41,11 +50,7 @@ const changeMainPhoto = () => {
 			mainPhoto.style.backgroundImage =
 				"url('" + `${pathCollection[photoIndex]}')`;
 			thumbnailIndex = photoIndex;
-			for (let z = 0; z < otherPhotos.length; z++) {
-				if (otherPhotos[z].classList.contains('active')) {
-					otherPhotos[z].classList.remove('active');
-				}
-			}
+			clearAllActiveThumbnails();
 			if (photoIndex == 0) {
 				smallLeftArrow.style.opacity = 0.4;
 				smallLeftArrow.style.pointerEvents = 'none';
@@ -73,22 +78,34 @@ const changeMainPhoto = () => {
 				bigRightArrow.style.pointerEvents = 'auto';
 			}
 			if (previousThumbnailIndex > thumbnailIndex) {
+				decreasingIndex = (previousThumbnailIndex - thumbnailIndex) * 100;
 				if (window.innerWidth < 1200) {
-					scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 100;
-					otherPhotosBox.scrollTo(scrollValue, 0);
+					if (scrollValue - decreasingIndex >= 0) {
+						scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 100;
+						otherPhotosBox.scrollTo(scrollValue, 0);
+					}
 				} else {
-					scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 128;
-					otherPhotosBox.scrollTo(scrollValue, 0);
+					decreasingIndex = (previousThumbnailIndex - thumbnailIndex) * 128;
+					if (scrollValue - decreasingIndex >= 0) {
+						scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 128;
+						otherPhotosBox.scrollTo(scrollValue, 0);
+					}
 				}
 			} else if (previousThumbnailIndex == thumbnailIndex) {
 				console.log('');
 			} else {
 				if (window.innerWidth < 1200) {
-					scrollValue += (thumbnailIndex - previousThumbnailIndex) * 100;
-					otherPhotosBox.scrollTo(scrollValue, 0);
+					increasingIndex = (thumbnailIndex - previousThumbnailIndex) * 100;
+					if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+						scrollValue += (thumbnailIndex - previousThumbnailIndex) * 100;
+						otherPhotosBox.scrollTo(scrollValue, 0);
+					}
 				} else {
-					scrollValue += (thumbnailIndex - previousThumbnailIndex) * 128;
-					otherPhotosBox.scrollTo(scrollValue, 0);
+					increasingIndex = (thumbnailIndex - previousThumbnailIndex) * 128;
+					if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+						scrollValue += (thumbnailIndex - previousThumbnailIndex) * 128;
+						otherPhotosBox.scrollTo(scrollValue, 0);
+					}
 				}
 			}
 			otherPhotos[photoIndex].classList.add('active');
@@ -101,29 +118,31 @@ const showNextPhoto = () => {
 		previousPhotoIndex = photoIndex;
 		previousThumbnailIndex = thumbnailIndex;
 		photoIndex++;
-		for (let z = 0; z < otherPhotos.length; z++) {
-			if (otherPhotos[z].classList.contains('active')) {
-				otherPhotos[z].classList.remove('active');
-			}
-		}
+		clearAllActiveThumbnails();
 		thumbnailIndex = photoIndex;
 	}
 	otherPhotos[photoIndex].classList.add('active');
 	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
+
 	if (window.innerWidth < 768) {
 		if (photoIndex == pathCollection.length - 1) {
 			smallRightArrow.style.opacity = 0.4;
 			smallRightArrow.style.pointerEvents = 'none';
 			bigRightArrow.style.opacity = 0.4;
 			bigRightArrow.style.pointerEvents = 'none';
-			if (previousThumbnailIndex < photoIndex) {
+			increasingIndex = 100;
+			if (
+				previousThumbnailIndex < photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+			) {
 				scrollValue += (photoIndex - previousThumbnailIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
-			// otherPhotosBox.scrollLeft += 100;
 		} else {
-			// otherPhotosBox.scrollLeft += 100;
-			if (previousThumbnailIndex < photoIndex) {
+			if (
+				thumbnailIndex == photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+			) {
 				scrollValue += (photoIndex - previousThumbnailIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
@@ -138,12 +157,19 @@ const showNextPhoto = () => {
 			smallRightArrow.style.pointerEvents = 'none';
 			bigRightArrow.style.opacity = 0.4;
 			bigRightArrow.style.pointerEvents = 'none';
-			if (previousThumbnailIndex < photoIndex) {
+			increasingIndex = 128;
+			if (
+				previousThumbnailIndex < photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+			) {
 				scrollValue += (photoIndex - previousThumbnailIndex) * 128;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
 		} else {
-			if (previousThumbnailIndex < photoIndex) {
+			if (
+				previousThumbnailIndex < photoIndex &&
+				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+			) {
 				scrollValue += (photoIndex - previousThumbnailIndex) * 128;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
@@ -160,11 +186,7 @@ const showPreviousPhoto = () => {
 		previousPhotoIndex = photoIndex;
 		previousThumbnailIndex = thumbnailIndex;
 		photoIndex--;
-		for (let z = 0; z < otherPhotos.length; z++) {
-			if (otherPhotos[z].classList.contains('active')) {
-				otherPhotos[z].classList.remove('active');
-			}
-		}
+		clearAllActiveThumbnails();
 	}
 	thumbnailIndex = photoIndex;
 	otherPhotos[photoIndex].classList.add('active');
@@ -175,12 +197,16 @@ const showPreviousPhoto = () => {
 			smallLeftArrow.style.pointerEvents = 'none';
 			bigLeftArrow.style.opacity = 0.4;
 			bigLeftArrow.style.pointerEvents = 'none';
-			if (previousThumbnailIndex > photoIndex) {
+			decreasingIndex = (previousThumbnailIndex - photoIndex) * 100;
+			if (
+				previousThumbnailIndex > photoIndex &&
+				scrollValue - decreasingIndex >= 0
+			) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
 		} else {
-			if (previousThumbnailIndex > photoIndex) {
+			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 100;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
@@ -195,13 +221,17 @@ const showPreviousPhoto = () => {
 			smallLeftArrow.style.pointerEvents = 'none';
 			bigLeftArrow.style.opacity = 0.4;
 			bigLeftArrow.style.pointerEvents = 'none';
-			if (previousThumbnailIndex > photoIndex) {
+			decreasingIndex = (previousThumbnailIndex - photoIndex) * 128;
+			if (
+				previousThumbnailIndex > photoIndex &&
+				scrollValue - decreasingIndex >= 0
+			) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 128;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
 			otherPhotosBox.scrollTo(scrollValue, 0);
 		} else {
-			if (previousThumbnailIndex > photoIndex) {
+			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
 				scrollValue -= (previousThumbnailIndex - photoIndex) * 128;
 				otherPhotosBox.scrollTo(scrollValue, 0);
 			}
@@ -216,11 +246,7 @@ const showPreviousPhoto = () => {
 const showNextThumbnail = () => {
 	if (thumbnailIndex < pathCollection.length - 1) {
 		otherPhotos[thumbnailIndex].classList.remove('active');
-		for (let z = 0; z < otherPhotos.length; z++) {
-			if (otherPhotos[z].classList.contains('active')) {
-				otherPhotos[z].classList.remove('active');
-			}
-		}
+		clearAllActiveThumbnails();
 		thumbnailIndex++;
 	}
 
@@ -228,18 +254,26 @@ const showNextThumbnail = () => {
 	if (thumbnailIndex == pathCollection.length - 1) {
 		smallRightArrow.style.opacity = 0.4;
 		smallRightArrow.style.pointerEvents = 'none';
-		scrollValue += 100;
-		otherPhotosBox.scrollTo(scrollValue, 0);
+		increasingIndex = 100;
+		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+			scrollValue += 100;
+			otherPhotosBox.scrollTo(scrollValue, 0);
+		}
 	} else if (window.innerWidth < 768) {
-		scrollValue += 100;
-		otherPhotosBox.scrollTo(scrollValue, 0);
+		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+			scrollValue += 100;
+			otherPhotosBox.scrollTo(scrollValue, 0);
+		}
 		smallRightArrow.style.opacity = 1;
 		smallRightArrow.style.pointerEvents = 'auto';
 		smallLeftArrow.style.opacity = 1;
 		smallLeftArrow.style.pointerEvents = 'auto';
 	} else {
-		scrollValue += 128;
-		otherPhotosBox.scrollTo(scrollValue, 0);
+		increasingIndex = 128;
+		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+			scrollValue += 128;
+			otherPhotosBox.scrollTo(scrollValue, 0);
+		}
 		smallRightArrow.style.opacity = 1;
 		smallRightArrow.style.pointerEvents = 'auto';
 		smallLeftArrow.style.opacity = 1;
@@ -249,11 +283,7 @@ const showNextThumbnail = () => {
 const showPreviousThumbnail = () => {
 	if (thumbnailIndex > 0) {
 		otherPhotos[thumbnailIndex].classList.remove('active');
-		for (let z = 0; z < otherPhotos.length; z++) {
-			if (otherPhotos[z].classList.contains('active')) {
-				otherPhotos[z].classList.remove('active');
-			}
-		}
+		clearAllActiveThumbnails();
 		thumbnailIndex--;
 	}
 	otherPhotos[thumbnailIndex].classList.add('active');
@@ -261,11 +291,16 @@ const showPreviousThumbnail = () => {
 		if (thumbnailIndex == 0) {
 			smallLeftArrow.style.opacity = 0.4;
 			smallLeftArrow.style.pointerEvents = 'none';
-			scrollValue -= 100;
-			otherPhotosBox.scrollTo(scrollValue, 0);
+			decreasingIndex = 100;
+			if (scrollValue - decreasingIndex >= 0) {
+				scrollValue -= 100;
+				otherPhotosBox.scrollTo(scrollValue, 0);
+			}
 		} else {
-			scrollValue -= 100;
-			otherPhotosBox.scrollTo(scrollValue, 0);
+			if (scrollValue - decreasingIndex >= 0) {
+				scrollValue -= 100;
+				otherPhotosBox.scrollTo(scrollValue, 0);
+			}
 			smallLeftArrow.style.opacity = 1;
 			smallLeftArrow.style.pointerEvents = 'auto';
 			smallRightArrow.style.opacity = 1;
@@ -275,11 +310,16 @@ const showPreviousThumbnail = () => {
 		if (thumbnailIndex == 0) {
 			smallLeftArrow.style.opacity = 0.4;
 			smallLeftArrow.style.pointerEvents = 'none';
-			scrollValue -= 128;
-			otherPhotosBox.scrollTo(scrollValue, 0);
+			decreasingIndex = 128;
+			if (scrollValue - decreasingIndex >= 0) {
+				scrollValue -= 128;
+				otherPhotosBox.scrollTo(scrollValue, 0);
+			}
 		} else {
-			scrollValue -= 128;
-			otherPhotosBox.scrollTo(scrollValue, 0);
+			if (scrollValue - decreasingIndex >= 0) {
+				scrollValue -= 128;
+				otherPhotosBox.scrollTo(scrollValue, 0);
+			}
 			smallRightArrow.style.opacity = 1;
 			smallRightArrow.style.pointerEvents = 'auto';
 		}
