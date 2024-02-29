@@ -271,6 +271,7 @@ body {
 	.pc-nav {
 		height: 100%;
 		width: 100%;
+		display: none;
 		&-box {
 			display: flex;
 		}
@@ -464,6 +465,7 @@ main {
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
 		cursor: pointer;
+		transition: scale 0.5s;
 
 		&-shadow {
 			position: absolute;
@@ -602,13 +604,30 @@ main {
 }
 
 .products {
-	border: 1px solid black;
 	width: 100%;
 
+	&__box {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__classlist {
+		margin-left: 70%;
+		select {
+			height: 50px;
+			width: 150px;
+			background-color: transparent;
+			border: 2px solid colors.$main-color;
+		}
+	}
 	&-title {
 		margin-left: 15%;
 		font-weight: bold;
 		margin-bottom: 2rem;
+		display: none;
 		p {
 			color: colors.$main-color;
 			text-transform: uppercase;
@@ -618,22 +637,24 @@ main {
 
 	&__item {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
+		justify-content: center;
 		align-items: center;
-		width: 100%;
+		width: 90%;
 		height: 350px;
-		margin: 2rem auto;
 		border: 3px solid colors.$main-color;
 		border-radius: 20px;
+		overflow: hidden;
+		margin-bottom: 1.5rem;
 
 		&-img {
 			position: relative;
-			margin-left: 3%;
-			height: 90%;
-			width: 250px;
+			// margin-left: 3%;
+			height: 60%;
+			width: 100%;
 			background-size: cover;
 			background-position: center;
-			border: 3px solid gray;
+			// border: 1px solid gray;
 			&--one {
 				background-image: url(../img/crate_1.png);
 			}
@@ -648,12 +669,17 @@ main {
 			height: 90%;
 			width: 1px;
 			background-color: gray;
+			display: none;
 		}
 
 		&-content {
 			position: relative;
-			height: 90%;
-			width: 800px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			width: 100%;
+			height: 40%;
 
 			&--element {
 				color: colors.$main-color;
@@ -662,16 +688,17 @@ main {
 			&--title {
 				p {
 					text-align: left;
-					font-size: 2em;
+					font-size: 1.5em;
 					font-weight: bold;
 				}
 			}
 			&--description {
 				margin-top: 1rem;
-				width: 90%;
+				width: 40%;
 				height: auto;
+				display: none;
 				p {
-					font-size: 1.8rem;
+					font-size: 1em;
 				}
 			}
 
@@ -679,13 +706,12 @@ main {
 				width: 20%;
 				margin-top: 1rem;
 				list-style-position: inside;
+				display: none;
 			}
 
 			&--additional {
-				position: absolute;
-				right: 15%;
-				height: 20%;
-				width: 40%;
+				height: 35%;
+				width: 80%;
 				background-color: none;
 				border: 4px solid colors.$main-color;
 				border-radius: 12px;
@@ -694,7 +720,7 @@ main {
 				cursor: pointer;
 				p {
 					font-size: 20px;
-					line-height: 60px;
+					line-height: 40px;
 					text-transform: uppercase;
 					text-align: center;
 					font-weight: 600;
@@ -790,7 +816,7 @@ footer {
 		}
 
 		a {
-			text-decoration: underline;
+			text-decoration: none;
 			color: colors.$pure-white;
 		}
 	}
@@ -799,6 +825,5 @@ footer {
 @include breakpoints.xs;
 @include breakpoints.small;
 @include breakpoints.medium;
-@include breakpoints.large;
 @include breakpoints.unusual;
 @include breakpoints.xxl;
