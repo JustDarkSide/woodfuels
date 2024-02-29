@@ -20,6 +20,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: background-image 0.1s;
 }
 .slider__mainPhoto-box .photo img {
   -o-object-fit: cover;

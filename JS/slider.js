@@ -15,20 +15,35 @@ let touchend = 0;
 let scrollValue = 0;
 let decreasingIndex = 0;
 let increasingIndex = 0;
+let fullThumbnailSize = 0;
+
+const setRightElementProperties = () => {
+	let thumbnailMarginLeft = window
+		.getComputedStyle(otherPhotos[0])
+		.getPropertyValue('margin-left');
+	let thumbnailMarginRight = window
+		.getComputedStyle(otherPhotos[0])
+		.getPropertyValue('margin-right');
+	thumbnailMarginLeft = parseInt(thumbnailMarginLeft.replace('px', ''));
+	thumbnailMarginRight = parseInt(thumbnailMarginRight.replace('px', ''));
+	let thumbnailWidth = otherPhotos[0].width;
+	fullThumbnailSize =
+		thumbnailWidth + thumbnailMarginLeft + thumbnailMarginRight;
+	if (thumbnailIndex == 0) {
+		smallLeftArrow.style.opacity = 0.4;
+		smallLeftArrow.style.pointerEvents = 'none';
+	}
+	if (photoIndex == 0) {
+		bigLeftArrow.style.opacity = 0.4;
+		bigLeftArrow.style.pointerEvents = 'none';
+	}
+};
 const collectAllPathsInfo = () => {
 	otherPhotos.forEach((photo) => {
 		let photoPath = photo.getAttribute('src');
 		photoPath = photoPath.replace('thumbnails/', '');
 		photoPath = photoPath.replace('-thumbnail', '');
 		pathCollection.push(photoPath);
-		if (thumbnailIndex == 0) {
-			smallLeftArrow.style.opacity = 0.4;
-			smallLeftArrow.style.pointerEvents = 'none';
-		}
-		if (photoIndex == 0) {
-			bigLeftArrow.style.opacity = 0.4;
-			bigLeftArrow.style.pointerEvents = 'none';
-		}
 	});
 };
 const clearAllActiveThumbnails = () => {
@@ -51,6 +66,7 @@ const changeMainPhoto = () => {
 				"url('" + `${pathCollection[photoIndex]}')`;
 			thumbnailIndex = photoIndex;
 			clearAllActiveThumbnails();
+			otherPhotos[photoIndex].classList.add('active');
 			if (photoIndex == 0) {
 				smallLeftArrow.style.opacity = 0.4;
 				smallLeftArrow.style.pointerEvents = 'none';
@@ -78,37 +94,25 @@ const changeMainPhoto = () => {
 				bigRightArrow.style.pointerEvents = 'auto';
 			}
 			if (previousThumbnailIndex > thumbnailIndex) {
-				decreasingIndex = (previousThumbnailIndex - thumbnailIndex) * 100;
-				if (window.innerWidth < 1200) {
-					if (scrollValue - decreasingIndex >= 0) {
-						scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 100;
-						otherPhotosBox.scrollTo(scrollValue, 0);
-					}
-				} else {
-					decreasingIndex = (previousThumbnailIndex - thumbnailIndex) * 128;
-					if (scrollValue - decreasingIndex >= 0) {
-						scrollValue -= (previousThumbnailIndex - thumbnailIndex) * 128;
-						otherPhotosBox.scrollTo(scrollValue, 0);
-					}
+				decreasingIndex =
+					(previousThumbnailIndex - thumbnailIndex) * fullThumbnailSize;
+
+				if (scrollValue - decreasingIndex >= 0) {
+					scrollValue -=
+						(previousThumbnailIndex - thumbnailIndex) * fullThumbnailSize;
+					otherPhotosBox.scrollTo(scrollValue, 0);
 				}
 			} else if (previousThumbnailIndex == thumbnailIndex) {
 				console.log('');
 			} else {
-				if (window.innerWidth < 1200) {
-					increasingIndex = (thumbnailIndex - previousThumbnailIndex) * 100;
-					if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
-						scrollValue += (thumbnailIndex - previousThumbnailIndex) * 100;
-						otherPhotosBox.scrollTo(scrollValue, 0);
-					}
-				} else {
-					increasingIndex = (thumbnailIndex - previousThumbnailIndex) * 128;
-					if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
-						scrollValue += (thumbnailIndex - previousThumbnailIndex) * 128;
-						otherPhotosBox.scrollTo(scrollValue, 0);
-					}
+				increasingIndex =
+					(thumbnailIndex - previousThumbnailIndex) * fullThumbnailSize;
+				if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
+					scrollValue +=
+						(thumbnailIndex - previousThumbnailIndex) * fullThumbnailSize;
+					otherPhotosBox.scrollTo(scrollValue, 0);
 				}
 			}
-			otherPhotos[photoIndex].classList.add('active');
 		});
 	});
 };
@@ -119,83 +123,41 @@ const showNextPhoto = () => {
 		previousThumbnailIndex = thumbnailIndex;
 		photoIndex++;
 		clearAllActiveThumbnails();
-		thumbnailIndex = photoIndex;
 	}
+	thumbnailIndex = photoIndex;
 	otherPhotos[photoIndex].classList.add('active');
 	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
 
-	if (window.innerWidth < 768) {
-		if (photoIndex == pathCollection.length - 1) {
-			smallRightArrow.style.opacity = 0.4;
-			smallRightArrow.style.pointerEvents = 'none';
-			bigRightArrow.style.opacity = 0.4;
-			bigRightArrow.style.pointerEvents = 'none';
-			smallLeftArrow.style.opacity = 1;
-			smallLeftArrow.style.pointerEvents = 'auto';
-			increasingIndex = 100;
-			if (
-				previousThumbnailIndex < photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
-			) {
-				scrollValue += (photoIndex - previousThumbnailIndex) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			} else if (
-				previousThumbnailIndex < photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth &&
-				photoIndex == 0
-			) {
-				scrollValue += (photoIndex - (previousThumbnailIndex + 1)) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-		} else {
-			if (
-				previousThumbnailIndex < photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth &&
-				photoIndex == 0
-			) {
-				scrollValue += (photoIndex - (previousThumbnailIndex + 1)) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			} else if (
-				thumbnailIndex == photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
-			) {
-				scrollValue += (photoIndex - previousThumbnailIndex) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallLeftArrow.style.opacity = 1;
-			smallLeftArrow.style.pointerEvents = 'auto';
-			bigLeftArrow.style.opacity = 1;
-			bigLeftArrow.style.pointerEvents = 'auto';
+	if (photoIndex == pathCollection.length - 1) {
+		smallRightArrow.style.opacity = 0.4;
+		smallRightArrow.style.pointerEvents = 'none';
+		bigRightArrow.style.opacity = 0.4;
+		bigRightArrow.style.pointerEvents = 'none';
+		smallLeftArrow.style.opacity = 1;
+		smallLeftArrow.style.pointerEvents = 'auto';
+
+		increasingIndex = (photoIndex - previousThumbnailIndex) * fullThumbnailSize;
+
+		if (
+			previousThumbnailIndex < photoIndex &&
+			scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+		) {
+			scrollValue += increasingIndex;
+			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
 	} else {
-		if (photoIndex == pathCollection.length - 1) {
-			smallRightArrow.style.opacity = 0.4;
-			smallRightArrow.style.pointerEvents = 'none';
-			bigRightArrow.style.opacity = 0.4;
-			bigRightArrow.style.pointerEvents = 'none';
-			smallLeftArrow.style.opacity = 1;
-			smallLeftArrow.style.pointerEvents = 'auto';
-			increasingIndex = 128;
-			if (
-				previousThumbnailIndex < photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
-			) {
-				scrollValue += (photoIndex - previousThumbnailIndex) * 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-		} else {
-			if (
-				previousThumbnailIndex < photoIndex &&
-				scrollValue + increasingIndex < otherPhotosBox.scrollWidth
-			) {
-				scrollValue += (photoIndex - previousThumbnailIndex) * 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallLeftArrow.style.opacity = 1;
-			bigLeftArrow.style.opacity = 1;
-			smallLeftArrow.style.pointerEvents = 'auto';
-			bigLeftArrow.style.pointerEvents = 'auto';
+		increasingIndex = (photoIndex - previousThumbnailIndex) * fullThumbnailSize;
+		if (
+			thumbnailIndex == photoIndex &&
+			scrollValue + increasingIndex < otherPhotosBox.scrollWidth
+		) {
+			scrollValue += increasingIndex;
+			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
+		smallLeftArrow.style.opacity = 1;
+		smallLeftArrow.style.pointerEvents = 'auto';
+		bigLeftArrow.style.opacity = 1;
+		bigLeftArrow.style.pointerEvents = 'auto';
 	}
 };
 const showPreviousPhoto = () => {
@@ -209,61 +171,32 @@ const showPreviousPhoto = () => {
 	thumbnailIndex = photoIndex;
 	otherPhotos[photoIndex].classList.add('active');
 	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
-	if (window.innerWidth < 768) {
-		if (photoIndex == 0) {
-			smallLeftArrow.style.opacity = 0.4;
-			smallLeftArrow.style.pointerEvents = 'none';
-			bigLeftArrow.style.opacity = 0.4;
-			bigLeftArrow.style.pointerEvents = 'none';
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
-			decreasingIndex = (previousThumbnailIndex - photoIndex) * 100;
-			if (
-				previousThumbnailIndex > photoIndex &&
-				scrollValue - decreasingIndex >= 0
-			) {
-				scrollValue -= (previousThumbnailIndex - photoIndex) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-		} else {
-			decreasingIndex = (previousThumbnailIndex - photoIndex) * 100;
-			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
-				scrollValue -= (previousThumbnailIndex - photoIndex) * 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
-			bigRightArrow.style.opacity = 1;
-			bigRightArrow.style.pointerEvents = 'auto';
+
+	if (photoIndex == 0) {
+		smallLeftArrow.style.opacity = 0.4;
+		smallLeftArrow.style.pointerEvents = 'none';
+		bigLeftArrow.style.opacity = 0.4;
+		bigLeftArrow.style.pointerEvents = 'none';
+		smallRightArrow.style.opacity = 1;
+		smallRightArrow.style.pointerEvents = 'auto';
+		decreasingIndex = (previousThumbnailIndex - photoIndex) * fullThumbnailSize;
+		if (
+			previousThumbnailIndex > photoIndex &&
+			scrollValue - decreasingIndex >= 0
+		) {
+			scrollValue -= decreasingIndex;
+			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
 	} else {
-		if (photoIndex == 0) {
-			smallLeftArrow.style.opacity = 0.4;
-			smallLeftArrow.style.pointerEvents = 'none';
-			bigLeftArrow.style.opacity = 0.4;
-			bigLeftArrow.style.pointerEvents = 'none';
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
-			decreasingIndex = (previousThumbnailIndex - photoIndex) * 128;
-			if (
-				previousThumbnailIndex > photoIndex &&
-				scrollValue - decreasingIndex >= 0
-			) {
-				scrollValue -= (previousThumbnailIndex - photoIndex) * 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
+		decreasingIndex = (previousThumbnailIndex - photoIndex) * fullThumbnailSize;
+		if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
+			scrollValue -= decreasingIndex;
 			otherPhotosBox.scrollTo(scrollValue, 0);
-		} else {
-			decreasingIndex = (previousThumbnailIndex - photoIndex) * 128;
-			if (thumbnailIndex == photoIndex && scrollValue - decreasingIndex >= 0) {
-				scrollValue -= (previousThumbnailIndex - photoIndex) * 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
-			bigRightArrow.style.opacity = 1;
-			bigRightArrow.style.pointerEvents = 'auto';
 		}
+		smallRightArrow.style.opacity = 1;
+		smallRightArrow.style.pointerEvents = 'auto';
+		bigRightArrow.style.opacity = 1;
+		bigRightArrow.style.pointerEvents = 'auto';
 	}
 };
 
@@ -278,24 +211,15 @@ const showNextThumbnail = () => {
 	if (thumbnailIndex == pathCollection.length - 1) {
 		smallRightArrow.style.opacity = 0.4;
 		smallRightArrow.style.pointerEvents = 'none';
-		increasingIndex = 100;
+		increasingIndex = fullThumbnailSize;
 		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
-			scrollValue += 100;
+			scrollValue += increasingIndex;
 			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
-	} else if (window.innerWidth < 768) {
-		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
-			scrollValue += 100;
-			otherPhotosBox.scrollTo(scrollValue, 0);
-		}
-		smallRightArrow.style.opacity = 1;
-		smallRightArrow.style.pointerEvents = 'auto';
-		smallLeftArrow.style.opacity = 1;
-		smallLeftArrow.style.pointerEvents = 'auto';
 	} else {
-		increasingIndex = 128;
+		increasingIndex = fullThumbnailSize;
 		if (scrollValue + increasingIndex < otherPhotosBox.scrollWidth) {
-			scrollValue += 128;
+			scrollValue += increasingIndex;
 			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
 		smallRightArrow.style.opacity = 1;
@@ -311,42 +235,25 @@ const showPreviousThumbnail = () => {
 		thumbnailIndex--;
 	}
 	otherPhotos[thumbnailIndex].classList.add('active');
-	if (window.innerWidth < 768) {
-		if (thumbnailIndex == 0) {
-			smallLeftArrow.style.opacity = 0.4;
-			smallLeftArrow.style.pointerEvents = 'none';
-			decreasingIndex = 100;
-			if (scrollValue - decreasingIndex >= 0) {
-				scrollValue -= 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-		} else {
-			if (scrollValue - decreasingIndex >= 0) {
-				scrollValue -= 100;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallLeftArrow.style.opacity = 1;
-			smallLeftArrow.style.pointerEvents = 'auto';
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
+
+	if (thumbnailIndex == 0) {
+		smallLeftArrow.style.opacity = 0.4;
+		smallLeftArrow.style.pointerEvents = 'none';
+		decreasingIndex = fullThumbnailSize;
+		if (scrollValue - decreasingIndex >= 0) {
+			scrollValue -= decreasingIndex;
+			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
 	} else {
-		if (thumbnailIndex == 0) {
-			smallLeftArrow.style.opacity = 0.4;
-			smallLeftArrow.style.pointerEvents = 'none';
-			decreasingIndex = 128;
-			if (scrollValue - decreasingIndex >= 0) {
-				scrollValue -= 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-		} else {
-			if (scrollValue - decreasingIndex >= 0) {
-				scrollValue -= 128;
-				otherPhotosBox.scrollTo(scrollValue, 0);
-			}
-			smallRightArrow.style.opacity = 1;
-			smallRightArrow.style.pointerEvents = 'auto';
+		decreasingIndex = fullThumbnailSize;
+		if (scrollValue - decreasingIndex >= 0) {
+			scrollValue -= decreasingIndex;
+			otherPhotosBox.scrollTo(scrollValue, 0);
 		}
+		smallLeftArrow.style.opacity = 1;
+		smallLeftArrow.style.pointerEvents = 'auto';
+		smallRightArrow.style.opacity = 1;
+		smallRightArrow.style.pointerEvents = 'auto';
 	}
 };
 const checkSwipeDirection = () => {
@@ -381,6 +288,8 @@ const checkSwipeDirectionThumbnails = () => {
 };
 changeMainPhoto();
 document.addEventListener('DOMContentLoaded', collectAllPathsInfo);
+document.addEventListener('DOMContentLoaded', setRightElementProperties);
+document.addEventListener('resize', setRightElementProperties);
 bigRightArrow.addEventListener('click', showNextPhoto);
 mainPhoto.addEventListener('swipe', showNextPhoto);
 bigLeftArrow.addEventListener('click', showPreviousPhoto);
