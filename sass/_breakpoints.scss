@@ -1,8 +1,26 @@
-@use './colors' as colors;
-@use './animations';
+@use "./colors" as colors;
+@use "./animations";
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
+
+		.products {
+			&__item {
+				width: 80%;
+				height: 50vh;
+				margin-bottom: 1.8rem;
+
+				&-content {
+					&--additional {
+						p {
+							line-height: 50px;
+							font-size: 24px;
+						}
+					}
+				}
+			}
+		}
+
 		footer {
 			.footer__left {
 				&-logobox {
@@ -100,7 +118,7 @@
 		}
 		.cards {
 			&__item {
-				width: 45%;
+				width: 35%;
 				height: 500px;
 
 				&-title {
@@ -117,6 +135,25 @@
 						.read-more {
 							width: 50px;
 							height: 50px;
+						}
+					}
+				}
+			}
+		}
+		.products {
+			&__box {
+				flex-direction: row;
+				flex-wrap: wrap;
+			}
+
+			&__item {
+				height: 400px;
+				width: 45%;
+				margin: 2.5%;
+				&-content {
+					&--additional {
+						p {
+							line-height: 45px;
 						}
 					}
 				}
@@ -158,13 +195,22 @@
 				}
 			}
 		}
-	}
-}
-@mixin large {
-	@media (max-width: 1200px) {
-		.nav {
-			.pc-nav {
-				display: none;
+		.products {
+			&__item {
+				height: 500px;
+				&-content {
+					&--title {
+						p {
+							font-size: 3.2rem;
+						}
+					}
+					&--additional {
+						p {
+							font-size: 2.4rem;
+							line-height: 55px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -180,6 +226,9 @@
 			}
 			.burger-btn {
 				display: none;
+			}
+			.pc-nav {
+				display: block;
 			}
 		}
 
@@ -199,18 +248,17 @@
 		}
 		main {
 			min-height: 100vh;
-			.mapleleaf-png {
-				display: block;
-			}
 		}
 		.cards {
 			&__box {
-				padding-top: 4em;
+				padding-top: 3em;
 			}
 			&__item {
-				// width: 30%;
-				height: 600px;
+				width: 24%;
+				height: 540px;
+				margin-bottom: 2em;
 				&-text {
+					border-top: 1px solid black;
 					top: 110%;
 				}
 				&-title {
@@ -226,18 +274,8 @@
 					}
 				}
 
-				&:hover .card_info {
-					height: 0;
-					color: colors.$pure-white;
-				}
-
-				&:hover .product_description {
-					opacity: 1;
-				}
-
-				&:hover .cards__item-text {
-					top: 50%;
-					border-radius: 0%;
+				&:hover {
+					scale: 1.05;
 				}
 			}
 		}
@@ -251,7 +289,69 @@
 		.firewood.section,
 		.kindling.section,
 		.briquette.section {
-			padding: 4rem 0 3rem 0;
+			padding: rem 0 3rem 0;
+		}
+
+		.products {
+			width: 100%;
+
+			&-title {
+				display: block;
+			}
+
+			&__item {
+				flex-direction: row;
+				justify-content: space-between;
+				height: 350px;
+				width: 100%;
+				margin: 2rem auto;
+
+				&-img {
+					position: relative;
+					margin-left: 3%;
+					height: 90%;
+					width: 250px;
+					border: 3px solid gray;
+				}
+				&-img::after {
+					display: block;
+				}
+				&-content {
+					display: block;
+					height: 90%;
+					width: 800px;
+
+					&--title {
+						p {
+							font-size: 2em;
+						}
+					}
+					&--description {
+						margin-top: 1rem;
+						width: 90%;
+						height: auto;
+						display: block;
+						p {
+							font-size: 1.8rem;
+						}
+					}
+
+					&--list {
+						display: block;
+					}
+
+					&--additional {
+						position: absolute;
+						right: 15%;
+						height: 20%;
+						width: 40%;
+
+						p {
+							line-height: 60px;
+						}
+					}
+				}
+			}
 		}
 
 		footer {

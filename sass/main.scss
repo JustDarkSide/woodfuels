@@ -1,6 +1,6 @@
-@use './colors' as colors;
-@use './breakpoints' as breakpoints;
-@use './animations' as animations;
+@use "./colors" as colors;
+@use "./breakpoints" as breakpoints;
+@use "./animations" as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -20,6 +20,10 @@ html {
 	max-width: 1200px;
 	width: 100%;
 	margin: 0 auto;
+
+	&__offer {
+		max-width: 1920px;
+	}
 }
 
 .hideShadow {
@@ -66,7 +70,7 @@ html {
 body {
 	position: relative;
 	background-color: colors.$body-color;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.6rem;
 }
 
@@ -111,7 +115,7 @@ body {
 			position: absolute;
 			right: 0;
 			height: 4px;
-			content: '';
+			content: "";
 			background-color: colors.$main-color;
 		}
 
@@ -267,6 +271,7 @@ body {
 	.pc-nav {
 		height: 100%;
 		width: 100%;
+		display: none;
 		&-box {
 			display: flex;
 		}
@@ -285,7 +290,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: '';
+				content: "";
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -392,7 +397,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1-big.jpg');
+			background-image: url("../img/carousel-item1-big.jpg");
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
@@ -438,27 +443,6 @@ main {
 	min-height: 100vh;
 	overflow: hidden;
 	position: relative;
-	.mapleleaf-png {
-		display: none;
-		position: absolute;
-		height: 300px;
-		opacity: 0.2;
-
-		&--first {
-			top: 5%;
-			left: 8%;
-		}
-
-		&--second {
-			top: 40%;
-			left: 75%;
-			transform: rotateY(180deg);
-		}
-		&--third {
-			top: 90%;
-			left: 10%;
-		}
-	}
 }
 // ------cards----------
 .cards {
@@ -468,17 +452,48 @@ main {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		padding-top: 2.6em;
 	}
 	&__item {
-		width: 90%;
+		width: 80%;
 		height: 400px;
 		position: relative;
-		margin-bottom: 2em;
-		border-radius: 15px;
+		margin-bottom: 4em;
 		border: 1px solid colors.$black;
 		overflow: hidden;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		cursor: pointer;
+		transition: scale 0.5s;
+
+		&-shadow {
+			position: absolute;
+			top: -100%;
+			left: 0;
+			background-color: rgba(255, 255, 255, 0.7);
+			width: 100%;
+			height: 100%;
+			transition: top 0.7s;
+
+			&--btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				height: 100px;
+				width: 100px;
+				border: 5px solid colors.$main-color;
+				border-radius: 50%;
+				img {
+					scale: 0.05;
+					color: white;
+				}
+			}
+		}
 
 		&-photo {
 			width: 100%;
@@ -488,18 +503,19 @@ main {
 			background-position: center;
 			background-repeat: no-repeat;
 			&--one {
-				background-image: url('../img/firewood-small.jpg');
+				background-image: url("../img/firewood-small.jpg");
 			}
 			&--two {
-				background-image: url('../img/briquette-small.jpg');
+				background-image: url("../img/briquette-small.jpg");
 			}
 			&--three {
-				background-image: url('../img/kindling-small.jpg');
+				background-image: url("../img/kindling-small.jpg");
 			}
 			&--four {
-				background-image: url('../img/pellet-small.jpg');
+				background-image: url("../img/pellet-small.jpg");
 			}
 		}
+
 		&-text {
 			position: absolute;
 			top: 150%;
@@ -508,13 +524,11 @@ main {
 			width: 150%;
 			height: 100%;
 			background-color: colors.$pure-white;
-			border-radius: 45%;
-			transition: top 1s, border-radius 1s 0.5s;
-			// overflow: hidden;
+			transition: top 0.7s;
 		}
+
 		&-title {
 			position: absolute;
-			// width: 50%;
 			top: 6%;
 			left: 50%;
 			transform: translate(-50%);
@@ -532,42 +546,8 @@ main {
 
 			&--desktop {
 				display: none;
-
-				a {
-					font-family: 'Montserrat', sans-serif;
-				}
-
 				.card_info {
 					display: block;
-				}
-
-				&---element {
-					padding-left: 1em;
-					margin-top: 5rem;
-
-					&-second {
-						text-decoration: none;
-						color: colors.$main-color;
-						border: 2px solid colors.$main-color;
-						border-radius: 20px;
-						position: absolute;
-						top: 130%;
-						height: 80px;
-						width: 100%;
-						padding: 1em 0;
-
-						.content {
-							.icon_holder {
-								width: 60px;
-								height: 60px;
-							}
-						}
-					}
-				}
-
-				.product_description {
-					opacity: 0;
-					transition: opacity 0s;
 				}
 			}
 
@@ -622,34 +602,171 @@ main {
 		}
 	}
 }
-//OGROMNE PROBLEMY I NIEWYGODA Z POZYCJONOWANIEM ZDJĘĆ POPRZEZ POTRZEBĘ PRZESUWANIA O PX. PRZESUWANIE O PROCENTY JEST JEDYNIE EFEKTYWNE I MOŻLIWE (CHYBA) GDY WYSOKOŚĆ/SZEROKOŚĆ
-// ULEGNIE ZMNIEJSZENIU, CO Z KOLEI POWODUJE INNE PROBLEMY. KOMBINOWAŁEM RÓWNIEŻ Z BACKGROUND-SIZE.
-.kindling {
-	.cards__item-photo--one {
-		background-image: url('../img/kindling-small.jpg');
+
+.products {
+	width: 100%;
+
+	&__box {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
-	.cards__item-photo--two {
-		background-image: url('../img/kindling2.jpg');
+
+	&__classlist {
+		margin-left: 70%;
+		select {
+			height: 50px;
+			width: 150px;
+			background-color: transparent;
+			border: 2px solid colors.$main-color;
+		}
 	}
-	.cards__item-photo--three {
-		background-image: url('../img/kindling3.webp');
+	&-title {
+		margin-left: 15%;
+		font-weight: bold;
+		margin-bottom: 2rem;
+		display: none;
+		p {
+			color: colors.$main-color;
+			text-transform: uppercase;
+			font-size: 3em;
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 90%;
+		height: 350px;
+		border: 3px solid colors.$main-color;
+		border-radius: 20px;
+		overflow: hidden;
+		margin-bottom: 1.5rem;
+
+		&-img {
+			position: relative;
+			// margin-left: 3%;
+			height: 60%;
+			width: 100%;
+			background-size: cover;
+			background-position: center;
+			// border: 1px solid gray;
+			&--one {
+				background-image: url(../img/crate_1.png);
+			}
+		}
+
+		&-img::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			right: -23%;
+			transform: translateY(-50%);
+			height: 90%;
+			width: 1px;
+			background-color: gray;
+			display: none;
+		}
+
+		&-content {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			width: 100%;
+			height: 40%;
+
+			&--element {
+				color: colors.$main-color;
+			}
+
+			&--title {
+				p {
+					text-align: left;
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+			}
+			&--description {
+				margin-top: 1rem;
+				width: 40%;
+				height: auto;
+				display: none;
+				p {
+					font-size: 1em;
+				}
+			}
+
+			&--list {
+				width: 20%;
+				margin-top: 1rem;
+				list-style-position: inside;
+				display: none;
+			}
+
+			&--additional {
+				height: 35%;
+				width: 80%;
+				background-color: none;
+				border: 4px solid colors.$main-color;
+				border-radius: 12px;
+				box-shadow: 2px 2px 2px 2px colors.$main-color;
+				transition: box-shadow 0.3s;
+				cursor: pointer;
+				a {
+					text-decoration: none;
+				}
+				p {
+					font-size: 20px;
+					line-height: 40px;
+					text-transform: uppercase;
+					text-align: center;
+					font-weight: 600;
+					color: colors.$main-color;
+				}
+			}
+
+			&--additional:hover {
+				box-shadow: none;
+			}
+		}
 	}
 }
-.briquette {
+
+.kindling {
 	.cards__item-photo--one {
-		background-image: url('../img/ruf.jpg');
+		background-image: url("../img/kindling-small.jpg");
 	}
 	.cards__item-photo--two {
-		background-image: url('../img/pinikay.jpg');
+		background-image: url("../img/kindling2.jpg");
+	}
+	.cards__item-photo--three {
+		background-image: url("../img/kindling3.webp");
+	}
+}
+
+.briquette {
+	.cards__item-photo--one {
+		background-image: url("../img/ruf.jpg");
+	}
+	.cards__item-photo--two {
+		background-image: url("../img/pinikay.jpg");
 		background-position-y: -100px;
 		background-position-x: -100px;
 	}
 }
+
 .firewood.section,
 .kindling.section,
 .briquette.section {
 	padding: 4rem 0 1rem 0;
 }
+
 footer {
 	position: absolute;
 	bottom: 0;
@@ -702,7 +819,7 @@ footer {
 		}
 
 		a {
-			text-decoration: underline;
+			text-decoration: none;
 			color: colors.$pure-white;
 		}
 	}
@@ -711,6 +828,5 @@ footer {
 @include breakpoints.xs;
 @include breakpoints.small;
 @include breakpoints.medium;
-@include breakpoints.large;
 @include breakpoints.unusual;
 @include breakpoints.xxl;
