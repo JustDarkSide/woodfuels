@@ -92,7 +92,7 @@ header {
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
-				transition: background-image 0.1s;
+				// transition: background-image 0.1s;
 
 				.active {
 					opacity: 1;
@@ -248,7 +248,7 @@ header {
 					background-position: center;
 					background-size: cover;
 					background-repeat: no-repeat;
-					transition: background-image 0.1s;
+					// transition: background-image 0s;
 					border-radius: 8px;
 					border: 2px solid black;
 					img {

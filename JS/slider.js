@@ -1,15 +1,15 @@
-const mainPhoto = document.querySelector('.photo');
-const otherPhotosBox = document.querySelector('.thumbnails-box');
+const mainPhoto = document.querySelector(".photo");
+const otherPhotosBox = document.querySelector(".thumbnails-box");
 const thumbnailPhotoBox = document.querySelectorAll(
-	'.thumbnails-box .img-box div'
+	".thumbnails-box .img-box div"
 );
 const thumbnailPhotos = document.querySelectorAll(
-	'.thumbnails-box .img-box img'
+	".thumbnails-box .img-box img"
 );
-const bigLeftArrow = document.querySelector('.arrow-left');
-const bigRightArrow = document.querySelector('.arrow-right');
-const smallLeftArrow = document.querySelector('.small-arrow-left');
-const smallRightArrow = document.querySelector('.small-arrow-right');
+const bigLeftArrow = document.querySelector(".arrow-left");
+const bigRightArrow = document.querySelector(".arrow-right");
+const smallLeftArrow = document.querySelector(".small-arrow-left");
+const smallRightArrow = document.querySelector(".small-arrow-right");
 let previousThumbnailIndex = 0;
 let previousPhotoIndex = 0;
 let photoIndex = 0;
@@ -25,99 +25,94 @@ let fullThumbnailSize = 0;
 const setRightElementProperties = () => {
 	let thumbnailMarginLeft = window
 		.getComputedStyle(thumbnailPhotoBox[thumbnailIndex])
-		.getPropertyValue('margin-top');
+		.getPropertyValue("margin-top");
 	let thumbnailMarginRight = window
 		.getComputedStyle(thumbnailPhotoBox[thumbnailIndex])
-		.getPropertyValue('margin-bottom');
-	thumbnailMarginLeft = parseInt(thumbnailMarginLeft.replace('px', ''));
-	thumbnailMarginRight = parseInt(thumbnailMarginRight.replace('px', ''));
+		.getPropertyValue("margin-bottom");
+	thumbnailMarginLeft = parseInt(thumbnailMarginLeft.replace("px", ""));
+	thumbnailMarginRight = parseInt(thumbnailMarginRight.replace("px", ""));
 	let thumbnailHeight = Math.round(
 		window
 			.getComputedStyle(thumbnailPhotoBox[thumbnailIndex])
-			.getPropertyValue('height')
-			.replace('px', '')
+			.getPropertyValue("height")
+			.replace("px", "")
 	);
 
 	fullThumbnailSize =
 		thumbnailHeight + thumbnailMarginLeft + thumbnailMarginRight;
 	if (thumbnailIndex == 0) {
 		smallLeftArrow.style.opacity = 0.4;
-		smallLeftArrow.style.pointerEvents = 'none';
+		smallLeftArrow.style.pointerEvents = "none";
 	}
 	if (photoIndex == 0) {
 		bigLeftArrow.style.opacity = 0.4;
-		bigLeftArrow.style.pointerEvents = 'none';
+		bigLeftArrow.style.pointerEvents = "none";
 	}
 	console.log(fullThumbnailSize);
 };
 const collectAllPathsInfo = () => {
-	// thumbnailPhotos.forEach((photo) => {
-	// 	let photoPath = window.getComputedStyle(photo);
-	// 	pathCollection.push(photoPath);
-	// 	console.log(pathCollection);
-	// });
 	for (let i = 0; i < thumbnailPhotoBox.length; i++) {
 		let photoPath = window
 			.getComputedStyle(thumbnailPhotoBox[i])
-			.getPropertyValue('background-image');
-		photoPath = photoPath.slice(photoPath.indexOf('/img'));
-		photoPath = photoPath.replace('")', '');
-		photoPath = '..' + photoPath;
+			.getPropertyValue("background-image");
+		photoPath = photoPath.slice(photoPath.indexOf("/img"));
+		photoPath = photoPath.replace('")', "");
+		photoPath = ".." + photoPath;
 		console.log(photoPath);
 		pathCollection.push(photoPath);
 	}
 };
 const clearAllActiveThumbnails = () => {
 	for (let z = 0; z < thumbnailPhotoBox.length; z++) {
-		if (thumbnailPhotoBox[z].classList.contains('active')) {
-			thumbnailPhotoBox[z].classList.remove('active');
+		if (thumbnailPhotoBox[z].classList.contains("active")) {
+			thumbnailPhotoBox[z].classList.remove("active");
 		}
 	}
 };
 const changeMainPhoto = () => {
 	thumbnailPhotoBox.forEach((photo) => {
-		photo.addEventListener('click', function () {
+		photo.addEventListener("click", function () {
 			previousThumbnailIndex = thumbnailIndex;
 			previousPhotoIndex = photoIndex;
 			let thumbnailPath = window
 				.getComputedStyle(photo)
-				.getPropertyValue('background-image');
+				.getPropertyValue("background-image");
 			console.log(thumbnailPath);
-			thumbnailPath = thumbnailPath.slice(thumbnailPath.indexOf('/img'));
-			thumbnailPath = thumbnailPath.replace('")', '');
-			thumbnailPath = '..' + thumbnailPath;
+			thumbnailPath = thumbnailPath.slice(thumbnailPath.indexOf("/img"));
+			thumbnailPath = thumbnailPath.replace('")', "");
+			thumbnailPath = ".." + thumbnailPath;
 			photoIndex = pathCollection.indexOf(thumbnailPath);
 			mainPhoto.style.backgroundImage =
 				"url('" + `${pathCollection[photoIndex]}')`;
 			setRightElementProperties();
 			thumbnailIndex = photoIndex;
 			clearAllActiveThumbnails();
-			thumbnailPhotoBox[photoIndex].classList.add('active');
+			thumbnailPhotoBox[photoIndex].classList.add("active");
 			if (photoIndex == 0) {
 				smallLeftArrow.style.opacity = 0.4;
-				smallLeftArrow.style.pointerEvents = 'none';
+				smallLeftArrow.style.pointerEvents = "none";
 				bigLeftArrow.style.opacity = 0.4;
-				bigLeftArrow.style.pointerEvents = 'none';
+				bigLeftArrow.style.pointerEvents = "none";
 				bigRightArrow.style.opacity = 1;
-				bigRightArrow.style.pointerEvents = 'auto';
+				bigRightArrow.style.pointerEvents = "auto";
 			} else if (photoIndex == pathCollection.length - 1) {
 				smallRightArrow.style.opacity = 0.4;
-				smallRightArrow.style.pointerEvents = 'none';
+				smallRightArrow.style.pointerEvents = "none";
 				smallLeftArrow.style.opacity = 1;
-				smallLeftArrow.style.pointerEvents = 'auto';
+				smallLeftArrow.style.pointerEvents = "auto";
 				bigRightArrow.style.opacity = 0.4;
-				bigRightArrow.style.pointerEvents = 'none';
+				bigRightArrow.style.pointerEvents = "none";
 				bigLeftArrow.style.opacity = 1;
-				bigLeftArrow.style.pointerEvents = 'auto';
+				bigLeftArrow.style.pointerEvents = "auto";
 			} else {
 				smallLeftArrow.style.opacity = 1;
-				smallLeftArrow.style.pointerEvents = 'auto';
+				smallLeftArrow.style.pointerEvents = "auto";
 				bigLeftArrow.style.opacity = 1;
-				bigLeftArrow.style.pointerEvents = 'auto';
+				bigLeftArrow.style.pointerEvents = "auto";
 				smallRightArrow.style.opacity = 1;
-				smallRightArrow.style.pointerEvents = 'auto';
+				smallRightArrow.style.pointerEvents = "auto";
 				bigRightArrow.style.opacity = 1;
-				bigRightArrow.style.pointerEvents = 'auto';
+				bigRightArrow.style.pointerEvents = "auto";
 			}
 			if (previousThumbnailIndex > thumbnailIndex) {
 				decreasingIndex =
@@ -129,7 +124,7 @@ const changeMainPhoto = () => {
 					otherPhotosBox.scrollTo(0, scrollValue);
 				}
 			} else if (previousThumbnailIndex == thumbnailIndex) {
-				console.log('');
+				console.log("");
 			} else {
 				increasingIndex =
 					(thumbnailIndex - previousThumbnailIndex) * fullThumbnailSize;
@@ -144,7 +139,7 @@ const changeMainPhoto = () => {
 };
 const showNextPhoto = () => {
 	if (photoIndex < pathCollection.length - 1) {
-		thumbnailPhotoBox[photoIndex].classList.remove('active');
+		thumbnailPhotoBox[photoIndex].classList.remove("active");
 		previousPhotoIndex = photoIndex;
 		previousThumbnailIndex = thumbnailIndex;
 		clearAllActiveThumbnails();
@@ -153,16 +148,16 @@ const showNextPhoto = () => {
 	setRightElementProperties();
 	thumbnailIndex = photoIndex;
 
-	thumbnailPhotoBox[photoIndex].classList.add('active');
+	thumbnailPhotoBox[photoIndex].classList.add("active");
 	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
 
 	if (photoIndex == pathCollection.length - 1) {
 		smallRightArrow.style.opacity = 0.4;
-		smallRightArrow.style.pointerEvents = 'none';
+		smallRightArrow.style.pointerEvents = "none";
 		bigRightArrow.style.opacity = 0.4;
-		bigRightArrow.style.pointerEvents = 'none';
+		bigRightArrow.style.pointerEvents = "none";
 		smallLeftArrow.style.opacity = 1;
-		smallLeftArrow.style.pointerEvents = 'auto';
+		smallLeftArrow.style.pointerEvents = "auto";
 
 		increasingIndex = (photoIndex - previousThumbnailIndex) * fullThumbnailSize;
 
@@ -183,14 +178,14 @@ const showNextPhoto = () => {
 			otherPhotosBox.scrollTo(0, scrollValue);
 		}
 		smallLeftArrow.style.opacity = 1;
-		smallLeftArrow.style.pointerEvents = 'auto';
+		smallLeftArrow.style.pointerEvents = "auto";
 		bigLeftArrow.style.opacity = 1;
-		bigLeftArrow.style.pointerEvents = 'auto';
+		bigLeftArrow.style.pointerEvents = "auto";
 	}
 };
 const showPreviousPhoto = () => {
 	if (photoIndex > 0) {
-		thumbnailPhotoBox[photoIndex].classList.remove('active');
+		thumbnailPhotoBox[photoIndex].classList.remove("active");
 		previousPhotoIndex = photoIndex;
 		previousThumbnailIndex = thumbnailIndex;
 		clearAllActiveThumbnails();
@@ -198,16 +193,16 @@ const showPreviousPhoto = () => {
 	}
 	setRightElementProperties();
 	thumbnailIndex = photoIndex;
-	thumbnailPhotoBox[photoIndex].classList.add('active');
+	thumbnailPhotoBox[photoIndex].classList.add("active");
 	mainPhoto.style.backgroundImage = "url('" + `${pathCollection[photoIndex]}')`;
 
 	if (photoIndex == 0) {
 		smallLeftArrow.style.opacity = 0.4;
-		smallLeftArrow.style.pointerEvents = 'none';
+		smallLeftArrow.style.pointerEvents = "none";
 		bigLeftArrow.style.opacity = 0.4;
-		bigLeftArrow.style.pointerEvents = 'none';
+		bigLeftArrow.style.pointerEvents = "none";
 		smallRightArrow.style.opacity = 1;
-		smallRightArrow.style.pointerEvents = 'auto';
+		smallRightArrow.style.pointerEvents = "auto";
 		decreasingIndex = (previousThumbnailIndex - photoIndex) * fullThumbnailSize;
 		if (
 			previousThumbnailIndex > photoIndex &&
@@ -223,23 +218,23 @@ const showPreviousPhoto = () => {
 			otherPhotosBox.scrollTo(0, scrollValue);
 		}
 		smallRightArrow.style.opacity = 1;
-		smallRightArrow.style.pointerEvents = 'auto';
+		smallRightArrow.style.pointerEvents = "auto";
 		bigRightArrow.style.opacity = 1;
-		bigRightArrow.style.pointerEvents = 'auto';
+		bigRightArrow.style.pointerEvents = "auto";
 	}
 };
 
 const showNextThumbnail = () => {
 	if (thumbnailIndex < pathCollection.length - 1) {
-		thumbnailPhotoBox[thumbnailIndex].classList.remove('active');
+		thumbnailPhotoBox[thumbnailIndex].classList.remove("active");
 		clearAllActiveThumbnails();
 		setRightElementProperties();
 		thumbnailIndex++;
 	}
-	thumbnailPhotoBox[thumbnailIndex].classList.add('active');
+	thumbnailPhotoBox[thumbnailIndex].classList.add("active");
 	if (thumbnailIndex == pathCollection.length - 1) {
 		smallRightArrow.style.opacity = 0.4;
-		smallRightArrow.style.pointerEvents = 'none';
+		smallRightArrow.style.pointerEvents = "none";
 		increasingIndex = fullThumbnailSize;
 		if (scrollValue + increasingIndex < otherPhotosBox.scrollHeight) {
 			scrollValue += increasingIndex;
@@ -252,23 +247,23 @@ const showNextThumbnail = () => {
 			otherPhotosBox.scrollTo(0, scrollValue);
 		}
 		smallRightArrow.style.opacity = 1;
-		smallRightArrow.style.pointerEvents = 'auto';
+		smallRightArrow.style.pointerEvents = "auto";
 		smallLeftArrow.style.opacity = 1;
-		smallLeftArrow.style.pointerEvents = 'auto';
+		smallLeftArrow.style.pointerEvents = "auto";
 	}
 };
 const showPreviousThumbnail = () => {
 	if (thumbnailIndex > 0) {
-		thumbnailPhotoBox[thumbnailIndex].classList.remove('active');
+		thumbnailPhotoBox[thumbnailIndex].classList.remove("active");
 		clearAllActiveThumbnails();
 		setRightElementProperties();
 		thumbnailIndex--;
 	}
-	thumbnailPhotoBox[thumbnailIndex].classList.add('active');
+	thumbnailPhotoBox[thumbnailIndex].classList.add("active");
 
 	if (thumbnailIndex == 0) {
 		smallLeftArrow.style.opacity = 0.4;
-		smallLeftArrow.style.pointerEvents = 'none';
+		smallLeftArrow.style.pointerEvents = "none";
 		decreasingIndex = fullThumbnailSize;
 		if (scrollValue - decreasingIndex >= 0) {
 			scrollValue -= decreasingIndex;
@@ -281,9 +276,9 @@ const showPreviousThumbnail = () => {
 			otherPhotosBox.scrollTo(0, scrollValue);
 		}
 		smallLeftArrow.style.opacity = 1;
-		smallLeftArrow.style.pointerEvents = 'auto';
+		smallLeftArrow.style.pointerEvents = "auto";
 		smallRightArrow.style.opacity = 1;
-		smallRightArrow.style.pointerEvents = 'auto';
+		smallRightArrow.style.pointerEvents = "auto";
 	}
 };
 const checkSwipeDirection = () => {
@@ -317,25 +312,28 @@ const checkSwipeDirectionThumbnails = () => {
 	}
 };
 changeMainPhoto();
-document.addEventListener('DOMContentLoaded', collectAllPathsInfo);
-document.addEventListener('DOMContentLoaded', setRightElementProperties);
-document.addEventListener('resize', setRightElementProperties);
-bigRightArrow.addEventListener('click', showNextPhoto);
-mainPhoto.addEventListener('swipe', showNextPhoto);
-bigLeftArrow.addEventListener('click', showPreviousPhoto);
-smallLeftArrow.addEventListener('click', showPreviousThumbnail);
-smallRightArrow.addEventListener('click', showNextThumbnail);
-mainPhoto.addEventListener('touchstart', (e) => {
+document.addEventListener("DOMContentLoaded", collectAllPathsInfo);
+document.addEventListener("DOMContentLoaded", setRightElementProperties);
+document.addEventListener("resize", setRightElementProperties);
+bigRightArrow.addEventListener("click", showNextPhoto);
+mainPhoto.addEventListener("swipe", showNextPhoto);
+bigLeftArrow.addEventListener("click", showPreviousPhoto);
+smallLeftArrow.addEventListener("click", showPreviousThumbnail);
+smallRightArrow.addEventListener("click", showNextThumbnail);
+mainPhoto.addEventListener("touchstart", (e) => {
 	touchstart = e.changedTouches[0].screenX;
 });
-mainPhoto.addEventListener('touchend', (e) => {
+mainPhoto.addEventListener("touchend", (e) => {
 	touchend = e.changedTouches[0].screenX;
 	checkSwipeDirection();
 });
-otherPhotosBox.addEventListener('touchstart', (e) => {
+otherPhotosBox.addEventListener("touchstart", (e) => {
 	touchstart = e.changedTouches[0].screenX;
 });
-otherPhotosBox.addEventListener('touchend', (e) => {
+otherPhotosBox.addEventListener("touchend", (e) => {
 	touchend = e.changedTouches[0].screenX;
 	checkSwipeDirectionThumbnails();
 });
+
+// Zajączek odpierdolił
+// credits: kacper zając

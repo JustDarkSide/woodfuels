@@ -1,182 +1,197 @@
 <!DOCTYPE html>
 <html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-			rel="stylesheet" />
-		<link rel="stylesheet" href="../css/main.css" />
-		<link rel="stylesheet" href="../css/slider-proto.css" />
-	</head>
 
-	<body id="top">
-		<div class="offset"></div>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="../css/main.css" />
+	<link rel="stylesheet" href="../css/slider-proto.css" />
+</head>
 
-		<nav class="nav">
-			<button class="burger-btn">
-				<div class="burger-btn__box">
-					<div class="burger-btn__bars"></div>
-				</div>
-			</button>
+<body id="top">
+	<div class="offset"></div>
 
-			<div class="solo-logo-item-1">
-				<a href="#top"
-					><img
-						class="solo-logo-item-img"
-						src="../img/logo-width.png"
-						alt="logo"
-				/></a>
+	<nav class="nav">
+		<button class="burger-btn">
+			<div class="burger-btn__box">
+				<div class="burger-btn__bars"></div>
 			</div>
+		</button>
 
-			<div class="mobile-nav">
-				<div class="nav__items">
-					<div class="mb-nav__item mb-nav__item-first">
-						<div class="dropdown__mobile">
-							<div class="dropdown__mobile-LinkAndIconBox">
-								<a href="#" class="dropdown__mobile--mainDropdownItem"
-									>Offer
+		<div class="solo-logo-item-1">
+			<a href="#top"><img class="solo-logo-item-img" src="../img/logo-width.png" alt="logo" /></a>
+		</div>
+
+		<div class="mobile-nav">
+			<div class="nav__items">
+				<div class="mb-nav__item mb-nav__item-first">
+					<div class="dropdown__mobile">
+						<div class="dropdown__mobile-LinkAndIconBox">
+							<a href="#" class="dropdown__mobile--mainDropdownItem">Offer
+							</a>
+							<div class="dropdown__mobile-icon">
+								<a href="#">
+									<div class="show-more-icon">
+										<img src="../img/plus-small.svg" class="plus showProperMobileDropdownIcon"
+											alt="" />
+										<img src="../img/minus-small.svg" class="minus" alt="" />
+									</div>
 								</a>
-								<div class="dropdown__mobile-icon">
-									<a href="#">
-										<div class="show-more-icon">
-											<img
-												src="../img/plus-small.svg"
-												class="plus showProperMobileDropdownIcon"
-												alt="" />
-											<img src="../img/minus-small.svg" class="minus" alt="" />
-										</div>
-									</a>
-								</div>
 							</div>
-							<div class="dropdown__mobile-list">
-								<div class="dropdown__mobile-list-item">
-									<a href="#firewood">-Firewood ➤</a>
-								</div>
-								<div class="dropdown__mobile-list-item">
-									<a href="#kindling">-Kindling ➤</a>
-								</div>
-								<div class="dropdown__mobile-list-item">
-									<a href="#briquette">-Briquette ➤</a>
-								</div>
-								<div class="dropdown__mobile-list-item">
-									<a href="#pellet">-Pellet ➤</a>
-								</div>
+						</div>
+						<div class="dropdown__mobile-list">
+							<div class="dropdown__mobile-list-item">
+								<a href="#firewood">-Firewood ➤</a>
+							</div>
+							<div class="dropdown__mobile-list-item">
+								<a href="#kindling">-Kindling ➤</a>
+							</div>
+							<div class="dropdown__mobile-list-item">
+								<a href="#briquette">-Briquette ➤</a>
+							</div>
+							<div class="dropdown__mobile-list-item">
+								<a href="#pellet">-Pellet ➤</a>
 							</div>
 						</div>
 					</div>
-					<div class="mb-nav__item">
-						<a href="#top" class="">HOME</a>
+				</div>
+				<div class="mb-nav__item">
+					<a href="#top" class="">HOME</a>
+				</div>
+				<div class="mb-nav__item">
+					<a href="#about" class="">About</a>
+				</div>
+				<div class="mb-nav__item">
+					<a href="#contact" class="">Contact</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="pc-nav nav">
+			<div class="pc-nav-box wrapper">
+				<a class="pc-nav__item pc-nav__item--animation" href="#top">Home</a>
+				<div class="pc-nav__item pc-nav__item--animation pc-nav__item--dropdown" href="#">
+					<a href="#">Offer</a>
+					<div class="dropdown">
+						<ul class="dropdown__list">
+							<li class="dropdown__list-item">
+								<a href="#firewood">firewood</a>
+							</li>
+							<li class="dropdown__list-item">
+								<a href="#kindling">Kindling</a>
+							</li>
+							<li class="dropdown__list-item">
+								<a href="#briquette">briquette</a>
+							</li>
+							<li class="dropdown__list-item">
+								<a href="#pellet">Pellet</a>
+							</li>
+						</ul>
 					</div>
-					<div class="mb-nav__item">
-						<a href="#about" class="">About</a>
+				</div>
+				<!-- pc-nav__item--dropdown -->
+				<div class="pc-nav__item pc-nav__logo-item">
+					<a href="#top">
+						<div class="logo-item-1">
+							<img src="../img/logo-circle-pc-apr.png" alt="logo" />
+						</div>
+						<div class="logo-item-2">
+							<img src="../img/logo-nordwit-sign.png" alt="logo" />
+						</div>
+					</a>
+				</div>
+
+				<a class="pc-nav__item pc-nav__item--animation" href="#contact">Contact</a>
+				<a class="pc-nav__item pc-nav__item--animation" href="#about">ABOUT</a>
+			</div>
+		</div>
+	</nav>
+
+	<header>
+		<div class="slider">
+			<div class="slider__otherPhotos-box">
+				<div class="small-arrow small-arrow-left">
+					<img src="../img/arrow-up.svg" alt="" class="" />
+				</div>
+				<div class="thumbnails-box">
+					<div class="img-box first">
+						<div class="image image-one active"></div>
 					</div>
-					<div class="mb-nav__item">
-						<a href="#contact" class="">Contact</a>
+					<div class="img-box">
+						<div class="image image-two"></div>
 					</div>
+					<div class="img-box">
+						<div class="image image-three"></div>
+					</div>
+					<div class="img-box">
+						<div class="image image-four"></div>
+					</div>
+					<div class="img-box">
+						<div class="image image-five"></div>
+					</div>
+				</div>
+				<div class="small-arrow small-arrow-right">
+					<img src="../img/arrow-down.svg" alt="" />
+				</div>
+			</div>
+			<div class="slider__mainPhoto-box">
+				<div class="arrow arrow-left">
+					<img src="../img/arrow-left.svg" alt="" />
+				</div>
+				<div class="photo"></div>
+				<div class="arrow arrow-right">
+					<img src="../img/arrow-right.svg" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<h1 class="product__title">Wooden product</h1>
+			<h2 class="product__price-range">Price range 500-1000 euro</h2>
+			<p class="product__availability-status">Status: Available</p>
+			<select name="" id="">
+				See other classes of this product
+				<option value="">Premium Class</option>
+				<option value="">A1 class</option>
+				<option value="">B1 class</option>
+			</select>
+			<button class="product__ask-for-more">Ask about this product</button>
+		</div>
+	</header>
+
+
+	<footer>
+		<div class="wrapper">
+			<div class="footer__left">
+				<div class="footer__left-logobox">
+					<img src="../img/logo-width.png" alt="Logo" />
+				</div>
+				<div class="footer__left-textbox">
+					<p>
+						&copy;<span class="footer__date"></span> NORDWIT Lech Kowalewski
+					</p>
 				</div>
 			</div>
 
-			<div class="pc-nav nav">
-				<div class="pc-nav-box wrapper">
-					<a class="pc-nav__item pc-nav__item--animation" href="#top">Home</a>
-					<div
-						class="pc-nav__item pc-nav__item--animation pc-nav__item--dropdown"
-						href="#">
-						<a href="#">Offer</a>
-						<div class="dropdown">
-							<ul class="dropdown__list">
-								<li class="dropdown__list-item">
-									<a href="#firewood">firewood</a>
-								</li>
-								<li class="dropdown__list-item">
-									<a href="#kindling">Kindling</a>
-								</li>
-								<li class="dropdown__list-item">
-									<a href="#briquette">briquette</a>
-								</li>
-								<li class="dropdown__list-item">
-									<a href="#pellet">Pellet</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<!-- pc-nav__item--dropdown -->
-					<div class="pc-nav__item pc-nav__logo-item">
-						<a href="#top">
-							<div class="logo-item-1">
-								<img src="../img/logo-circle-pc-apr.png" alt="logo" />
-							</div>
-							<div class="logo-item-2">
-								<img src="../img/logo-nordwit-sign.png" alt="logo" />
-							</div>
-						</a>
-					</div>
+			<div class="footer__right">
+				<p>
+					<span> Nr tel.: </span>
+					<a href="tel: 0048506523538"> +48 506 523 538 <img src="../img/phone-call.svg" alt=""></a>
+				</p>
+				<p>
+					<span> E-mail: </span>
+					<a href="mailto: nordwit@gmail.com">nordwit@gmail.com <img src="../img/mail.svg" alt=""></a>
+				</p>
+			</div>
+		</div>
+	</footer>
 
-					<a class="pc-nav__item pc-nav__item--animation" href="#contact"
-						>Contact</a
-					>
-					<a class="pc-nav__item pc-nav__item--animation" href="#about"
-						>ABOUT</a
-					>
-				</div>
-			</div>
-		</nav>
+	<script src="../JS/script.js"></script>
+	<script src="../JS/slider.js"></script>
+</body>
 
-		<header>
-			<div class="slider">
-				<div class="slider__otherPhotos-box">
-					<div class="small-arrow small-arrow-left">
-						<img src="../img/arrow-up.svg" alt="" class="" />
-					</div>
-					<div class="thumbnails-box">
-						<div class="img-box first">
-							<div class="image image-one active"></div>
-						</div>
-						<div class="img-box">
-							<div class="image image-two"></div>
-						</div>
-						<div class="img-box">
-							<div class="image image-three"></div>
-						</div>
-						<div class="img-box">
-							<div class="image image-four"></div>
-						</div>
-						<div class="img-box">
-							<div class="image image-five"></div>
-						</div>
-					</div>
-					<div class="small-arrow small-arrow-right">
-						<img src="../img/arrow-down.svg" alt="" />
-					</div>
-				</div>
-				<div class="slider__mainPhoto-box">
-					<div class="arrow arrow-left">
-						<img src="../img/arrow-left.svg" alt="" />
-					</div>
-					<div class="photo"></div>
-					<div class="arrow arrow-right">
-						<img src="../img/arrow-right.svg" alt="" />
-					</div>
-				</div>
-			</div>
-			<div class="product">
-				<h1 class="product__title">Wooden product</h1>
-				<h2 class="product__price-range">Price range 500-1000 euro</h2>
-				<p class="product__availability-status">Status: Available</p>
-				<select name="" id="">
-					See other classes of this product
-					<option value="">Premium Class</option>
-					<option value="">A1 class</option>
-					<option value="">B1 class</option>
-				</select>
-				<button class="product__ask-for-more">Ask about this product</button>
-			</div>
-		</header>
-		<script src="../JS/script.js"></script>
-		<script src="../JS/slider.js"></script>
-	</body>
+
 </html>
