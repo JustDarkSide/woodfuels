@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="pl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
-	<body>
-		<form action="" method="post">
-            <input type="text" name="name">
-            <input type="text" name="e-mail">
-            <input type="submit" value="Wyślij">
-        </form>
-        <?php
+<?php
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $subject = $_POST['subject'];
+            $textarea = $_POST['message'];
 
-            if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $name = $_POST['name'];
-                $surname = $_POST['surname'];
-                mail('domkacmijzajpost@domkacmijzaj.fun', 'test', "$surname");
-            }
-        ?>
-	</body>
-</html>
+            $message = "Imie i Nazwisko:".$name."\n"."Numer telefonu:".$phone."\n".$textarea
+
+            mail('domkacmijzajpost@domkacmijzaj.fun', 'Nowa wiadomość dla NORDWIT !', "$message");
+            
+        }
+?>
+
