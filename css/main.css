@@ -718,8 +718,12 @@ main {
   text-decoration: none;
 }
 .products__item-content--additional p {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
-  line-height: 40px;
   text-transform: uppercase;
   text-align: center;
   font-weight: 600;
@@ -752,6 +756,7 @@ main {
 .kindling.section,
 .briquette.section {
   padding: 4rem 0 1rem 0;
+  scroll-margin-top: 10em;
 }
 
 .contact {
@@ -769,7 +774,7 @@ main {
 .contact-title p {
   color: #264f0b;
   text-transform: uppercase;
-  font-size: 1.6em;
+  font-size: 2em;
   margin-bottom: 10%;
 }
 .contact__map-box {
@@ -779,14 +784,25 @@ main {
   margin-bottom: 3%;
   border: 2px solid #264f0b;
 }
-.contact__address-box {
+.contact__contact-box a {
+  text-decoration: underline;
+  text-underline-position: below;
+  text-underline-offset: 3px;
+  color: #264f0b;
+}
+.contact__address-box, .contact__company-box, .contact__contact-box {
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .contact__address-box h4,
-.contact__address-box p {
+.contact__address-box p, .contact__company-box h4,
+.contact__company-box p, .contact__contact-box h4,
+.contact__contact-box p {
   color: #264f0b;
+}
+.contact__address-box {
+  margin-bottom: 25%;
 }
 .contact__form-box {
   height: 60vh;
@@ -810,19 +826,85 @@ main {
 }
 .contact__form-box form input {
   min-height: 40px;
-  width: 90%;
-  border: 2px solid #264f0b;
-  border-radius: 5px;
-  margin: auto;
-  background-color: none;
 }
 .contact__form-box form textarea {
-  min-width: 90%;
-  max-width: 90%;
   min-height: 100px;
-  margin: auto;
+}
+.contact__form-box form input,
+.contact__form-box form textarea {
+  font-size: 1em;
+  background-color: none;
   border: 2px solid #264f0b;
   border-radius: 5px;
+  margin: auto;
+  min-width: 90%;
+  max-width: 90%;
+  max-height: 100px;
+}
+.contact__form-box form input[type=submit] {
+  background-color: #264f0b;
+  color: #fff;
+  margin-top: 5%;
+  cursor: pointer;
+}
+.contact__form-box form input[type=submit]:active {
+  background-color: #447224;
+  scale: 0.98;
+}
+
+.form__afterpage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__afterpage div {
+  font-size: 2.8rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.form__afterpage div h1 {
+  color: #264f0b;
+  margin-bottom: 1rem;
+}
+.form__afterpage div a {
+  color: black;
+}
+.form__afterpage div a p {
+  color: black;
+}
+
+.about-title p {
+  font-size: 2em;
+}
+.about__box {
+  width: 90%;
+  margin: auto;
+  box-shadow: 4px 4px 20px #000;
+}
+.about__box-text {
+  padding: 5%;
+  color: #264f0b;
+  font-size: 1em;
+}
+
+.contact .contact-title,
+.about .about-title {
+  align-self: start;
+  margin-left: 10%;
+  font-weight: bold;
+}
+.contact .contact-title p,
+.about .about-title p {
+  color: #264f0b;
+  text-transform: uppercase;
+  margin-bottom: 10%;
 }
 
 footer {
@@ -946,17 +1028,17 @@ footer .footer__right a {
     font-size: 4rem;
   }
   .cards__item {
-    width: 35%;
-    height: 500px;
+    width: 45%;
+    height: 400px;
   }
   .cards__item-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
   .cards__item-description {
     font-size: 1.7rem;
   }
   .cards__item-description--mobile {
-    top: 22%;
+    top: 18%;
     padding: 2em 0;
   }
   .cards__item-description-btn .read-more {
@@ -997,6 +1079,12 @@ footer .footer__right a {
   .contact__form-box form textarea {
     margin: 0 auto;
   }
+  .about-title {
+    font-size: 2em;
+  }
+  .about__box-text {
+    font-size: 2.5rem;
+  }
   footer .footer__left-logobox img {
     scale: 1;
   }
@@ -1009,10 +1097,15 @@ footer .footer__right a {
 }
 @media (min-width: 1000px) {
   .cards__item {
+    height: 5vh;
+    width: 40%;
     height: 550px;
   }
   .cards__item-title {
     font-size: 3.2rem;
+  }
+  .cards__item-description--mobile {
+    top: 23%;
   }
   .cards__item-description-btn {
     height: 70px;
@@ -1021,7 +1114,7 @@ footer .footer__right a {
     font-size: 18px;
   }
   .cards__item-description-btn .read-more {
-    left: 85%;
+    left: 80%;
   }
   .products__item {
     height: 500px;
@@ -1195,29 +1288,37 @@ footer .footer__right a {
     width: 100%;
     height: 20vh;
   }
-  .contact-title p {
-    font-size: 3em;
-  }
   .contact__map-box {
     position: absolute;
     left: 0;
     top: 55%;
     width: 40%;
-    height: 32vh;
+    height: 22vh;
     margin-left: 10%;
     margin-bottom: 3%;
     border: 2px solid #264f0b;
   }
   .contact__address-box {
-    position: absolute;
+    top: 240%;
+    left: 10%;
+  }
+  .contact__company-box {
     top: 200%;
     left: 10%;
-    margin-bottom: 0%;
   }
-  .contact__address-box h4 {
+  .contact__contact-box {
+    top: 160%;
+    left: 10%;
+  }
+  .contact__address-box, .contact__company-box, .contact__contact-box {
+    position: absolute;
+    margin-bottom: 0%;
+    display: block;
+  }
+  .contact__address-box h4, .contact__company-box h4, .contact__contact-box h4 {
     font-size: 25px;
   }
-  .contact__address-box p {
+  .contact__address-box p, .contact__company-box p, .contact__contact-box p {
     font-size: 20px;
   }
   .contact__form-box {
@@ -1235,6 +1336,13 @@ footer .footer__right a {
   }
   .contact__form-box form textarea {
     margin: 0 auto;
+  }
+  .about__box {
+    width: 100%;
+  }
+  .contact .contact-title p,
+  .about .about-title p {
+    margin-bottom: 5%;
   }
   footer .footer__left {
     justify-content: space-evenly;

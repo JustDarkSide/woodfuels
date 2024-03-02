@@ -193,15 +193,20 @@ main .product__description li span {
   margin-left: 0.8rem;
 }
 main .product__ask-for-more {
-  width: 80%;
-  margin-top: 2rem;
   padding: 2rem;
+  margin: 2rem 0;
+  width: 80%;
   border-radius: 30px;
   background-color: #264f0b;
   font-size: 2.5rem;
   color: #fff;
   overflow: hidden;
   cursor: pointer;
+  transition: scale 0.1s;
+}
+main .product__ask-for-more:active {
+  background-color: #447224;
+  scale: 0.98;
 }
 
 @media (min-width: 768px) {
@@ -255,22 +260,26 @@ main .product__ask-for-more {
   }
   header .product {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
     width: 45%;
     height: 50vh;
     text-align: center;
     box-shadow: 4px 4px 20px #000;
   }
   header .product__title {
+    width: 100%;
     font-size: 3rem;
-    padding: 2rem;
   }
   header .product__price-range {
+    width: 100%;
     font-size: 2.1rem;
   }
   header .product__availability-status {
     width: 100%;
-    height: 60px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,6 +319,9 @@ main .product__ask-for-more {
     justify-content: center;
     align-items: center;
   }
+  header .product__description {
+    width: 100%;
+  }
   header .product__description ul {
     width: 80%;
     margin: 0 auto;
@@ -318,8 +330,8 @@ main .product__ask-for-more {
     padding-inline-start: 0;
   }
   header .product__description li {
-    padding: 1rem;
-    font-size: 1.8rem;
+    padding: 0.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
   }
   header .product__description li span {
@@ -327,8 +339,11 @@ main .product__ask-for-more {
     margin-left: 0.8rem;
   }
   header .product__ask-for-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
-    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 30px;
     background-color: #264f0b;
@@ -336,6 +351,10 @@ main .product__ask-for-more {
     color: #fff;
     overflow: hidden;
     cursor: pointer;
+  }
+  header .product__ask-for-more:active {
+    background-color: #447224;
+    scale: 0.98;
   }
   main .product {
     display: none;

@@ -12,7 +12,7 @@ const navHeightMediumAndUnusual = 120;
 const carouselSectionHeightSmall = (window.innerHeight - navHeightSmall) * 0.6;
 const carouselSectionHeightMediumAndUnusual =
 	(window.innerHeight - navHeightMediumAndUnusual) * 0.6;
-let offerSectionOffsetSmall = carouselSectionHeightSmall - 120;
+let offerSectionOffsetSmall = carouselSectionHeightSmall - 180;
 let offerSectionOffsetMediumAndUnusual =
 	carouselSectionHeightMediumAndUnusual - 520;
 // JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!

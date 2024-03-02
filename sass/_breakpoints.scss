@@ -1,5 +1,5 @@
-@use './colors' as colors;
-@use './animations';
+@use "./colors" as colors;
+@use "./animations";
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
@@ -117,17 +117,17 @@
 		}
 		.cards {
 			&__item {
-				width: 35%;
-				height: 500px;
+				width: 45%;
+				height: 400px;
 
 				&-title {
-					font-size: 3rem;
+					font-size: 2.8rem;
 				}
 
 				&-description {
 					font-size: 1.7rem;
 					&--mobile {
-						top: 22%;
+						top: 18%;
 						padding: 2em 0;
 					}
 					&-btn {
@@ -189,6 +189,17 @@
 				}
 			}
 		}
+		.about {
+			&-title {
+				font-size: 2em;
+			}
+
+			&__box {
+				&-text {
+					font-size: 2.5rem;
+				}
+			}
+		}
 		footer {
 			.footer__left {
 				&-logobox {
@@ -211,18 +222,23 @@
 	@media (min-width: 1000px) {
 		.cards {
 			&__item {
+				height: 5vh;
+				width: 40%;
 				&-title {
 					font-size: 3.2rem;
 				}
 				height: 550px;
 				&-description {
+					&--mobile {
+						top: 23%;
+					}
 					&-btn {
 						p {
 							font-size: 18px;
 						}
 						height: 70px;
 						.read-more {
-							left: 85%;
+							left: 80%;
 						}
 					}
 				}
@@ -441,25 +457,35 @@
 				margin-bottom: 0%;
 				width: 100%;
 				height: 20vh;
-				p {
-					font-size: 3em;
-				}
 			}
 			&__map-box {
 				position: absolute;
 				left: 0;
 				top: 55%;
 				width: 40%;
-				height: 32vh;
+				height: 22vh;
 				margin-left: 10%;
 				margin-bottom: 3%;
 				border: 2px solid colors.$main-color;
 			}
 
 			&__address-box {
-				position: absolute;
+				top: 240%;
+				left: 10%;
+			}
+			&__company-box {
 				top: 200%;
 				left: 10%;
+			}
+			&__contact-box {
+				top: 160%;
+				left: 10%;
+			}
+
+			&__address-box,
+			&__company-box,
+			&__contact-box {
+				position: absolute;
 				margin-bottom: 0%;
 				h4 {
 					font-size: 25px;
@@ -467,6 +493,7 @@
 				p {
 					font-size: 20px;
 				}
+				display: block;
 			}
 
 			&__form-box {
@@ -486,6 +513,18 @@
 						margin: 0 auto;
 					}
 				}
+			}
+		}
+
+		.about {
+			&__box {
+				width: 100%;
+			}
+		}
+		.contact .contact-title,
+		.about .about-title {
+			p {
+				margin-bottom: 5%;
 			}
 		}
 
