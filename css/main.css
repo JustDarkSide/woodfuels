@@ -754,15 +754,75 @@ main {
   padding: 4rem 0 1rem 0;
 }
 
+.contact {
+  padding-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .contact-title {
-  margin-left: 15%;
+  align-self: start;
+  margin-left: 10%;
   font-weight: bold;
-  margin-bottom: 2rem;
 }
 .contact-title p {
   color: #264f0b;
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 1.6em;
+  margin-bottom: 10%;
+}
+.contact__map-box {
+  margin: 0 auto 3%;
+  width: 90%;
+  height: 30vh;
+  margin-bottom: 3%;
+  border: 2px solid #264f0b;
+}
+.contact__address-box {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+.contact__address-box h4,
+.contact__address-box p {
+  color: #264f0b;
+}
+.contact__form-box {
+  height: 60vh;
+  width: 100%;
+}
+.contact__form-box form {
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+.contact__form-box form label {
+  padding-top: 10px;
+  font-size: 2rem;
+  margin: 0 auto;
+  width: 90%;
+  color: #264f0b;
+}
+.contact__form-box form input {
+  min-height: 40px;
+  width: 90%;
+  border: 2px solid #264f0b;
+  border-radius: 5px;
+  margin: auto;
+  background-color: none;
+}
+.contact__form-box form textarea {
+  min-width: 90%;
+  max-width: 90%;
+  min-height: 100px;
+  margin: auto;
+  border: 2px solid #264f0b;
+  border-radius: 5px;
 }
 
 footer {
@@ -808,6 +868,9 @@ footer .footer__right {
   background-color: #264f0b;
 }
 footer .footer__right span {
+  display: none;
+}
+footer .footer__right img {
   display: none;
 }
 footer .footer__right a {
@@ -912,11 +975,36 @@ footer .footer__right a {
   .products__item-content--additional p {
     line-height: 45px;
   }
+  .contact-title p {
+    font-size: 2.4em;
+    margin-bottom: 10%;
+  }
+  .contact__address-box {
+    margin-bottom: 0%;
+  }
+  .contact__address-box h4 {
+    font-size: 25px;
+  }
+  .contact__address-box p {
+    font-size: 20px;
+  }
+  .contact__form-box form label {
+    padding-top: 0;
+  }
+  .contact__form-box form input {
+    margin: 0 auto 2% auto;
+  }
+  .contact__form-box form textarea {
+    margin: 0 auto;
+  }
   footer .footer__left-logobox img {
     scale: 1;
   }
   footer .footer__right {
     font-size: 2rem;
+  }
+  footer .footer__right img {
+    display: inline;
   }
 }
 @media (min-width: 1000px) {
@@ -945,6 +1033,38 @@ footer .footer__right a {
     font-size: 2.4rem;
     line-height: 55px;
   }
+  main {
+    min-height: 90vh;
+  }
+  .contact {
+    height: 100%;
+    padding-bottom: 0;
+  }
+  .contact-title p {
+    font-size: 3em;
+    margin-bottom: 5%;
+  }
+  .contact__address-box {
+    margin-bottom: 2%;
+  }
+  .contact__address-box h4 {
+    font-size: 25px;
+  }
+  .contact__address-box p {
+    font-size: 20px;
+  }
+  .contact__form-box {
+    height: auto;
+  }
+  .contact__form-box form label {
+    padding-top: 0;
+  }
+  .contact__form-box form input {
+    margin: 0 auto 2% auto;
+  }
+  .contact__form-box form textarea {
+    margin: 0 auto;
+  }
 }
 @media (min-width: 1200px) {
   .nav .solo-logo-item-1 {
@@ -967,7 +1087,7 @@ footer .footer__right a {
     font-size: 3rem;
   }
   main {
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
   }
   .cards__box {
     padding-top: 3em;
@@ -1057,6 +1177,65 @@ footer .footer__right a {
   .products__item-content--additional p {
     line-height: 60px;
   }
+  .contact {
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  .contact .wrapper {
+    max-width: 1920px;
+  }
+  .contact-title {
+    margin-left: 12%;
+    margin-top: 1%;
+    margin-bottom: 0%;
+    width: 100%;
+    height: 20vh;
+  }
+  .contact-title p {
+    font-size: 3em;
+  }
+  .contact__map-box {
+    position: absolute;
+    left: 0;
+    top: 55%;
+    width: 40%;
+    height: 32vh;
+    margin-left: 10%;
+    margin-bottom: 3%;
+    border: 2px solid #264f0b;
+  }
+  .contact__address-box {
+    position: absolute;
+    top: 200%;
+    left: 10%;
+    margin-bottom: 0%;
+  }
+  .contact__address-box h4 {
+    font-size: 25px;
+  }
+  .contact__address-box p {
+    font-size: 20px;
+  }
+  .contact__form-box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-right: 15%;
+    width: 30%;
+  }
+  .contact__form-box form label {
+    padding-top: 0;
+  }
+  .contact__form-box form input {
+    margin: 0 auto 2% auto;
+  }
+  .contact__form-box form textarea {
+    margin: 0 auto;
+  }
   footer .footer__left {
     justify-content: space-evenly;
     flex-direction: row;
@@ -1070,6 +1249,9 @@ footer .footer__right a {
   }
   footer .footer__right span {
     font-weight: bold;
+    display: inline;
+  }
+  footer .footer__right img {
     display: inline;
   }
 }/*# sourceMappingURL=main.css.map */
