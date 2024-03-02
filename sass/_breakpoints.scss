@@ -1,5 +1,5 @@
-@use "./colors" as colors;
-@use "./animations";
+@use './colors' as colors;
+@use './animations';
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
