@@ -9,7 +9,8 @@
             $message = "Imie i Nazwisko:".$name."\n"."Numer telefonu:".$phone."\n".$textarea
 
             mail('domkacmijzajpost@domkacmijzaj.fun', 'Nowa wiadomość dla NORDWIT !', "$message");
-            
+
+            echo "sraka";
         }
 ?>
 
