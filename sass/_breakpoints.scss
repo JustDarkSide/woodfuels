@@ -3,7 +3,6 @@
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
-
 		.products {
 			&__item {
 				width: 80%;
@@ -159,6 +158,37 @@
 				}
 			}
 		}
+		.contact {
+			&-title {
+				p {
+					font-size: 2.4em;
+					margin-bottom: 10%;
+				}
+			}
+			&__address-box {
+				margin-bottom: 0%;
+				h4 {
+					font-size: 25px;
+				}
+				p {
+					font-size: 20px;
+				}
+			}
+
+			&__form-box {
+				form {
+					label {
+						padding-top: 0;
+					}
+					input {
+						margin: 0 auto 2% auto;
+					}
+					textarea {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
 		footer {
 			.footer__left {
 				&-logobox {
@@ -170,6 +200,9 @@
 
 			.footer__right {
 				font-size: 2rem;
+				img {
+					display: inline;
+				}
 			}
 		}
 	}
@@ -213,6 +246,43 @@
 				}
 			}
 		}
+		main {
+			min-height: 90vh;
+		}
+		.contact {
+			height: 100%;
+			padding-bottom: 0;
+			&-title {
+				p {
+					font-size: 3em;
+					margin-bottom: 5%;
+				}
+			}
+			&__address-box {
+				margin-bottom: 2%;
+				h4 {
+					font-size: 25px;
+				}
+				p {
+					font-size: 20px;
+				}
+			}
+
+			&__form-box {
+				height: auto;
+				form {
+					label {
+						padding-top: 0;
+					}
+					input {
+						margin: 0 auto 2% auto;
+					}
+					textarea {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
 	}
 }
 @mixin xxl {
@@ -247,7 +317,7 @@
 			}
 		}
 		main {
-			min-height: 100vh;
+			min-height: calc(100vh - 200px);
 		}
 		.cards {
 			&__box {
@@ -354,6 +424,71 @@
 			}
 		}
 
+		.contact {
+			.wrapper {
+				max-width: 1920px;
+			}
+			position: relative;
+			flex-direction: row;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: space-evenly;
+			height: 100%;
+
+			&-title {
+				margin-left: 12%;
+				margin-top: 1%;
+				margin-bottom: 0%;
+				width: 100%;
+				height: 20vh;
+				p {
+					font-size: 3em;
+				}
+			}
+			&__map-box {
+				position: absolute;
+				left: 0;
+				top: 55%;
+				width: 40%;
+				height: 32vh;
+				margin-left: 10%;
+				margin-bottom: 3%;
+				border: 2px solid colors.$main-color;
+			}
+
+			&__address-box {
+				position: absolute;
+				top: 200%;
+				left: 10%;
+				margin-bottom: 0%;
+				h4 {
+					font-size: 25px;
+				}
+				p {
+					font-size: 20px;
+				}
+			}
+
+			&__form-box {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				margin-right: 15%;
+				width: 30%;
+				form {
+					label {
+						padding-top: 0;
+					}
+					input {
+						margin: 0 auto 2% auto;
+					}
+					textarea {
+						margin: 0 auto;
+					}
+				}
+			}
+		}
+
 		footer {
 			.footer__left {
 				justify-content: space-evenly;
@@ -367,6 +502,9 @@
 				font-size: 1.8rem;
 				span {
 					font-weight: bold;
+					display: inline;
+				}
+				img {
 					display: inline;
 				}
 			}
