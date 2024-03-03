@@ -1,5 +1,6 @@
 @use "./colors" as colors;
 header {
+	padding-bottom: 5em;
 	width: 100%;
 	.slider {
 		width: 100%;
@@ -120,15 +121,11 @@ header {
 		}
 	}
 	.product {
-		display: none;
-	}
-}
-main {
-	.product {
 		position: relative;
 		width: 100%;
 		height: 50vh;
 		text-align: center;
+		margin-bottom: 2em;
 		&__title {
 			font-size: 3rem;
 			padding: 2rem;
@@ -214,6 +211,62 @@ main {
 		}
 	}
 }
+main {
+	.product {
+		&__description {
+			&-box {
+				height: 200vh;
+				width: 100%;
+				margin-top: 4em;
+				box-shadow: 2px 4px 2px 0px gray;
+				.wrapper {
+					max-width: 1920px;
+					width: 100%;
+					height: 100%;
+				}
+			}
+			&-content {
+				width: 100%;
+				height: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				&--title {
+					height: 5%;
+					width: 100%;
+					padding: 0em 2em;
+					h2 {
+						color: colors.$main-color;
+						font-size: 2rem;
+					}
+				}
+				&--img {
+					height: 30%;
+					width: 90%;
+					background-image: url("../img/crate_1.png");
+					background-position: center;
+					background-size: cover;
+					border: 1px solid colors.$black;
+					margin-bottom: 2em;
+					order: 3;
+				}
+				&--text {
+					height: 25%;
+					width: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0 2em;
+					p {
+						text-align: left;
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+	}
+}
 @media (min-width: 768px) {
 	main {
 		.product {
@@ -241,6 +294,7 @@ main {
 		padding: 7rem 0 20rem 0;
 		display: flex;
 		justify-content: space-evenly;
+		flex-wrap: wrap;
 		.slider {
 			width: 50%;
 			touch-action: manipulation;
@@ -279,6 +333,7 @@ main {
 			height: 50vh;
 			text-align: center;
 			box-shadow: 4px 4px 20px colors.$black;
+			margin-bottom: 6%;
 			&__title {
 				width: 100%;
 				font-size: 3rem;
@@ -349,7 +404,6 @@ main {
 					}
 				}
 			}
-
 			&__ask-for-more {
 				display: flex;
 				justify-content: center;
@@ -372,7 +426,58 @@ main {
 	}
 	main {
 		.product {
-			display: none;
+			&__description {
+				&-box {
+					height: 60vh;
+					width: 100%;
+					margin-top: 4em;
+					box-shadow: 2px 4px 2px 0px gray;
+					.wrapper {
+						max-width: 1920px;
+						width: 100%;
+						height: 100%;
+					}
+				}
+				&-content {
+					width: 100%;
+					height: 100%;
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: center;
+					&--title {
+						height: 15%;
+						width: 100%;
+						padding: 1em 4em;
+						h2 {
+							color: colors.$main-color;
+							font-size: 4rem;
+						}
+					}
+					&--img {
+						height: 70%;
+						width: 20%;
+						background-image: url("../img/crate_1.png");
+						background-position: center;
+						background-size: cover;
+						border: 1px solid colors.$black;
+						margin-bottom: 2em;
+					}
+					&--text {
+						height: 80%;
+						width: 60%;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						padding: 1em 3em;
+						order: 3;
+						p {
+							text-align: left;
+							font-size: 2.6rem;
+						}
+					}
+				}
+			}
 		}
 	}
 }
