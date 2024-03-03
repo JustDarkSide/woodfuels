@@ -1,22 +1,20 @@
 header {
-  padding-bottom: 5em;
   width: 100%;
 }
 header .slider {
   width: 100%;
   touch-action: manipulation;
-  height: 50vh;
   display: block;
   position: relative;
 }
 header .slider__otherPhotos-box {
   position: relative;
   display: flex;
+  width: 15%;
+  height: 50vh;
   justify-content: center;
   align-items: center;
   display: none;
-  width: 15%;
-  height: 100%;
 }
 header .slider__otherPhotos-box .small-arrow {
   position: absolute;
@@ -86,7 +84,7 @@ header .slider__otherPhotos-box .thumbnails-box .img-box .active {
 header .slider__mainPhoto-box {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 50vh;
 }
 header .slider__mainPhoto-box .photo {
   width: 100%;
@@ -122,9 +120,7 @@ header .slider .arrow-right {
 header .product {
   position: relative;
   width: 100%;
-  height: 50vh;
   text-align: center;
-  margin-bottom: 2em;
 }
 header .product__title {
   font-size: 3rem;
@@ -208,50 +204,50 @@ header .product__ask-for-more:active {
 }
 
 main .product__description-box {
-  height: 200vh;
   width: 100%;
-  margin-top: 4em;
+  margin-top: 2rem;
   box-shadow: 2px 4px 2px 0px gray;
+  padding-bottom: 5rem;
 }
 main .product__description-box .wrapper {
   max-width: 1920px;
   width: 100%;
-  height: 100%;
 }
 main .product__description-content {
   width: 100%;
-  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 main .product__description-content--title {
-  height: 5%;
+  height: 10vh;
   width: 100%;
-  padding: 0em 2em;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 main .product__description-content--title h2 {
   color: #264f0b;
   font-size: 2rem;
 }
 main .product__description-content--img {
-  height: 30%;
   width: 90%;
+  height: 40vh;
   background-image: url("../img/crate_1.png");
   background-position: center;
   background-size: cover;
   border: 1px solid #000;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
   order: 3;
 }
 main .product__description-content--text {
-  height: 25%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2em;
+  padding: 1rem 2rem 3rem 2rem;
 }
 main .product__description-content--text p {
   text-align: left;
@@ -259,23 +255,32 @@ main .product__description-content--text p {
 }
 
 @media (min-width: 768px) {
-  main .product__title {
+  header .product__title {
     font-size: 4rem;
   }
-  main .product__price-range {
+  header .product__price-range {
     font-size: 3rem;
   }
-  main .product__availability-status {
+  header .product__availability-status {
     font-size: 2.5rem;
   }
-  main .product__description li {
+  header .product__description li {
     font-size: 2.5rem;
+  }
+  main .product__description-content--title {
+    padding: 0 2rem;
+    margin-bottom: 0;
+  }
+  main .product__description-content--title h2 {
+    font-size: 3.5rem;
+  }
+  main .product__description-content--text p {
+    font-size: 2.2rem;
   }
 }
 @media (min-width: 1200px) {
   header {
-    height: calc(80vh - 120px);
-    padding: 7rem 0 20rem 0;
+    padding: 7rem 0 10rem 0;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -283,7 +288,6 @@ main .product__description-content--text p {
   header .slider {
     width: 50%;
     touch-action: manipulation;
-    height: 100%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -295,7 +299,6 @@ main .product__description-content--text p {
   header .slider__mainPhoto-box {
     position: relative;
     width: 70%;
-    height: 100%;
   }
   header .slider__mainPhoto-box .photo {
     width: 100%;
@@ -318,7 +321,6 @@ main .product__description-content--text p {
     height: 50vh;
     text-align: center;
     box-shadow: 4px 4px 20px #000;
-    margin-bottom: 6%;
   }
   header .product__title {
     width: 100%;
@@ -408,35 +410,35 @@ main .product__description-content--text p {
     scale: 0.98;
   }
   main .product__description-box {
-    height: 60vh;
     width: 100%;
     margin-top: 4em;
+    padding-bottom: 10rem;
     box-shadow: 2px 4px 2px 0px gray;
   }
   main .product__description-box .wrapper {
     max-width: 1920px;
     width: 100%;
-    height: 100%;
   }
   main .product__description-content {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
   }
   main .product__description-content--title {
-    height: 15%;
+    height: 10vh;
     width: 100%;
     padding: 1em 4em;
+    margin-bottom: 4rem;
   }
   main .product__description-content--title h2 {
     color: #264f0b;
     font-size: 4rem;
   }
   main .product__description-content--img {
-    height: 70%;
+    height: 40vh;
     width: 20%;
     background-image: url("../img/crate_1.png");
     background-position: center;
@@ -445,12 +447,12 @@ main .product__description-content--text p {
     margin-bottom: 2em;
   }
   main .product__description-content--text {
-    height: 80%;
     width: 60%;
+    height: 40vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 1em 3em;
+    align-items: flex-start;
+    padding: 0 3em;
     order: 3;
   }
   main .product__description-content--text p {

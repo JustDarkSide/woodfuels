@@ -1,21 +1,19 @@
-@use "./colors" as colors;
+@use './colors' as colors;
 header {
-	padding-bottom: 5em;
 	width: 100%;
 	.slider {
 		width: 100%;
 		touch-action: manipulation;
-		height: 50vh;
 		display: block;
 		position: relative;
 		&__otherPhotos-box {
 			position: relative;
 			display: flex;
+			width: 15%;
+			height: 50vh;
 			justify-content: center;
 			align-items: center;
 			display: none;
-			width: 15%;
-			height: 100%;
 			.small-arrow {
 				position: absolute;
 				display: flex;
@@ -61,19 +59,19 @@ header {
 						border: 3px solid transparent;
 						transition: border 0.3s;
 						&-one {
-							background-image: url("../img/carousel-item1-small.jpg");
+							background-image: url('../img/carousel-item1-small.jpg');
 						}
 						&-two {
-							background-image: url("../img/carousel-item2-small.jpg");
+							background-image: url('../img/carousel-item2-small.jpg');
 						}
 						&-three {
-							background-image: url("../img/carousel-item3-small.jpg");
+							background-image: url('../img/carousel-item3-small.jpg');
 						}
 						&-four {
-							background-image: url("../img/carousel-item4-small.jpg");
+							background-image: url('../img/carousel-item4-small.jpg');
 						}
 						&-five {
-							background-image: url("../img/carousel-item5-small.jpg");
+							background-image: url('../img/carousel-item5-small.jpg');
 						}
 					}
 
@@ -86,12 +84,12 @@ header {
 		&__mainPhoto-box {
 			position: relative;
 			width: 100%;
-			height: 100%;
+			height: 50vh;
 			.photo {
 				width: 100%;
 				height: 100%;
 				overflow: hidden;
-				background-image: url("../img/carousel-item1-small.jpg");
+				background-image: url('../img/carousel-item1-small.jpg');
 				background-position: center;
 				background-size: cover;
 				background-repeat: no-repeat;
@@ -123,9 +121,7 @@ header {
 	.product {
 		position: relative;
 		width: 100%;
-		height: 50vh;
 		text-align: center;
-		margin-bottom: 2em;
 		&__title {
 			font-size: 3rem;
 			padding: 2rem;
@@ -215,49 +211,51 @@ main {
 	.product {
 		&__description {
 			&-box {
-				height: 200vh;
 				width: 100%;
-				margin-top: 4em;
+				margin-top: 2rem;
 				box-shadow: 2px 4px 2px 0px gray;
+				padding-bottom: 5rem;
 				.wrapper {
 					max-width: 1920px;
 					width: 100%;
-					height: 100%;
 				}
 			}
 			&-content {
 				width: 100%;
-				height: 100%;
 				display: flex;
-				flex-wrap: wrap;
-				justify-content: center;
+				flex-direction: column;
+				// justify-content: center;
 				align-items: center;
 				&--title {
-					height: 5%;
+					height: 10vh;
 					width: 100%;
-					padding: 0em 2em;
+					padding: 1rem 2rem;
+					margin-bottom: 1rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 					h2 {
 						color: colors.$main-color;
 						font-size: 2rem;
 					}
 				}
 				&--img {
-					height: 30%;
 					width: 90%;
-					background-image: url("../img/crate_1.png");
+					height: 40vh;
+					background-image: url('../img/crate_1.png');
 					background-position: center;
 					background-size: cover;
 					border: 1px solid colors.$black;
-					margin-bottom: 2em;
+					margin-bottom: 2rem;
 					order: 3;
 				}
 				&--text {
-					height: 25%;
 					width: 100%;
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					padding: 0 2em;
+					padding: 1rem 2rem 3rem 2rem;
+
 					p {
 						text-align: left;
 						font-size: 1.5rem;
@@ -268,7 +266,7 @@ main {
 	}
 }
 @media (min-width: 768px) {
-	main {
+	header {
 		.product {
 			&__title {
 				font-size: 4rem;
@@ -286,19 +284,37 @@ main {
 			}
 		}
 	}
+	main {
+		.product {
+			&__description {
+				&-content {
+					&--title {
+						padding: 0 2rem;
+						margin-bottom: 0;
+						h2 {
+							font-size: 3.5rem;
+						}
+					}
+					&--text {
+						p {
+							font-size: 2.2rem;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 @media (min-width: 1200px) {
 	header {
-		height: calc(80vh - 120px);
-		padding: 7rem 0 20rem 0;
+		padding: 7rem 0 10rem 0;
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
 		.slider {
 			width: 50%;
 			touch-action: manipulation;
-			height: 100%;
 			display: flex;
 			justify-content: space-evenly;
 			align-items: center;
@@ -309,12 +325,11 @@ main {
 			&__mainPhoto-box {
 				position: relative;
 				width: 70%;
-				height: 100%;
 				.photo {
 					width: 100%;
 					height: 100%;
 					overflow: hidden;
-					background-image: url("../img/carousel-item1-small.jpg");
+					background-image: url('../img/carousel-item1-small.jpg');
 					background-position: center;
 					background-size: cover;
 					background-repeat: no-repeat;
@@ -333,11 +348,9 @@ main {
 			height: 50vh;
 			text-align: center;
 			box-shadow: 4px 4px 20px colors.$black;
-			margin-bottom: 6%;
 			&__title {
 				width: 100%;
 				font-size: 3rem;
-				// padding: 2rem;
 			}
 			&__price-range {
 				width: 100%;
@@ -428,48 +441,49 @@ main {
 		.product {
 			&__description {
 				&-box {
-					height: 60vh;
 					width: 100%;
 					margin-top: 4em;
+					padding-bottom: 10rem;
 					box-shadow: 2px 4px 2px 0px gray;
 					.wrapper {
 						max-width: 1920px;
 						width: 100%;
-						height: 100%;
 					}
 				}
 				&-content {
 					width: 100%;
-					height: 100%;
+
 					display: flex;
 					flex-wrap: wrap;
-					justify-content: center;
+					flex-direction: row;
+					justify-content: space-evenly;
 					align-items: center;
 					&--title {
-						height: 15%;
+						height: 10vh;
 						width: 100%;
 						padding: 1em 4em;
+						margin-bottom: 4rem;
 						h2 {
 							color: colors.$main-color;
 							font-size: 4rem;
 						}
 					}
 					&--img {
-						height: 70%;
+						height: 40vh;
 						width: 20%;
-						background-image: url("../img/crate_1.png");
+						background-image: url('../img/crate_1.png');
 						background-position: center;
 						background-size: cover;
 						border: 1px solid colors.$black;
 						margin-bottom: 2em;
 					}
 					&--text {
-						height: 80%;
 						width: 60%;
+						height: 40vh;
 						display: flex;
-						align-items: center;
 						justify-content: center;
-						padding: 1em 3em;
+						align-items: flex-start;
+						padding: 0 3em;
 						order: 3;
 						p {
 							text-align: left;
