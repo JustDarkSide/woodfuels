@@ -63,11 +63,11 @@ const handleNav = () => {
 
 const checkScreenWidth = () => {
 	if (window.innerWidth >= 768) {
-		dropdownMobilePlusIcon.setAttribute('src', '../../img/plus-medium.svg');
-		dropdownMobileMinusIcon.setAttribute('src', '../../img/minus-medium.svg');
+		dropdownMobilePlusIcon.setAttribute('src', '../img/plus-medium.svg');
+		dropdownMobileMinusIcon.setAttribute('src', '../img/minus-medium.svg');
 	} else {
-		dropdownMobilePlusIcon.setAttribute('src', '../../img/plus-small.svg');
-		dropdownMobileMinusIcon.setAttribute('src', '../../img/minus-small.svg');
+		dropdownMobilePlusIcon.setAttribute('src', '../img/plus-small.svg');
+		dropdownMobileMinusIcon.setAttribute('src', '../img/minus-small.svg');
 	}
 
 	if (window.innerWidth <= 400) {
