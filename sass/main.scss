@@ -649,6 +649,8 @@ main {
 				border-radius: 30px;
 				border: 3px solid colors.$main-color;
 				outline: none;
+				color: colors.$black;
+				text-decoration: none;
 				appearance: none;
 				background-image: url('../img/arrow-down-selectList.svg');
 				background-repeat: no-repeat;
