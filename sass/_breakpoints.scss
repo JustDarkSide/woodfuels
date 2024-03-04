@@ -1,5 +1,5 @@
-@use "./colors" as colors;
-@use "./animations";
+@use './colors' as colors;
+@use './animations';
 
 @mixin xs {
 	@media (min-width: 390px) and (max-width: 600px) {
@@ -140,6 +140,11 @@
 			}
 		}
 		.products {
+			&-title {
+				h1 {
+					font-size: 4rem;
+				}
+			}
 			&__box {
 				flex-direction: row;
 				flex-wrap: wrap;
@@ -375,16 +380,45 @@
 		.firewood.section,
 		.kindling.section,
 		.briquette.section {
-			padding: rem 0 3rem 0;
+			padding: 3rem 0 3rem 0;
 		}
 
 		.products {
 			width: 100%;
-
 			&-title {
-				display: block;
-			}
+				display: flex;
+				justify-content: space-around;
 
+				h1 {
+					width: 40%;
+					color: colors.$main-color;
+					text-transform: uppercase;
+					font-size: 5rem;
+					text-align: center;
+					padding: 2rem 0;
+					margin: 0 0 2rem 0;
+				}
+				.products__select-list {
+					width: 40%;
+					padding: 2rem 0;
+					margin: 0;
+					select {
+						width: 100%;
+						padding: 2rem 4rem;
+						border-radius: 30px;
+						border: 3px solid colors.$main-color;
+						font-size: 2rem;
+						text-align: center;
+						outline: none;
+						appearance: none;
+						background-image: url('../img/arrow-down-selectList.svg');
+						background-repeat: no-repeat;
+						background-position: 95% 45%;
+						background-size: 25px 25px;
+						overflow: hidden;
+					}
+				}
+			}
 			&__item {
 				flex-direction: row;
 				justify-content: space-between;

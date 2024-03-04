@@ -629,15 +629,39 @@ main {
   border: 2px solid #264f0b;
 }
 .products-title {
-  margin-left: 15%;
-  font-weight: bold;
   margin-bottom: 2rem;
-  display: none;
+  display: block;
 }
-.products-title p {
+.products-title h1 {
+  width: 80%;
   color: #264f0b;
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 3.2rem;
+  text-align: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.products-title .products__select-list {
+  width: 80%;
+  padding: 2rem 0;
+  margin: 0 auto;
+}
+.products-title .products__select-list select {
+  width: 100%;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 30px;
+  border: 3px solid #264f0b;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("../img/arrow-down-selectList.svg");
+  background-repeat: no-repeat;
+  background-position: 95% 45%;
+  background-size: 25px 25px;
+  overflow: hidden;
 }
 .products__item {
   display: flex;
@@ -1045,6 +1069,9 @@ footer .footer__right a {
     width: 50px;
     height: 50px;
   }
+  .products-title h1 {
+    font-size: 4rem;
+  }
   .products__box {
     flex-direction: row;
     flex-wrap: wrap;
@@ -1216,13 +1243,45 @@ footer .footer__right a {
   .firewood.section,
   .kindling.section,
   .briquette.section {
-    padding: rem 0 3rem 0;
+    padding: 3rem 0 3rem 0;
   }
   .products {
     width: 100%;
   }
   .products-title {
-    display: block;
+    display: flex;
+    justify-content: space-around;
+  }
+  .products-title h1 {
+    width: 40%;
+    color: #264f0b;
+    text-transform: uppercase;
+    font-size: 5rem;
+    text-align: center;
+    padding: 2rem 0;
+    margin: 0 0 2rem 0;
+  }
+  .products-title .products__select-list {
+    width: 40%;
+    padding: 2rem 0;
+    margin: 0;
+  }
+  .products-title .products__select-list select {
+    width: 100%;
+    padding: 2rem 4rem;
+    border-radius: 30px;
+    border: 3px solid #264f0b;
+    font-size: 2rem;
+    text-align: center;
+    outline: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background-image: url("../img/arrow-down-selectList.svg");
+    background-repeat: no-repeat;
+    background-position: 95% 45%;
+    background-size: 25px 25px;
+    overflow: hidden;
   }
   .products__item {
     flex-direction: row;
