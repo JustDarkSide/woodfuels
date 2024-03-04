@@ -123,19 +123,26 @@ header {
 		width: 100%;
 		text-align: center;
 		&__title {
-			font-size: 3rem;
-			padding: 2rem;
+			font-size: 3.2rem;
+			padding-top: 2.5rem;
+			padding-bottom: 2rem;
+			width: 80%;
+			margin: 0 auto;
 		}
 		&__price-range {
-			font-size: 2.1rem;
+			width: 80%;
+			margin: 0 auto;
+			font-size: 2.4rem;
+			padding: 2rem 0;
 		}
 		&__availability-status {
+			position: relative;
 			width: 100%;
 			height: 60px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			position: relative;
+			padding: 2rem 0;
 			.status-name {
 				position: relative;
 				display: flex;
@@ -148,6 +155,7 @@ header {
 					display: flex;
 					justify-content: center;
 					align-items: center;
+					font-size: 2.2rem;
 
 					span {
 						display: block;
@@ -172,14 +180,14 @@ header {
 		}
 		&__description {
 			ul {
-				width: 80%;
+				width: 85%;
 				margin: 0 auto;
-				text-align: center;
+				text-align: left;
 				list-style-position: inside;
 				padding-inline-start: 0;
 			}
 			li {
-				padding: 1rem;
+				padding: 2rem 0 2rem 0;
 				font-size: 1.8rem;
 				font-weight: bold;
 				span {
@@ -269,13 +277,17 @@ main {
 	header {
 		.product {
 			&__title {
-				font-size: 4rem;
+				font-size: 5rem;
 			}
 			&__price-range {
-				font-size: 3rem;
+				font-size: 3.5rem;
 			}
 			&__availability-status {
-				font-size: 2.5rem;
+				.status-name {
+					p {
+						font-size: 3.2rem;
+					}
+				}
 			}
 			&__description {
 				li {
@@ -345,24 +357,27 @@ main {
 			justify-content: space-evenly;
 			align-items: center;
 			width: 45%;
-			height: 50vh;
 			text-align: center;
 			box-shadow: 4px 4px 20px colors.$black;
 			&__title {
 				width: 100%;
-				font-size: 3rem;
+				padding-top: 3rem;
+				padding-bottom: 0;
+
+				font-size: 4.5rem;
 			}
 			&__price-range {
 				width: 100%;
-				font-size: 2.1rem;
+				font-size: 2.8rem;
+				padding: 2rem 0 1rem 0;
 			}
 			&__availability-status {
+				position: relative;
 				width: 100%;
 				height: 40px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				position: relative;
 				.status-name {
 					position: relative;
 					display: flex;
@@ -401,14 +416,16 @@ main {
 			&__description {
 				width: 100%;
 				ul {
-					width: 80%;
+					width: 90%;
+					padding-top: 2rem;
+					padding-bottom: 2rem;
 					margin: 0 auto;
-					text-align: center;
+					text-align: left;
 					list-style-position: inside;
 					padding-inline-start: 0;
 				}
 				li {
-					padding: 0.5rem;
+					padding: 1.2rem 0;
 					font-size: 2.2rem;
 					font-weight: bold;
 					span {
