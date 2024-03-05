@@ -48,7 +48,6 @@ const setRightElementProperties = () => {
 		bigLeftArrow.style.opacity = 0.4;
 		bigLeftArrow.style.pointerEvents = 'none';
 	}
-	console.log(fullThumbnailSize);
 };
 const collectAllPathsInfo = () => {
 	for (let i = 0; i < thumbnailPhotoBox.length; i++) {
@@ -58,7 +57,7 @@ const collectAllPathsInfo = () => {
 		photoPath = photoPath.slice(photoPath.indexOf('/img'));
 		photoPath = photoPath.replace('")', '');
 		photoPath = '..' + photoPath;
-		console.log(photoPath);
+
 		pathCollection.push(photoPath);
 	}
 };
@@ -77,7 +76,6 @@ const changeMainPhoto = () => {
 			let thumbnailPath = window
 				.getComputedStyle(photo)
 				.getPropertyValue('background-image');
-			console.log(thumbnailPath);
 			thumbnailPath = thumbnailPath.slice(thumbnailPath.indexOf('/img'));
 			thumbnailPath = thumbnailPath.replace('")', '');
 			thumbnailPath = '..' + thumbnailPath;
@@ -125,9 +123,7 @@ const changeMainPhoto = () => {
 						(previousThumbnailIndex - thumbnailIndex) * fullThumbnailSize;
 					otherPhotosBox.scrollTo(0, scrollValue);
 				}
-			} else if (previousThumbnailIndex == thumbnailIndex) {
-				console.log('');
-			} else {
+			} else if (previousThumbnailIndex < thumbnailIndex) {
 				increasingIndex =
 					(thumbnailIndex - previousThumbnailIndex) * fullThumbnailSize;
 				if (scrollValue + increasingIndex < otherPhotosBox.scrollHeight) {

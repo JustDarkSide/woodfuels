@@ -10,42 +10,67 @@ let offerSectionOffsetSmall = carouselSectionHeightSmall - 180;
 let offerSectionOffsetMediumAndUnusual =
 	carouselSectionHeightMediumAndUnusual - 520;
 // JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
-
-const showCardsDescription = () => {
-	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
-	if (y == cardsTextSections.length) {
-		return;
-	}
-	if (window.scrollY >= offerSectionOffsetSmall && window.innerWidth < 768) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-		offerSectionOffsetSmall += 450;
-	} else if (
-		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
-		window.innerWidth >= 768 &&
-		window.innerWidth < 1200
-	) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-		if (y == 2) {
-			offerSectionOffsetMediumAndUnusual += 550;
-		}
-	} else if (
-		window.scrollY >= offerSectionOffsetMediumAndUnusual &&
-		window.innerWidth >= 1000 &&
-		window.innerWidth < 1200
-	) {
-		cardsTextSections[y].classList.add('showCardsText');
-		y++;
-	}
-
-	// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL)
-};
+let cardNumber = 0;
+let navBar = document.querySelector('.nav');
+let navHeight = parseInt(
+	window.getComputedStyle(navBar).getPropertyValue('height').replace('px', '')
+);
+let carousel = document.querySelector('.header');
+let carouselHeight = parseInt(
+	window.getComputedStyle(carousel).getPropertyValue('height').replace('px', '')
+);
+let firewoodSection = document.querySelector('.firewood');
+let kindlingSection = document.querySelector('.kindling');
+let briquetteSection = document.querySelector('.briquette');
+let pelletSection = document.querySelector('.pellet');
+let cardItems = document.querySelectorAll('.cards__item');
+let reduceAnimationThreshold = 30;
+let summaryTopOffset =
+	cardItems[cardNumber].offsetTop +
+	carouselHeight -
+	navHeight -
+	reduceAnimationThreshold;
 const checkHeaderHeight = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = 'calc(60vh - 120px)';
 	} else {
 		header.style.height = 'calc(60vh - 90px)';
+	}
+};
+const checkIfReadyToShow = () => {
+	let cardHeight = parseInt(
+		window
+			.getComputedStyle(cardItems[0])
+			.getPropertyValue('height')
+			.replace('px', '')
+	);
+	if (cardNumber == cardsTextSections.length) {
+		return;
+	} else {
+		if (window.scrollY >= summaryTopOffset) {
+			cardsTextSections[cardNumber].classList.add('showCardsText');
+			{
+				if (cardNumber <= cardItems.length - 1) {
+					cardNumber++;
+				}
+			}
+			if (
+				window.innerWidth >= 768 &&
+				cardNumber == cardsTextSections.length - 1
+			) {
+				summaryTopOffset =
+					cardItems[cardNumber - 1].offsetTop +
+					carouselHeight -
+					navHeight -
+					reduceAnimationThreshold;
+			} else if (cardNumber != cardsTextSections.length) {
+				summaryTopOffset =
+					cardItems[cardNumber].offsetTop +
+					carouselHeight -
+					navHeight -
+					reduceAnimationThreshold;
+			}
+		}
 	}
 };
 const showAndHidePhotos = () => {
@@ -71,7 +96,7 @@ const showAndHidePhotos = () => {
 	setTimeout(showAndHidePhotos, 5000);
 };
 setTimeout(showAndHidePhotos, 5000);
-document.addEventListener('scroll', showCardsDescription);
-document.addEventListener('DOMContentLoaded', showCardsDescription);
+document.addEventListener('scroll', checkIfReadyToShow);
+document.addEventListener('DOMContentLoaded', checkIfReadyToShow);
 document.addEventListener('DOMContentLoaded', checkHeaderHeight);
 window.addEventListener('resize', checkHeaderHeight);
