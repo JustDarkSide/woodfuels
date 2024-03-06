@@ -1,15 +1,6 @@
 const headerImage = document.querySelector('.header__carousel-photo--photo1');
 const header = document.querySelector('.header');
 const cardsTextSections = document.querySelectorAll('.cards__item-text');
-const navHeightSmall = 90;
-const navHeightMediumAndUnusual = 120;
-const carouselSectionHeightSmall = (window.innerHeight - navHeightSmall) * 0.6;
-const carouselSectionHeightMediumAndUnusual =
-	(window.innerHeight - navHeightMediumAndUnusual) * 0.6;
-let offerSectionOffsetSmall = carouselSectionHeightSmall - 180;
-let offerSectionOffsetMediumAndUnusual =
-	carouselSectionHeightMediumAndUnusual - 520;
-// JEŚLI SZEROKOŚĆ EKRANU PRZEKRACZA 1000 PX ALE JEST MNIEJSZA NIŻ 1200 PX TRAKTUJE TO JAKO ROZDZIELCZOŚĆ NIESTANDARDOWĄ (UNUSUAL) !!!
 let cardNumber = 0;
 let navBar = document.querySelector('.nav');
 let navHeight = parseInt(
