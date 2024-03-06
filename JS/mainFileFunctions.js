@@ -25,7 +25,7 @@ let briquetteSection = document.querySelector('.briquette');
 let pelletSection = document.querySelector('.pellet');
 let cardItems = document.querySelectorAll('.cards__item');
 let summaryTopOffset =
-	cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 2;
+	cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 4;
 const checkHeaderHeight = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = 'calc(60vh - 120px)';
@@ -49,10 +49,10 @@ const checkIfReadyToShow = () => {
 				cardNumber == cardsTextSections.length - 1
 			) {
 				summaryTopOffset =
-					cardItems[cardNumber - 1].offsetTop + carouselHeight - navHeight * 2;
+					cardItems[cardNumber - 1].offsetTop + carouselHeight - navHeight * 4;
 			} else if (cardNumber != cardsTextSections.length) {
 				summaryTopOffset =
-					cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 2;
+					cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 4;
 			}
 		}
 	}
