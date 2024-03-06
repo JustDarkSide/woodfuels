@@ -24,8 +24,12 @@ let kindlingSection = document.querySelector('.kindling');
 let briquetteSection = document.querySelector('.briquette');
 let pelletSection = document.querySelector('.pellet');
 let cardItems = document.querySelectorAll('.cards__item');
+let reduceAnimationThreshold = navHeight * 2;
 let summaryTopOffset =
-	cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 3.5;
+	cardItems[cardNumber].offsetTop +
+	carouselHeight -
+	navHeight -
+	reduceAnimationThreshold;
 const checkHeaderHeight = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = 'calc(60vh - 120px)';
@@ -51,10 +55,14 @@ const checkIfReadyToShow = () => {
 				summaryTopOffset =
 					cardItems[cardNumber - 1].offsetTop +
 					carouselHeight -
-					navHeight * 3.5;
+					navHeight -
+					reduceAnimationThreshold;
 			} else if (cardNumber != cardsTextSections.length) {
 				summaryTopOffset =
-					cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 3.5;
+					cardItems[cardNumber].offsetTop +
+					carouselHeight -
+					navHeight -
+					reduceAnimationThreshold;
 			}
 		}
 	}
