@@ -24,12 +24,8 @@ let kindlingSection = document.querySelector('.kindling');
 let briquetteSection = document.querySelector('.briquette');
 let pelletSection = document.querySelector('.pellet');
 let cardItems = document.querySelectorAll('.cards__item');
-let reduceAnimationThreshold = 30;
 let summaryTopOffset =
-	cardItems[cardNumber].offsetTop +
-	carouselHeight -
-	navHeight -
-	reduceAnimationThreshold;
+	cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 2;
 const checkHeaderHeight = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = 'calc(60vh - 120px)';
@@ -38,12 +34,6 @@ const checkHeaderHeight = () => {
 	}
 };
 const checkIfReadyToShow = () => {
-	let cardHeight = parseInt(
-		window
-			.getComputedStyle(cardItems[0])
-			.getPropertyValue('height')
-			.replace('px', '')
-	);
 	if (cardNumber == cardsTextSections.length) {
 		return;
 	} else {
@@ -59,16 +49,10 @@ const checkIfReadyToShow = () => {
 				cardNumber == cardsTextSections.length - 1
 			) {
 				summaryTopOffset =
-					cardItems[cardNumber - 1].offsetTop +
-					carouselHeight -
-					navHeight -
-					reduceAnimationThreshold;
+					cardItems[cardNumber - 1].offsetTop + carouselHeight - navHeight * 2;
 			} else if (cardNumber != cardsTextSections.length) {
 				summaryTopOffset =
-					cardItems[cardNumber].offsetTop +
-					carouselHeight -
-					navHeight -
-					reduceAnimationThreshold;
+					cardItems[cardNumber].offsetTop + carouselHeight - navHeight * 2;
 			}
 		}
 	}
