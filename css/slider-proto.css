@@ -178,6 +178,12 @@ header .product__availability-status .status-name .status-icon {
   justify-content: center;
   align-items: center;
 }
+header .product__description h3 {
+  width: 85%;
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 1rem;
+}
 header .product__description ul {
   width: 85%;
   margin: 0 auto;
@@ -186,7 +192,7 @@ header .product__description ul {
   padding-inline-start: 0;
 }
 header .product__description li {
-  padding: 2rem 0 2rem 0;
+  padding: 1rem 0 1rem 0;
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -237,29 +243,44 @@ main .product__description-content--title {
   align-items: center;
 }
 main .product__description-content--title h2 {
+  text-align: center;
   color: #264f0b;
   font-size: 2rem;
 }
 main .product__description-content--img {
   width: 90%;
   height: 40vh;
-  background-image: url("../img/crate_1.png");
   background-position: center;
   background-size: cover;
   border: 1px solid #000;
   margin-bottom: 2rem;
   order: 3;
 }
+main .product__description-content--img__one {
+  background-image: url("../img/crate_1.png");
+}
+main .product__description-content--img__two {
+  background-image: url("../img/crate_1-2_lq.jpg");
+}
 main .product__description-content--text {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 1rem 2rem 3rem 2rem;
+}
+main .product__description-content--text---list {
+  width: 85%;
+  margin: 0 auto;
+}
+main .product__description-content--text---element {
+  padding-bottom: 2rem;
 }
 main .product__description-content--text p {
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -284,6 +305,9 @@ main .product__description-content--text p {
   }
   main .product__description-content--text p {
     font-size: 2.2rem;
+  }
+  main .product__description-content--text---element {
+    font-size: 2rem;
   }
 }
 @media (min-width: 1200px) {
@@ -331,14 +355,14 @@ main .product__description-content--text p {
   }
   header .product__title {
     width: 100%;
-    padding-top: 3rem;
+    padding-top: 1rem;
     padding-bottom: 0;
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
   header .product__price-range {
     width: 100%;
-    font-size: 2.8rem;
-    padding: 2rem 0 1rem 0;
+    font-size: 2rem;
+    padding: 1rem 0 1rem 0;
   }
   header .product__availability-status {
     position: relative;
@@ -395,8 +419,8 @@ main .product__description-content--text p {
     padding-inline-start: 0;
   }
   header .product__description li {
-    padding: 1.2rem 0;
-    font-size: 2.2rem;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
     font-weight: bold;
   }
   header .product__description li span {
@@ -452,22 +476,27 @@ main .product__description-content--text p {
   main .product__description-content--img {
     height: 40vh;
     width: 20%;
-    background-image: url("../img/crate_1.png");
     background-position: center;
     background-size: cover;
     border: 1px solid #000;
     margin-bottom: 2em;
   }
+  main .product__description-content--img__two {
+    order: 3;
+  }
   main .product__description-content--text {
     width: 60%;
     height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0 3em;
-    order: 3;
+    order: 2;
+    text-align: left;
+  }
+  main .product__description-content--text---element {
+    font-size: 2rem;
   }
   main .product__description-content--text p {
+    height: 10vh;
+    width: 90%;
+    padding-left: 0;
     text-align: left;
     font-size: 2.6rem;
   }
