@@ -399,7 +399,7 @@
 					margin: 0 0 2rem 0;
 				}
 				.products__select-list {
-					width: 40%;
+					width: 30%;
 					padding: 2rem 0;
 					margin: 0;
 					select {
@@ -416,6 +416,10 @@
 						background-position: 95% 45%;
 						background-size: 25px 25px;
 						overflow: hidden;
+					}
+
+					option{
+						border: 1px solid colors.$main-color;
 					}
 				}
 			}

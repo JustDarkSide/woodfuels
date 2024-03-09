@@ -1,6 +1,6 @@
-@use './colors' as colors;
-@use './breakpoints' as breakpoints;
-@use './animations' as animations;
+@use "./colors" as colors;
+@use "./breakpoints" as breakpoints;
+@use "./animations" as animations;
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -70,7 +70,7 @@ html {
 body {
 	position: relative;
 	background-color: colors.$body-color;
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 	font-size: 1.6rem;
 }
 
@@ -115,7 +115,7 @@ body {
 			position: absolute;
 			right: 0;
 			height: 4px;
-			content: '';
+			content: "";
 			background-color: colors.$main-color;
 		}
 
@@ -290,7 +290,7 @@ body {
 			transition: scale 0.5s, color 0.5s;
 
 			&--animation::after {
-				content: '';
+				content: "";
 				position: absolute;
 				width: 100%;
 				left: 0;
@@ -397,7 +397,7 @@ body {
 		&-photo {
 			width: 100%;
 			height: 100%;
-			background-image: url('../img/carousel-item1-big.jpg');
+			background-image: url("../img/carousel-item1-big.jpg");
 			background-size: cover;
 			background-position: 0 0;
 			background-repeat: no-repeat;
@@ -503,16 +503,16 @@ main {
 			background-position: center;
 			background-repeat: no-repeat;
 			&--one {
-				background-image: url('../img/firewood-small.jpg');
+				background-image: url("../img/firewood-small.jpg");
 			}
 			&--two {
-				background-image: url('../img/briquette-small.jpg');
+				background-image: url("../img/briquette-small.jpg");
 			}
 			&--three {
-				background-image: url('../img/kindling-small.jpg');
+				background-image: url("../img/kindling-small.jpg");
 			}
 			&--four {
-				background-image: url('../img/pellet-small.jpg');
+				background-image: url("../img/pellet-small.jpg");
 			}
 		}
 
@@ -652,7 +652,7 @@ main {
 				color: colors.$black;
 				text-decoration: none;
 				appearance: none;
-				background-image: url('../img/arrow-down-selectList.svg');
+				background-image: url("../img/arrow-down-selectList.svg");
 				background-repeat: no-repeat;
 				background-position: 95% 45%;
 				background-size: 25px 25px;
@@ -687,7 +687,7 @@ main {
 		}
 
 		&-img::after {
-			content: '';
+			content: "";
 			position: absolute;
 			top: 50%;
 			right: -23%;
@@ -770,22 +770,22 @@ main {
 
 .kindling {
 	.cards__item-photo--one {
-		background-image: url('../img/kindling-small.jpg');
+		background-image: url("../img/kindling-small.jpg");
 	}
 	.cards__item-photo--two {
-		background-image: url('../img/kindling2.jpg');
+		background-image: url("../img/kindling2.jpg");
 	}
 	.cards__item-photo--three {
-		background-image: url('../img/kindling3.webp');
+		background-image: url("../img/kindling3.webp");
 	}
 }
 
 .briquette {
 	.cards__item-photo--one {
-		background-image: url('../img/ruf.jpg');
+		background-image: url("../img/ruf.jpg");
 	}
 	.cards__item-photo--two {
-		background-image: url('../img/pinikay.jpg');
+		background-image: url("../img/pinikay.jpg");
 		background-position-y: -100px;
 		background-position-x: -100px;
 	}
@@ -865,6 +865,9 @@ main {
 				margin: 0 auto;
 				width: 90%;
 				color: colors.$main-color;
+
+				img:hover {
+				}
 			}
 			input {
 				min-height: 40px;
@@ -885,13 +888,13 @@ main {
 				max-height: 100px;
 			}
 
-			input[type='submit'] {
+			input[type="submit"] {
 				background-color: colors.$main-color;
 				color: colors.$pure-white;
 				margin-top: 5%;
 				cursor: pointer;
 			}
-			input[type='submit']:active {
+			input[type="submit"]:active {
 				background-color: colors.$secondary-color;
 				scale: 0.98;
 			}
