@@ -256,10 +256,10 @@ main .product__description-content--img {
   margin-bottom: 2rem;
   order: 3;
 }
-main .product__description-content--img__one {
+main .product__description-content--img-one {
   background-image: url("../img/crate_1.png");
 }
-main .product__description-content--img__two {
+main .product__description-content--img-two {
   background-image: url("../img/crate_1-2_lq.jpg");
 }
 main .product__description-content--text {
