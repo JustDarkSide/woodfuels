@@ -521,10 +521,6 @@ main {
 						background-size: cover;
 						border: 1px solid colors.$black;
 						margin-bottom: 2em;
-
-						&__two {
-							order: 3;
-						}
 					}
 					&--text {
 						width: 60%;
@@ -542,6 +538,16 @@ main {
 							padding-left: 0;
 							text-align: left;
 							font-size: 2.6rem;
+						}
+					}
+
+					&--second {
+						.product__description-content--img {
+							order: 2;
+						}
+
+						.product__description-content--text {
+							order: 3;
 						}
 					}
 				}

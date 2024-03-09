@@ -481,9 +481,6 @@ main .product__description-content--text p {
     border: 1px solid #000;
     margin-bottom: 2em;
   }
-  main .product__description-content--img__two {
-    order: 3;
-  }
   main .product__description-content--text {
     width: 60%;
     height: 40vh;
@@ -499,5 +496,11 @@ main .product__description-content--text p {
     padding-left: 0;
     text-align: left;
     font-size: 2.6rem;
+  }
+  main .product__description-content--second .product__description-content--img {
+    order: 2;
+  }
+  main .product__description-content--second .product__description-content--text {
+    order: 3;
   }
 }/*# sourceMappingURL=slider-proto.css.map */
