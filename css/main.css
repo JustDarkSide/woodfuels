@@ -841,14 +841,43 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: left;
 }
 .contact__form-box form label {
+  position: relative;
   padding-top: 10px;
   font-size: 2rem;
-  margin: 0 auto;
+  margin: 0 5%;
   width: 90%;
   color: #264f0b;
+}
+.contact__form-box form label[for=postcode] {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.contact__form-box form label[for=postcode] div {
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.contact__form-box form label[for=postcode] div::after {
+  box-sizing: border-box;
+  content: "We need your zip code in order to be able to calculate the shipping cost";
+  position: absolute;
+  top: -105px;
+  left: 50%;
+  width: 180px;
+  height: 100px;
+  padding: 1rem;
+  font-size: 1.6rem;
+  background-color: #fff;
+  box-shadow: 2px 2px 10px #000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.contact__form-box form label[for=postcode] div:hover::after {
+  opacity: 1;
 }
 .contact__form-box form input {
   min-height: 40px;
