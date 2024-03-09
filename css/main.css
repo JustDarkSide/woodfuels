@@ -857,9 +857,10 @@ main {
 }
 .contact__form-box form label[for=postcode] div {
   position: absolute;
+  width: 18px;
+  height: 18px;
   left: 110%;
-  top: 50%;
-  transform: translateY(-50%);
+  top: calc(50% - 10px);
 }
 .contact__form-box form label[for=postcode] div::after {
   box-sizing: border-box;
