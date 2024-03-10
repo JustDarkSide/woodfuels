@@ -22,6 +22,7 @@ let summaryTopOffset =
 	navHeight -
 	reduceAnimationThreshold;
 
+
 const checkHeaderHeight = () => {
 	if (window.innerWidth >= 768) {
 		header.style.height = "calc(60vh - 120px)";
@@ -85,6 +86,7 @@ const showAndHidePhotos = () => {
 	}, 1400);
 	setTimeout(showAndHidePhotos, 5000);
 };
+
 setTimeout(showAndHidePhotos, 5000);
 document.addEventListener("scroll", checkIfReadyToShow);
 document.addEventListener("DOMContentLoaded", checkIfReadyToShow);
